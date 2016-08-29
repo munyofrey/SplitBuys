@@ -2,7 +2,7 @@
 {
   currentUser: {
     id: 1,
-    name: "app-academy"
+    email: "jeanie@jeanie.com"
   },
   forms: {
     signUp: {errors: []},
@@ -27,8 +27,8 @@
       user_id: 4,
       name: "Jeannie",
       email: "jeanie@jeanie.com"
-    },
-  }
+    }
+  },
   requests: {
     2: {
       user_id: 5,
