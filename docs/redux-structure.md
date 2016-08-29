@@ -14,19 +14,18 @@ Redux structure, you'll need to do the same.
 
 ### Session API Request Actions
 
-* `signUp`
+* `signup`
   0. invoked from `SignupForm` `onSubmit`
   0. `POST /api/users` is called.
   0. `receiveCurrentUser` is set as the success callback.
-* `logIn`
+* `login`
   0. invoked from `Navbar` `onSubmit`
   0. `POST /api/session` is called.
   0. `receiveCurrentUser` is set as the callback.
-* `logOut`
+* `logout`
   0. invoked from `Navbar` `onClick`
   0. `DELETE /api/session` is called.
-  0. `removeCurrentUser` is set as the success callback.
-* `fetchCurrentUser`
+* `fetchCurrentUser` - a little unclear about this one, reading for BnB makes it sound like I don't need it
   0. invoked from `App` in `didMount`
   0. `GET /api/session` is called.
   0. `receiveCurrentUser` is set as the success callback.
@@ -36,14 +35,13 @@ Redux structure, you'll need to do the same.
 * `receiveCurrentUser`
   0. invoked from an API callback
   0. the `SessionReducer` stores `currentUser` in the application's state.
-* `removeCurrentUser`
-  0. invoked from an API callback
-  0. the `SessionReducer` removes `currentUser` from the application's state.
+
 
 ## Error Cycles
+currently my samply state stores errors in the corresponding components - but I think I like this implementation better.
 
 ### Error API Response Actions
-* `setErrors`
+* `recieveErrors`
   0. invoked from API callbacks on error for actions that generate POST requests
   0. the `ErrorReducer` stores the `form` in the application's state; `errors` are mapped to their respective forms
 * `removeErrors`
@@ -55,8 +53,13 @@ Redux structure, you'll need to do the same.
 ### Bills API Request Actions
 
 * `fetchAllBills`
-  0. invoked from `BillsIndex` `didMount`/`willReceiveProps`
+  0. invoked from `AllBillsIndex` `didMount`/`willReceiveProps`
   0. `GET /api/bills` is called.
+  0. `receiveAllBills` is set as the success callback.
+  
+* `fetchAllSummedBills`
+  0. invoked from `TotalBillsIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/all` is called.
   0. `receiveAllBills` is set as the success callback.
 
 * `createBill`
@@ -78,6 +81,11 @@ Redux structure, you'll need to do the same.
   0. invoked from delete bill button `onClick`
   0. `DELETE /api/bills/:id` is called.
   0. `removeBill` is set as the success callback.
+  
+* `fetchFriendsHistory`
+  0. invoked from `FriendsBillIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/friends/:id` is called.
+  0. `receiveAllBills` is set as the success callback.
 
 ### Bills API Response Actions
 
@@ -101,6 +109,7 @@ Redux structure, you'll need to do the same.
   0. invoked from `FriendsIndex` `didMount`/`willReceiveProps`
   0. `GET /api/friends` is called.
   0. `receiveAllFriends` is set as the success callback.
+
 
 * `createFriend`
   0. invoked from `accept request` button `onClick`
