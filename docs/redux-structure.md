@@ -129,20 +129,32 @@ Redux structure, you'll need to do the same.
 ### Request API Request Actions
 * `fetchRequests`
   0. invoked from `RequestIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/friends` is called.
-  0. `receiveAllFriends` is set as the success callback.
+  0. `GET /api/requests` is called.
+  0. `receiveAllRequests` is set as the success callback.
 
-* `createFriend`
-  0. invoked from `accept request` button `onClick`
-  0. `POST /api/friends` is called.
-  0. `receiveSingleFriend` is set as the success callback.
-  0. `deleteRequest` is set as the success callback.
+* `createRequest`
+  0. invoked from `Find Request` button `onClick`
+  0. `POST /api/requests` is called.
+  0. `receiveSingleRequest` is set as the success callback.
 
-* `fetchSingleFriend`
-  0. invoked from `FriendDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/friends/:id` is called.
-  0. `receiveSingleFriend` is set as the success callback.
+* `deleteRequest`
+  0. invoked from `RequestDetail` `Delete Request` or `createFriend` API success calback
+  0. `DELETE /api/requests/:id` is called.
+  0. `removeRequest` is set as the success callback.
 
+### Requests API Response Actions
+
+ * `receiveAllRequests`
+   0. invoked from an API callback
+   0. the `RequestReducer` updates `requests` in the application's state.
+
+ * `receiveSingleRequest`
+   0. invoked from an API callback
+   0. the `RequestReducer` updates adds `request` to `requests` in the application's state.
+
+ * `removeRequest`
+  0. invoked from an API callback
+  0. the `RequestReducer` updates deletes `request` from `requests` in the application's state.
 
 
 ##Comment Cycles

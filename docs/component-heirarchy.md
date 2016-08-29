@@ -11,19 +11,33 @@
  - FriendsIndex
  - FriendSearch
 
-**BillsContainer**
- - balances
-  + BillsIndex
-    * FriendBillsIndex
-    * RecentBillsIndex
-    * AllBillsIndex
-  + NewBill
+**TotalBillsContainer**
+ - TotalBillsIndex
+ - NewBill
+
+ **TotalBillsIndex**
+  - TotalBillsItem
+
+**TotalBillsItem**
+  - these are totals of debt/loan amounts for each friends
+  - link to FriendBillsContainer on click
+
+**FriendBillsContainer**
+ - BillsIndex
+ - NewBill
 
 **FriendBillsIndex**
  - NewBill
+ - BillsIndex
 
-**AllBillsIndex**
+ **RecentBillsContainer**
+  - (optional)
+  - NewBill
+  - BillsIndex
+
+**AllBillsContainer**
  - NewBill
+ - BillsIndex
 
 **BillsIndex**
  - BillIndexItem
@@ -69,7 +83,7 @@
 |-------|-------------|
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
-| "/balances" | "BillsContainer" |
-| "/friends/:id" | "FriendsBillsIndex" |
-| "/activity" | "NotebookContainer" |
-| "/expenses" | "TagContainer" |
+| "/balances" | "TotalBillsContainer" |
+| "/friends/:id" | "FriendsBillsContainer" |
+| "/activity" | "RecentBillsContainer" |
+| "/expenses" | "AllBillsContainer" |

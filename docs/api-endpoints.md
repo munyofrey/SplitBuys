@@ -41,7 +41,10 @@
 
 - all accept `user_id`
 - `GET /api/friends`
-- `POST /api/friends`
-- `DELETE /api/friends/:id`
-  - unfriending (unclear about importance of this), id would be primary in friends table
 - `GET /api/friends/:id`
+
+### Requests
+- all accept `user_id`
+- `GET /api/requests`
+- `DELETE /api/requests/:id`
+- `GET /api/requests/:id`
