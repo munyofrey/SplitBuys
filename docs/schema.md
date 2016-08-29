@@ -15,6 +15,8 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_pay_id | integer   | not null, indexed, foreign key
 user_owe_id | integer   | not null, indexed, foreign key
+description | string    | not null
+notes       | text      |
 date        | date      | not null
 owed        | float     | not null
 total       | float     | not null
@@ -41,4 +43,3 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_one_id | integer   | not null, foreign key, indexed
 user_two_id | integer   | not null, foreign key, indexed
-finished    | boolean   | not null, default false

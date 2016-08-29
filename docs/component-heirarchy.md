@@ -13,7 +13,7 @@
 
 **TotalBillsContainer**
  - TotalBillsIndex
- - NewBill
+ - NewBillButton (gives NewBillForm)
 
  **TotalBillsIndex**
   - TotalBillsItem
@@ -24,19 +24,19 @@
 
 **FriendBillsContainer**
  - BillsIndex
- - NewBill
+ - NewBillButton (gives NewBillForm)
 
 **FriendBillsIndex**
- - NewBill
+ - NewBillButton (gives NewBillForm)
  - BillsIndex
 
  **RecentBillsContainer**
   - (optional)
-  - NewBill
+  - NewBillButton (gives NewBillForm)
   - BillsIndex
 
 **AllBillsContainer**
- - NewBill
+ - NewBillButton (gives NewBillForm)
  - BillsIndex
 
 **BillsIndex**
@@ -51,7 +51,7 @@
  - DeleteBillButton
  - EditBillButton
 
-**NewBill**
+**NewBillForm**
  - FriendBillSearch
  - Splitter
    + EqualSplit
