@@ -1,9 +1,11 @@
 ```json
-{
-  currentUser: {
-    id: 1,
-    email: "jeanie@jeanie.com"
-    errors: []
+ {
+  session: {
+   currentUser: {
+     id: 1,
+     email: "jeanie@jeanie.com"
+     errors: []
+   }
   },
   bills: {
     1: {
