@@ -1,13 +1,11 @@
 ```json
-{
-  currentUser: {
-    id: 1,
-    name: "app-academy"
-  },
-  forms: {
-    signUp: {errors: []},
-    logIn: {errors: []},
-    createBill: {errors: ["Amount can't be zero"]}
+ {
+  session: {
+   currentUser: {
+     id: 1,
+     email: "jeanie@jeanie.com"
+     errors: []
+   }
   },
   bills: {
     1: {
@@ -20,6 +18,7 @@
         user_id: 1,
         text: "I did not actually pay for this"
       }
+    form: {errors: []}
     }
   },
   friends: {
@@ -27,8 +26,8 @@
       user_id: 4,
       name: "Jeannie",
       email: "jeanie@jeanie.com"
-    },
-  }
+    }
+  },
   requests: {
     2: {
       user_id: 5,

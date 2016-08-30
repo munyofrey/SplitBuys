@@ -1,7 +1,11 @@
 ## Component Heirarchy
 
-**AuthFormContainer**
- - AuthForm
+**SingupFormContainer**
+ - SignupForm
+
+**LoginFormContainer**
+ - LoginForm
+ - since logging in requires different fields than signing up I made two different options
 
 **AppContainer**
  - Header

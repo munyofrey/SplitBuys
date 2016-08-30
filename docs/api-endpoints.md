@@ -22,13 +22,17 @@
 ### Bills
 
 - `GET /api/bills`
-  - Notes index/bills
-  - accepts `user_owe_id` and `user_pay_id` query param to get friends balances
+  - bills index
 - `POST /api/bills`
   - accepts `user_owe_id`, `user_pay_id`, `owed`, `total` params
 - `GET /api/bill/:id`
 - `PATCH /api/bill/:id`
 - `DELETE /api/bill/:id`
+
+### All Bills
+
+-`GET api/allsums` - for the 
+
 
 ### Comments
 
@@ -41,7 +45,7 @@
 
 - all accept `user_id`
 - `GET /api/friends`
-- `GET /api/friends/:id`
+- `GET /api/friends/:id`  this is for getting friend's history
 
 ### Requests
 - all accept `user_id`
