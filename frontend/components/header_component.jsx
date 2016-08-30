@@ -11,7 +11,7 @@ import { Link } from 'react-router';
 
   const loggedinOptions = (currentUser, logout) =>(
     <ul className='welcome-user'> Welcome {currentUser.name}
-      <li><Link to='logout'>Logout</Link></li>
+      <li><Button to='logout'>Logout</Link></li>
     </ul>
   )
 
