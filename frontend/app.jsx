@@ -1,20 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import configureStore from './store/store'
-import {signup, login, logout} from './actions/session_actions';
+import HeaderContainer from './components/header_container';
+import AuthContainer from './components/auth_container';
 
-window.store = configureStore();
-window.logout = logout;
-window.login = login;
+const App = ({ children }) => (
+  <div>
+    <header>
+      <h1 className='title'>SplitBys</h1>
+      <HeaderContainer />
+    </header>
+    <h1> Hello from App </h1>
+    {children}
+  </ div>
+)
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  const root = document.getElementById("root");
-  let store = window.store;
-  // if (window.currentUser) {
-  //   const initialState = {session: {currentUser: window.currentUser}};
-  //   store = configureStore(initialState);
-  // } else {
-  //   store = configureStore();
-  // }
-  ReactDOM.render(<h1>Hi from App</h1>, root);
-})
+export default App;

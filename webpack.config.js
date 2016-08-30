@@ -1,5 +1,5 @@
 module.exports = {
-  entry: "./frontend/app.jsx",
+  entry: "./frontend/splitter_app.jsx",
   output: {
     path: "app/assets/javascripts",
     filename: "bundle.js",

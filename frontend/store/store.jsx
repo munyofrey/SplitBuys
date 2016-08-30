@@ -8,10 +8,10 @@ const preloadedState = {session: {
   errors: []
 }}
 
-const configureStore = () => (
+const configureStore = (initialState=preloadedState) => (
   createStore(
     RootReducer,
-    preloadedState,
+    initialState,
     RootMiddleware
   )
 )
