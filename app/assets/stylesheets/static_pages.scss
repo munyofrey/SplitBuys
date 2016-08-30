@@ -1,3 +1,33 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.header{
+  display: flex;
+  width: 900px;
+  background: green;
+  justify-content: space-between;
+
+}
+
+.title{
+  justify-content: flex-start;
+}
+
+.welcome-user{
+}
+.guest-login{
+  background: #ccc;
+  width: 100px;
+  text-align: center;
+    border-radius: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.guest-login:hover{
+  background: #ccc;
+    border-top: 1px solid #black;
+    border-bottom: 1px solid #black;
+}

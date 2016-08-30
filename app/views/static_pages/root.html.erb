@@ -1,5 +1,8 @@
 <script type="text/javascript">
-  window.currentUser = {"id":1,"name":"guest"}
+  <% if current_user %>
+    window.currentUser = window.currentUser = <%= render("api/users/user.json.jbuilder",
+    user: current_user).html_safe %>
+  <% end %>
 </script>
 
 <div id='root'>not in app</div>

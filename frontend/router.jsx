@@ -4,21 +4,23 @@ import Root from './root';
 import App from './app';
 import HeaderContainer from './components/header_container';
 import SignupContainer from './components/signup_component_container';
-
+import Landing from './components/landing_component';
 class AppRouter  extends React.Component{
 
   constructor(props){
     super(props)
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this)
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this)
+    this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this)
   }
 
 
   _redirectIfLoggedIn(nextState, replace) {
     const currentState = this.context.store.getState();
      const currentUser = currentState.session.currentUser;
+     console.log("I'm logged in");
      if (currentUser) {
-       replace('/login');
+       hashHistory.push('/');
      }
    }
 
@@ -36,6 +38,7 @@ class AppRouter  extends React.Component{
       <Route path='/' component={App}>
         <Route path='login' component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
         <Route path='logout'/>
+        <Route path='landing' component={Landing} onEnter={this._ensureLoggedIn}/>
       </ Route>
     </ Router>
   )}

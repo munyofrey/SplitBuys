@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 
+
   const loggedOutOptions = () =>(
     <ul>
       <li><Link to='login' className='login button'>Login</Link></li>
@@ -11,7 +12,7 @@ import { Link } from 'react-router';
 
   const loggedinOptions = (currentUser, logout) =>(
     <ul className='welcome-user'> Welcome {currentUser.name}
-      <li><Button to='logout'>Logout</Link></li>
+      <li><button to='logout' className='logout' onClick={logout}>Logout</button></li>
     </ul>
   )
 
