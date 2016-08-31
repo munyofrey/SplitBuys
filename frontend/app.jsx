@@ -8,10 +8,7 @@ import { login } from './util/api_session_util';
 
 const App = ({ children }) => (
   <div>
-    <header className='header'>
-      <h1 className='title'>SplitBys</h1>
       <HeaderContainer />
-    </header>
     <div>
       <GuestContianer />
     </div>

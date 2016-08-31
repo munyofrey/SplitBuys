@@ -16,7 +16,20 @@ class GuestComponent extends React.Component{
   render(currentUser){
     if (this.props.loggedin){return(<div></div>)}
     else{
-      return(<div onClick={this.loginuser} className='hvr-float'>Guest login</div>)
+      return(
+        <div className='splash-holder'>
+          <div className='tagline-holder'>
+            <p className='tagline'>Wether it be a trip to San Francisco or your electricity bill splitting bills with friends just got easier</p>
+          </div>
+          <div className='splash-holder-center'>
+
+            <div className='entry-image-holder'></div>
+          </div>
+          <div className='splash-holder-center'>
+            <div onClick={this.loginuser} className='guest-login'>Guest login</div>
+          </div>
+        </div>
+      )
     }
   }
 

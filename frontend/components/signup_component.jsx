@@ -54,11 +54,17 @@ class SignupForm extends React.Component {
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className={formType}>
-					Welcome to SplitBys!
 					<br/>
 					{ this.renderErrors() }
 					<div className={formInput}>
+						{this.props.loginType ?
+							<p className='welcome-back-text'>Welcome back!</p> :
+						<div className='logo-signup'>
+							<div className='logo-signup-image-holder'></div>
+							<p className='welcome-text'>Welcome to SplitBys!</p>
+						</div>}
 						{this.props.loginType ? '' :
+
 						    <label> You go by:<br/>
 								<input type="text"
 											value={this.state.name}
@@ -83,7 +89,9 @@ class SignupForm extends React.Component {
 						</label>
 
 						<br />
-						<input type="submit" value="Submit" />
+						<div className='justify-left-flex submit-level'>
+						<input type="submit" className='entry-submit' value="Submit" />
+						</div>
 					</div>
 				</form>
 			</div>

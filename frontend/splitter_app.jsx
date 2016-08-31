@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   const root = document.getElementById("root");
   let store;
   if (window.currentUser) {
-    const initialState = {session: {currentUser: window.currentUser, errors:[]}};
+    const initialState = {session: {currentUser: window.currentUser, errors:[], isModalOpen:false}};
     store = configureStore(initialState);
   } else {
     store = configureStore();

@@ -12,16 +12,21 @@ class AppRouter  extends React.Component{
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this)
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this)
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this)
+    this._loginRedirect = this._loginRedirect.bind(this)
   }
 
 
   _redirectIfLoggedIn(nextState, replace) {
     const currentState = this.context.store.getState();
      const currentUser = currentState.session.currentUser;
-     console.log("I'm logged in");
      if (currentUser) {
        hashHistory.push('/');
      }
+   }
+
+   _loginRedirect(nextState, replace){
+     this._redirectIfLoggedIn(nextState, replace);
+     $('login-form').removeClass('hidden')
    }
 
    _ensureLoggedIn(nextState, replace) {
