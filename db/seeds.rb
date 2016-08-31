@@ -8,3 +8,12 @@
 
 
 User.create!(name:'tester', email:'guestuser@splitbys.com', password: 'password');
+
+15.times{
+  user = {
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(6)
+    }
+  User.create!(user)
+}

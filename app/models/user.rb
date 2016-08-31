@@ -17,6 +17,16 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password_digest, :name, presence:true
 
+  has_many :owed_bills,
+  primary_key: :id,
+  foreign_key: :user_owe_id,
+  class_name: :Bill
+
+  has_many :paid_bills,
+  primary_key: :id,
+  foreign_key: :user_pay_id,
+  class_name: :Bill
+
   attr_reader :password
   before_validation :ensure_session_token
 
