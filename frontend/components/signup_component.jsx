@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
 
 	renderErrors(){
 		return(
-			<ul>
+			<ul className='after'>
 				{this.props.errors.map( (error, i) => (
 					<li key={`error-${i}`}>
 						{error}
@@ -53,16 +53,18 @@ class SignupForm extends React.Component {
 		const formType= this.props.formType + '-form-box';
 		return (
 			<div className="login-form-container">
+				<div className="login-form-container-vert">
 				<form onSubmit={this.handleSubmit} className={formType}>
 					<br/>
-					{ this.renderErrors() }
 					<div className={formInput}>
 						{this.props.loginType ?
-							<p className='welcome-back-text'>Welcome back!</p> :
+							<p className='welcome-text'>Welcome back!</p> :
 						<div className='logo-signup'>
 							<div className='logo-signup-image-holder'></div>
 							<p className='welcome-text'>Welcome to SplitBys!</p>
 						</div>}
+					<div className='login-form-elements'>
+						{ this.renderErrors() }
 						{this.props.loginType ? '' :
 
 						    <label> You go by:<br/>
@@ -90,10 +92,12 @@ class SignupForm extends React.Component {
 
 						<br />
 						<div className='justify-left-flex submit-level'>
-						<input type="submit" className='entry-submit' value="Submit" />
+						<input type="submit" className='entry-submit button' value="Submit" />
 						</div>
 					</div>
+					</div>
 				</form>
+			</div>
 			</div>
 		);
 	}

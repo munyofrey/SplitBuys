@@ -26,7 +26,7 @@ class GuestComponent extends React.Component{
             <div className='entry-image-holder'></div>
           </div>
           <div className='splash-holder-center'>
-            <div onClick={this.loginuser} className='guest-login'>Guest login</div>
+            <div onClick={this.loginuser} className='guest-login button'>Guest login</div>
           </div>
         </div>
       )

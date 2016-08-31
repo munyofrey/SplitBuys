@@ -13,3 +13,266 @@
  *= require_tree .
  *= require_self
  */
+
+ // Place all the styles related to the StaticPages controller here.
+ // They will automatically be included in application.css.
+ // You can use Sass (SCSS) here: http://sass-lang.com/
+ html, body, header, nav, h1, a,
+ ul, li, strong, main, button, i,
+ section, img, div, h2, p, form,
+ fieldset, label, input, textarea,
+ span, article, footer, time, small {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: 0;
+   font: inherit;
+   color: inherit;
+   text-align: inherit;
+   text-decoration: inherit;
+   vertical-align: inherit;
+   box-sizing: inherit;
+   background: transparent;
+ }
+
+ ul {
+   list-style: none;
+   padding-left: 0;
+ }
+
+ img {
+   display: block;
+   width: 100%;
+   height: auto;
+ }
+
+ input[type="password"],
+ input[type="email"],
+ input[type="text"],
+ input[type="submit"],
+ textarea,
+ button {
+   /*
+   Get rid of native styling. Read more here:
+   http://css-tricks.com/almanac/properties/a/appearance/
+   */
+   -webkit-appearance: none;
+   -moz-appearance: none;
+ }
+
+ button,
+ input[type="submit"] {
+   cursor: pointer;
+ }
+
+ /* Clearfix */
+
+ .group:after {
+   content: "";
+   display: block;
+   clear: both;
+ }
+
+
+ body {
+   font-family: 'Titillium Web', sans-serif;
+   background: #eee;
+   margin: 0 auto;
+   height: 900px;
+   font-size: 16px;
+   font-weight: 400;
+   background: #eee;
+   color: #ccc;
+ }
+
+
+ .header{
+   background: #1a1a1a;
+   display: flex;
+   justify-content: center;
+   z-index: 1;
+
+ }
+
+ .hidden{
+   visibility: hidden
+ }
+
+ .header-holder{
+   background: black;
+   display: flex;
+   justify-content: space-between;
+   width: 900px;
+   height: 75px;
+   border-bottom: 1px solid #ccc;
+ }
+
+ .title{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   padding: 10px 20px;
+ }
+
+ .welcome-user{
+   display: flex;
+   justify-content: space-around;
+   width: 250px;
+ }
+
+ .center-flex{
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+
+ .splash-holder{
+   width: 900px;
+   height: 700px;
+   background: white;
+   margin: 0 auto;
+   display: flex;
+   border-bottom-left-radius: 5px;
+   border-bottom-right-radius: 5px;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+ .splash-holder-center{
+   display: flex;
+   justify-content: center;
+ }
+
+ .tagline-holder{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   font-size: 14px;
+ }
+
+
+ .button{
+   background: #C0C0C0;
+   border-radius: 5px;
+   height: 36px;
+   width: 60px;
+   border: 1px solid #1a1a1a;
+   padding:5px;
+   color:#2F4F4F
+ }
+
+ .button:hover{
+   background: #2F4F4F;
+   color:#C0C0C0
+ }
+
+
+
+
+
+
+ .guest-login{
+   width: 110px;
+   height: 35px;
+   padding-top: 10px;
+   text-align: center;
+   border-radius: 7px;
+   vertical-align: middle;
+ }
+ .entry-image-holder{
+   margin: 30px;
+   height: 300px;
+   width: 300px
+ }
+
+ .justify-left-flex{
+   display: flex;
+   justify-content: center;
+ }
+/*links*/
+ a{
+   text-decoration: none;
+   text-align: center;
+ }
+
+ /*//login form*/
+
+ .login-form-container{
+   margin-top: 100px;
+   display: flex;
+
+   justify-content: center;
+
+ }
+
+
+ input.signup-input{
+   background: #ccc;
+   border-radius: 5px;
+   height: 30px;
+   margin: 10px;
+ }
+ .login-form-container-vert{
+   margin: 0 auto;
+   width: 700px;
+   height: 400px;
+   border: 1px solid black;
+   border-radius: 7px;
+   background: white;
+   display: flex;
+   justify-content: center;
+ }
+
+ div.logo-signup{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   margin:30px
+
+ }
+
+ .signup-input{
+   display: flex;
+   justify-content: space-around;
+ }
+
+ .logo-signup-image-holder{
+   width: 100%;
+   height: 100px;
+   background: black;
+ }
+
+ .welcome-text{
+   font-size: 34px;
+   font-weight: bold;
+   color: #2F4F4F;
+ }
+
+
+
+
+ /*//signup form*/
+
+ .signup-form-container{
+   display:flex;
+   justify-content: center;
+   width: 200px;
+   height: 300px;
+   border: 1px solid black;
+   background: white;
+ }
+
+ input.login-input{
+   background: #ccc;
+   border-radius: 5px;
+   height: 30px;
+   margin: 10px;
+ }
+
+
+
+ .username-welcome{
+   font-size: 20px;
+   font-weight: bolder;
+ }

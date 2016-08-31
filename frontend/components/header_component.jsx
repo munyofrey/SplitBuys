@@ -7,14 +7,14 @@ import { Link } from 'react-router';
     <ul className='welcome-user after'>
       <li className='center-flex'><Link to='login' className='login button'>Login</Link>
       </li>
-      <li className='center-flex'><Link to='signup' className='signup button'>SignUp</Link></li>
+      <li className='center-flex'><Link to='signup' className='signup button'>Sign Up</Link></li>
     </ul>
 )
 
   const loggedinOptions = (currentUser, logout) =>(
     <ul className='welcome-user after'>
       <li className='username-welcome'> Welcome {currentUser.name}</li>
-      <li><button to='logout' className='logout' onClick={logout}>Logout</button></li>
+      <li><Link to='logout' className='logout button' onClick={logout}>Logout</Link></li>
     </ul>
   )
 
