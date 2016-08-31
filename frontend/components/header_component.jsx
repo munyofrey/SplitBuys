@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
   const loggedOutOptions = () =>(
     <ul className='welcome-user after'>
-      <li className='center-flex'><Link to='login' className='login button'>Login</Link>
+      <li className='center-flex'><Link to='login' className='login button' >Login</Link>
       </li>
       <li className='center-flex'><Link to='signup' className='signup button'>Sign Up</Link></li>
     </ul>
