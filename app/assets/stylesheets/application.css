@@ -90,7 +90,8 @@
    background: #1a1a1a;
    display: flex;
    justify-content: center;
-   z-index: 1;
+   position:fixed;
+   width: 100%;
 
  }
 
@@ -99,6 +100,7 @@
  }
 
  .header-holder{
+   z-index: 1;
    background: black;
    display: flex;
    justify-content: space-between;
@@ -200,7 +202,7 @@
  /*//login form*/
 
  .login-form-container{
-   margin-top: 100px;
+   /*margin-top: 100px;*/
    display: flex;
 
    justify-content: center;

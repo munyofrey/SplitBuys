@@ -55,7 +55,6 @@ class SignupForm extends React.Component {
 			<div className="login-form-container">
 				<div className="login-form-container-vert">
 				<form onSubmit={this.handleSubmit} className={formType}>
-					<br/>
 					<div className={formInput}>
 						{this.props.loginType ?
 							<p className='welcome-text'>Welcome back!</p> :
@@ -74,23 +73,18 @@ class SignupForm extends React.Component {
 											className={formInput} />
 									</label>
 											}
-						<br />
 						<label>Your email is:
 							<input type="text"
 								value={this.state.email}
 								onChange={this.update("email")}
 								className={formInput} />
 						</label>
-
-						<br />
 						<label> Password:
 							<input type="password"
 								value={this.state.password}
 								onChange={this.update("password")}
 								className={formInput} />
 						</label>
-
-						<br />
 						<div className='justify-left-flex submit-level'>
 						<input type="submit" className='entry-submit button' value="Submit" />
 						</div>
