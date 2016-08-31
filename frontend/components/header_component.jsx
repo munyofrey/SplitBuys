@@ -13,8 +13,8 @@ import { Link } from 'react-router';
 
   const loggedinOptions = (currentUser, logout) =>(
     <ul className='welcome-user after'>
-      <li className='username-welcome'> Welcome {currentUser.name}</li>
-      <li><Link to='logout' className='logout button' onClick={logout}>Logout</Link></li>
+      <li className='username-welcome center-flex'> Welcome {currentUser.name}</li>
+      <li className='center-flex'><Link to='logout' className='logout button' onClick={logout}>Logout</Link></li>
     </ul>
   )
 
