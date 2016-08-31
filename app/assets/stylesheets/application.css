@@ -180,14 +180,20 @@
    width: 110px;
    height: 35px;
    padding-top: 10px;
+   z-index: 600;
    text-align: center;
    border-radius: 7px;
    vertical-align: middle;
  }
+.splash-holder-center.image{
+  width: 100%;
+  height: 600px;
+}
+
  .entry-image-holder{
-   margin: 30px;
-   height: 300px;
-   width: 300px
+   width:100%;
+   height: 600px;
+   background-image: url(http://res.cloudinary.com/dptutoih6/image/upload/c_scale,w_900/v1472673970/splash_lipyii.jpg)
  }
 
  .justify-left-flex{
