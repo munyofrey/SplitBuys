@@ -17,7 +17,7 @@
 class Bill < ActiveRecord::Base
 
   validates :user_pay_id, :user_owe_id, :owed, :total, :description, :date, presence:true
-
+  
 
   belongs_to :payer,
   primary_key: :id,

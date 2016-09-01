@@ -3,8 +3,8 @@ class Api::BillsController < ApplicationController
   def index
     @user = current_user
     @bills = @user.all_bills
-    # render 'api/bills/index'
-    render json: @bills
+
+    render 'api/bills/index'
   end
 
   def create
@@ -16,12 +16,16 @@ class Api::BillsController < ApplicationController
     if @bill.save!
       if @bill.user_owe_id == current_user.id
         @user = User.find_by_id(@bill.user_pay_id)
-        bill.other_user = @user.name
-        bill.other_user_id = @user.id
-        #remind me what is going on here?skdnfsljdfnslkjdnflskjdflskdjf
+        bill[name_payer] = @user.name
+        bill[ower] = current_user.name
+        bill[other_user_id] = @user.id
         render 'api/bills/show'
       else
         @user = @bill.user_owe_id
+        @user = User.find_by_id(@bill.user_owe_id)
+        bill[ower] = @user.name
+        bill[other_user_id] = @user.id
+        bill[name_player] = current_user.name
         render 'api/bills/show'
       end
     else
@@ -32,12 +36,15 @@ class Api::BillsController < ApplicationController
   def show
     @bill = Bill.find_by_id(params[:id]);
     if current_user.id == @bill.user_owe_id
-      @bill.owed = @bill.owed * - 1
-      # render 'api/bills/show'
-      render json: @bill
-    elsif current_user.id == @bill.user_pay_id
+      other_user = User.find_by_id(@bill.user_pay_id)
+      @bill.other_user = other_user.name
+      @bill.other_user_id = other_user.id
       render 'api/bills/show'
-      # render json: @bill
+    elsif current_user.id == @bill.user_pay_id
+      other_user = User.find_by_id(@bill.user_owe_id)
+      @bill.other_user = other_user.name
+      @bill.other_user_id = other_user.id
+      render 'api/bills/show'
     else
       render json: ["You can't at other people's bills!"],
              status: 403

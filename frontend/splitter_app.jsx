@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store'
 // import {signup, login, logout} from './actions/session_actions';
 import Root from './root';
-// import { receiveBills, receiveBill } from './actions/bill_actions';
-
+import { receiveBills, receiveBill } from './actions/bill_actions';
+import { fetchAllBills } from './util/api_bill_util'
 
 
 
@@ -19,5 +19,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     store = configureStore();
   }
   window.store = store;
+
+  fetchAllBills( (bill) => console.log(bill))
   ReactDOM.render(<Root store={store}/>, root);
 })
