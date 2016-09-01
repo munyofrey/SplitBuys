@@ -2,7 +2,7 @@ import { sessionConstants, receiveCurrentUser, receiveErrors } from '../actions/
 import { signup, login, logout } from '../util/api_session_util';
 import { hashHistory } from 'react-router'
 
-window.hashHistory = hashHistory
+
 
 const SessionMiddleware = ({getstate, dispatch}) => next => action => {
   const successCB = user => {dispatch(receiveCurrentUser(user)); hashHistory.push('/landing')}

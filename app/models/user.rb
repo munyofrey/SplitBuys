@@ -17,6 +17,43 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password_digest, :name, presence:true
 
+  has_many :owed_bills,
+  primary_key: :id,
+  foreign_key: :user_owe_id,
+  class_name: :Bill
+
+  has_many(:paid_bills,
+  primary_key: :id,
+  foreign_key: :user_pay_id,
+  class_name: "Bill")
+
+  #bills
+
+  def all_bills
+    query1 = "(SELECT total, bills.id, payer.name as payer, owed, date, ower.name as ower
+      FROM bills
+      JOIN users as ower ON bills.user_owe_id = ower.id
+      JOIN users AS payer ON payer.id = bills.user_pay_id
+      WHERE bills.user_pay_id = #{self.id}
+      "
+    query2 = "SELECT total, bills.id, payer.name as payer, owed, date, ower.name as ower
+      FROM bills
+      JOIN users as payer ON bills.user_pay_id = payer.id
+      JOIN users AS ower ON ower.id = bills.user_owe_id
+      WHERE bills.user_owe_id = #{self.id})
+      "
+    query = "SELECT * FROM " + query1 + ' UNION ' + query2 + ' AS together ORDER BY date DESC '
+    Bill.find_by_sql(query)
+  end
+
+
+  def sums
+  end
+
+
+
+  #auth
+
   attr_reader :password
   before_validation :ensure_session_token
 

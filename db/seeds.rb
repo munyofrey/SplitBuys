@@ -8,3 +8,36 @@
 
 
 User.create!(name:'tester', email:'guestuser@splitbys.com', password: 'password');
+
+15.times{
+  user = {
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(6)
+    }
+  User.create!(user)
+}
+
+10.times{
+  Bill.create!(
+  description: Faker::Hipster.sentence(3),
+  note: Faker::Hipster.paragraph(3),
+  total: 100.50,
+  owed: rand(1.00..100.50).round(2),
+  user_pay_id: 1,
+  user_owe_id: rand(2..15),
+  date: Faker::Date.between(90.days.ago, Date.today)
+  )
+}
+
+10.times{
+  Bill.create!(
+  description: Faker::Hipster.sentence(3),
+  note: Faker::Hipster.paragraph(3),
+  total: 100.50,
+  owed: rand(1.00..100.50).round(2),
+  user_owe_id: 1,
+  user_pay_id: rand(2..15),
+  date: Faker::Date.between(90.days.ago, Date.today)
+  )
+}
