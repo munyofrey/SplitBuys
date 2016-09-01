@@ -5,7 +5,7 @@ export const createBill = (bill, success, error) =>(
   $.ajax({
     url: 'api/bills',
      method:'POST',
-     data: bill
+     data: bill,
      success,
      error
    })
@@ -35,7 +35,7 @@ export const updateBill = (bill, success, error) => (
   $.ajax({
     url: 'api/bills/3',
     method:'PATCH',
-    data: bill
+    data: bill,
     success,
     error
   })
@@ -45,7 +45,7 @@ export const updateBill = (bill, success, error) => (
 //deleting
 export const deleteBill = (bill, success, error) => (
   $.ajax({
-    url: `api/bills/${bill.id}`, 
+    url: `api/bills/${bill.id}`,
     method: 'DELETE',
     success
   })

@@ -7,14 +7,13 @@ const preloadedState = {
   session: {
     currentUser: null,
     errors: []
+  },
+  bills: {
+    bills:[],
+    bill:{},
+    errors:[]
   }
 }
-// ,
-// bills: {
-//   bills:[],
-//   bill:{},
-//   errors:[]
-// }
 
 const configureStore = (initialState=preloadedState) => (
   createStore(

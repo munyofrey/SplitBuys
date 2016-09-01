@@ -6,7 +6,7 @@ import billsReducer from './bills_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
+  bills: billsReducer
 })
-// bills: billsReducer
 
 export default RootReducer;

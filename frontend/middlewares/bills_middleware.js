@@ -1,5 +1,5 @@
-import { billsActions, receiveBills, receiveErrors, receiveBill } from '../actions/bill_actions'
-import { createBill, fetchAllBills } from '../util/api_session_util';
+import { billActions, receiveBills, receiveErrors, receiveBill } from '../actions/bill_actions'
+import { createBill, fetchAllBills } from '../util/api_bill_util';
 import { hashHistory } from 'react-router'
 
 
@@ -19,13 +19,13 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
     case billActions.REQUEST_BILLS:
       successCB = bills => {console.log(bill); dispatch(recieveBills(bills))}
       fetchAllBills(successCB, errorCB)
-      return(next(action))
+      return next(action)
       break;
     // case billActions.SIGNUP:
     //   signup(action.user, successCB, errorCB);
     //   next(action)
     //   break;
-    default: next(action)
+    default: return next(action)
 
   }
 }
