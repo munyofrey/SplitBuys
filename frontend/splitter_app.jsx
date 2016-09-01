@@ -20,6 +20,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
   }
   window.store = store;
 
-  fetchAllBills( (bill) => console.log(bill))
   ReactDOM.render(<Root store={store}/>, root);
 })

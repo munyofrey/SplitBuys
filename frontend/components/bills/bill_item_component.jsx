@@ -1,14 +1,15 @@
-import react from 'React'
+import React from 'react'
 
 
 
-const BillItem = ({bill}) => (
-  <ul className='bill-item'>
+const BillItem = ({bill, clickFunction}) => (
+  <ul className='bill-item' onClick={clickFunction}>
     <ul className='bill-item-list'>
-      <li>{bill.date}</li>
-      <li>{bill.amount}</li>
-      <li>{bill.total}</li>
-      <li>{bill.name}</li>
+      <li>Date: {bill.date}</li>
+      <li>Amount owed: ${bill.owed}</li>
+      <li>Total Bill: ${bill.total}</li>
+      <li>Who paid: {bill.name_payer}</li>
+      <li>Who owes: {bill.ower}</li>
     </ul>
   </ul>
 )

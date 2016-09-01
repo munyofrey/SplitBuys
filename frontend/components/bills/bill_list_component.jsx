@@ -1,5 +1,5 @@
 import React from 'react';
-// import billItemContainer from './item_bill_container'
+import BillItem from './bill_item_component'
 
 
 class billList extends React.Component{
@@ -7,10 +7,15 @@ class billList extends React.Component{
     super(props)
   }
 
+  componentDidMount(){
+    this.props.requestBills()
+  }
+
   render(){
     return(<div>
-      <h1>hi</h1>
-      <ul>{this.props.requestBills}</ul>
+      <ul className='bill_list_component'>
+        {this.props.bills.map(bill => (<BillItem bill={bill} key={bill.id} clickFunction={()=>console.log(`I work ${bill.id}`)}/>))}
+      </ul>
       </div>
     )
   }
@@ -18,4 +23,4 @@ class billList extends React.Component{
 
 }
 
-// export default billList;
+export default billList;

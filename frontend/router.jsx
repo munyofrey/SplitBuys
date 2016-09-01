@@ -55,4 +55,5 @@ class AppRouter  extends React.Component{
 AppRouter.contextTypes = {
   store: React.PropTypes.object.isRequired
 };
+
 export default AppRouter;

@@ -17,7 +17,7 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
       return next(action)
       break;
     case billActions.REQUEST_BILLS:
-      successCB = bills => {console.log(bill); dispatch(recieveBills(bills))}
+      successCB = bills => {console.log(bills); dispatch(receiveBills(bills))}
       fetchAllBills(successCB, errorCB)
       return next(action)
       break;

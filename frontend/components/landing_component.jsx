@@ -3,7 +3,7 @@ import BillListContainer from './bills/bill_list_component_container';
 
 
 const Landing = () => (
-  <h1>Landing</h1>
+  <BillListContainer />
 );
 
 export default Landing;
