@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store'
-// import {signup, login, logout} from './actions/session_actions';
 import Root from './root';
-import { receiveBills, receiveBill } from './actions/bill_actions';
-import { fetchAllBills } from './util/api_bill_util'
+import {requestAllUsers} from './actions/user_actions';
 
 
+window.requestAllUsers = () => window.store.dispatch(requestAllUsers())
 
 document.addEventListener("DOMContentLoaded", ()=>{
   const root = document.getElementById("root");

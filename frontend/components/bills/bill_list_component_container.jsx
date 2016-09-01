@@ -8,8 +8,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  // recieveBills: bills =>dispatch(receiveBills(bills)),
-  // recieveBill: bill =>dispatch(receiveBill(bill))
   requestBills: () => dispatch(requestBills())
 })
 

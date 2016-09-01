@@ -12,7 +12,7 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
 
   switch (action.type) {
     case billActions.CREATE_BILL:
-      successCB = bill => {console.log(bill); dispatch(recieveBill(bill))}
+      successCB = bill => {dispatch(recieveBill(bill))}
       createBill(action.user, successCB, errorCB);
       return next(action)
       break;
