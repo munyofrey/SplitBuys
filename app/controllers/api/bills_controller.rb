@@ -15,7 +15,10 @@ class Api::BillsController < ApplicationController
     end
     if @bill.save!
       if @bill.user_owe_id == current_user.id
-        @user = @bill.user_pay_id
+        @user = User.find_by_id(@bill.user_pay_id)
+        bill.other_user = @user.name
+        bill.other_user_id = @user.id
+        #remind me what is going on here?skdnfsljdfnslkjdnflskjdflskdjf
         render 'api/bills/show'
       else
         @user = @bill.user_owe_id

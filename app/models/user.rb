@@ -30,14 +30,16 @@ class User < ActiveRecord::Base
   #bills
 
   def all_bills
-    query1 = "(SELECT total, bills.id, owed, date, name
+    query1 = "(SELECT total, bills.id, payer.name as payer, owed, date, ower.name as ower
       FROM bills
-      JOIN users ON bills.user_owe_id = users.id
+      JOIN users as ower ON bills.user_owe_id = ower.id
+      JOIN users AS payer ON payer.id = bills.user_pay_id
       WHERE bills.user_pay_id = #{self.id}
       "
-    query2 = "SELECT total, bills.id, (-1)*owed as owed, date, name
+    query2 = "SELECT total, bills.id, payer.name as payer, owed, date, ower.name as ower
       FROM bills
-      JOIN users ON bills.user_pay_id = users.id
+      JOIN users as payer ON bills.user_pay_id = payer.id
+      JOIN users AS ower ON ower.id = bills.user_owe_id
       WHERE bills.user_owe_id = #{self.id})
       "
     query = "SELECT * FROM " + query1 + ' UNION ' + query2 + ' AS together ORDER BY date DESC '

@@ -1,22 +1,55 @@
 
 
 //creating
-$.ajax({url: 'api/bills/', method:'POST', data:{"bill": {"description":'hi', "user_owe_id":2, "user_pay_id":5, "owed":3.45, "total":50}}, success: bill => console.log(bill)})
-
+export const createBill = (bill, success, error) =>(
+  $.ajax({
+    url: 'api/bills',
+     method:'POST',
+     data: bill
+     success,
+     error
+   })
+)
 
 //indexing
-$.ajax({url: 'api/bills/', success: bill => console.log(bill)})
+export const fetchAllBills = (success, error) =>(
+  $.ajax({
+    url: 'api/bills',
+    success,
+  })
+)
 
 
 //showing
-$.ajax({url: 'api/bills/10', success: bill => console.log(bill)})
+export const fetchABill = (bill, success, error) => (
+  $.ajax({
+    url: `api/bills/${bill.id}`,
+    success,
+  })
+)
+
+
 
 //updating
-$.ajax({url: 'api/bills/3', method:'PATCH', data:{"bill": {"description":'hi', "user_owe_id":2, "user_pay_id":1, "owed":3.45, "total":50, "date":'2016-08-31'}}, success: bill => console.log(bill)})
+export const updateBill = (bill, success, error) => (
+  $.ajax({
+    url: 'api/bills/3',
+    method:'PATCH',
+    data: bill
+    success,
+    error
+  })
+)
 
 
 //deleting
-$.ajax({url: 'api/bills/3', method:'DELETE', success: bill => console.log(bill)})
+export const deleteBill = (bill, success, error) => (
+  $.ajax({
+    url: `api/bills/${bill.id}`, 
+    method: 'DELETE',
+    success
+  })
+)
 
 //sum
 // $.ajax({url: 'api/sum', success: bill => console.log(bill)})
