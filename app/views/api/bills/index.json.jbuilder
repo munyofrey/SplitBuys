@@ -1,4 +1,4 @@
 
 json.array!(@bills) do |bill|
-  json.partial!('bills', bill: bill, show_bill: false)
+  json.partial!('bills_queries', bill: bill)
 end

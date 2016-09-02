@@ -13,12 +13,12 @@ const billReducer = (oldState = preloadedState, action) => {
     case billActions.RECEIVE_ERRORS:
       return merge({}, oldState, {errors: action.errors})
     case billActions.RECEIVE_BILLS:
-      const newState = merge({}, oldState, { bills: action.bills })
+      const newState = merge({}, preloadedState, { bills: action.bills })
       newState.bills = action.bills;
       return newState
     case billActions.RECEIVE_BILL:
       const bills = [action.bill, ...oldState.bills]
-      return merge({}, oldState, {bills: bills })
+      return merge({}, oldState, {bills: bills, bill: action.bills })
     // case billActions.DELETE_BILL:
     //   return merge({}, oldState, { billDetail: action.bill })
     // case billActions.REQUEST_BILLS:

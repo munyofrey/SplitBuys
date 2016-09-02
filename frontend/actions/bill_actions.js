@@ -30,9 +30,10 @@ export const requestBill = () => ({
   type: billActions.REQUEST_BILL
 })
 
-export const createBill = bill => ({
+export const createBill = (bill, success) => ({
   type: billActions.CREATE_BILL,
-  bill
+  bill,
+  success
 })
 
 export const updateBill = bill => ({

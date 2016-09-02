@@ -8,24 +8,25 @@ class Api::BillsController < ApplicationController
   end
 
   def create
+    puts params
     @bill = Bill.new(bill_params)
     unless current_user && (@bill.user_owe_id == current_user.id || @bill.user_pay_id == current_user.id)
       render json: ["You can't add a bill if you aren't a borrower or payer"],
              status: 403
     end
-    if @bill.save!
+    if @bill.save
       if @bill.user_owe_id == current_user.id
         @user = User.find_by_id(@bill.user_pay_id)
-        bill[name_payer] = @user.name
-        bill[ower] = current_user.name
-        bill[other_user_id] = @user.id
+        @bill.name_payer_c = @user.name
+        @bill.ower_c = current_user.name
+        @bill.other_user_id_c = @user.id
         render 'api/bills/show'
       else
         @user = @bill.user_owe_id
         @user = User.find_by_id(@bill.user_owe_id)
-        bill[ower] = @user.name
-        bill[other_user_id] = @user.id
-        bill[name_player] = current_user.name
+        @bill.ower_c = @user.name
+        @bill.other_user_id_c = @user.id
+        @bill.name_payer_c = current_user.name
         render 'api/bills/show'
       end
     else

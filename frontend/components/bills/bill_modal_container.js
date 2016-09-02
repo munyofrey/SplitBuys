@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ModalBillForm from './new_bill_modal';
-import { createBill, receiveErrors } from '../../actions/bill_actions';
+import { createBill, receiveErrors, receiveBill } from '../../actions/bill_actions';
 
 const mapStateToProps = state => ({
   bill: state.bills.bill,
@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  createBill: bill => dispatch(createBill(bill)),
+  createBill: (bill, success) => dispatch(createBill(bill, success)),
+  receiveBill: (bill) => dispatch(receiveBill(bill))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalBillForm);

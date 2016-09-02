@@ -20,7 +20,3 @@ const mapStateToProps = state => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
-
-
-
-//CHANGE TO TWO DIFFERENT FORMS/CONTAINERS - need such different information

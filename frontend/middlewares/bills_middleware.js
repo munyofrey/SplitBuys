@@ -3,6 +3,7 @@ import { createBill, fetchAllBills } from '../util/api_bill_util';
 import { hashHistory } from 'react-router'
 
 
+
 const BillsMiddleware = ({getstate, dispatch}) => next => action => {
   let successCB;
   const errorCB = xhr => {
@@ -12,8 +13,8 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
 
   switch (action.type) {
     case billActions.CREATE_BILL:
-      successCB = bill => {dispatch(recieveBill(bill))}
-      createBill(action.user, successCB, errorCB);
+      successCB = bill => {dispatch(receiveBill(bill))}
+      createBill(action.bill, action.success, errorCB);
       return next(action)
       break;
     case billActions.REQUEST_BILLS:
@@ -22,11 +23,7 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
       return next(action)
       break;
 
-    // case billActions.SIGNUP:
-    //   signup(action.user, successCB, errorCB);
-    //   next(action)
-    //   break;
-    default: return next(action)
+      default: return next(action)
 
   }
 }
