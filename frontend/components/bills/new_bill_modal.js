@@ -18,7 +18,8 @@ class ModalBillForm extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      nameUnentered: false,
+      listElements: true,
+      listQuestions: false,
       userOption: '',
       modalIsOpen: false,
       user_other_id: 0,
@@ -39,6 +40,8 @@ class ModalBillForm extends React.Component{
     this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
     this.selectUser = this.selectUser.bind(this)
+    this.changeUnentered = this.changeUnentered.bind(this)
+
   }
 
   openModal(){
@@ -70,7 +73,8 @@ class ModalBillForm extends React.Component{
 
     this.props.createBill(bill, (newBill) => {this.closeModal();
        this.setState({
-        nameUnentered: false,
+        listElements: true,
+        listQuestions: false,
         userOption: '',
         modalIsOpen: false,
         user_other_id: 0,
@@ -99,11 +103,19 @@ class ModalBillForm extends React.Component{
     );
   }
 
+  changeUnentered(){
+    this.setState({
+      listQuestions: false,
+      listElements: true
+    })
+  }
+
   selectUser(user){
     this.setState({
       user_other_id: user.id,
       userOption: user.name,
-      nameUnentered: true
+      listQuestions: true,
+      listElements: false
     });
     }
 
@@ -156,12 +168,12 @@ class ModalBillForm extends React.Component{
                     <UserSearchContainer
                       selectUser={this.selectUser}
                       nameEntered= {this.state.nameEntered}
-                      userOptions={this.state.userOption}/>
+                      userOptions={this.state.userOption}
+                      listElements={this.state.listElements}
+                      changeUnentered={this.changeUnentered}/>
                 </label >
               </div>
-
-
-                { !(this.state.nameUnentered) ? '' :
+                { (this.state.listQuestions) ?
                 <div className='new-bill-form load-later'>
                   <div className='new-bill-form radio-buttons'>
                         Who paid?<br />
@@ -231,7 +243,7 @@ class ModalBillForm extends React.Component{
                     <input type="submit" className='entry-submit button' value="Submit" />
                   </div>
 
-                </div>}
+                </div> : ''}
               </form>
             </div>
         </Modal>

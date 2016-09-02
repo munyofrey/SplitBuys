@@ -12,6 +12,7 @@ class UserSearch extends React.Component{
   }
 
   handleSubmit(event){
+    this.props.changeUnentered()
     this.setState({searchInput: event.currentTarget.value})
   }
 
@@ -25,8 +26,7 @@ class UserSearch extends React.Component{
     let searchInput = this.state.searchInput
     if(searchInput.length === 0){return null}
     return this.props.users.filter(user => {
-      return (user.name.slice(0, searchInput.length).toLowerCase() === searchInput.toLowerCase()
-            && !(this.props.userOption === user.name))
+      return (user.name.slice(0, searchInput.length).toLowerCase() === searchInput.toLowerCase())
     })
   }
 
@@ -39,18 +39,16 @@ class UserSearch extends React.Component{
 
 
   render(){
-    let matches = this.matches()
-    let matchers;
-    if (matches){
-      matchers = matches.map(user =>
-        <li key={`${user.name}${user.id}`} onClick={this.selectName.bind(this, user)}>{user.name}</li>)}
-    return(
-      <div className='user-search-container'>
-        <div className='header-block-fix'></div>
-        <input onChange={this.handleSubmit} value={this.state.searchInput}/>
-        <ul className='all-users'>{matchers}</ul>
-      </div>
-    )
+      let matches = this.matches()
+      let matchers;
+      if (matches){
+        matchers = matches.map(user =>
+          <li key={`${user.name}${user.id}`} onClick={this.selectName.bind(this, user)}>{user.name}</li>)}
+      return(
+        <div className='user-search-container'>
+          <input onChange={this.handleSubmit} value={this.state.searchInput}/>
+          {(this.props.listElements) ? <ul className='all-users'>{matchers}</ul> : ''}
+        </div>)
   }
 
 

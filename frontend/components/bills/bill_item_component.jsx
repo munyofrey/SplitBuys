@@ -36,34 +36,18 @@ closeModal(){
 }
 
   render(){
-    // <div className='bill-item-full'>
-    // <div className='bill_item_component'>
-    //   <ul className='bill-item' onClick={this.openModal}>
-    //       <li className='bill-item-title'>
-    //         Date:</li>
-    //       <li>{this.props.bill.date}</li>
-    //       <li className='bill-item-title'>Description:</li>
-    //       <li> {this.props.bill.description}</li>
-    //       <li className='bill-item-title'>Amount owed:</li>
-    //       <li> ${this.props.bill.owed}</li>
-    //       <li className='bill-item-title'>Total Bill:</li>
-    //       <li> ${this.props.bill.total}</li>
-    //       <li className='bill-item-title'>Who paid: </li>
-    //       <li>{this.props.bill.name_payer}</li>
-    //       <li className='bill-item-title'>Who owes:</li>
-    //       <li> {this.props.bill.ower}</li>
-    //   </ul>
-    // </div>
+    // debugger
+    // new Date(this.props.bill.date)
     return(
 
         <tbody  onClick={this.openModal}>
-          <tr>
-            <td>{this.props.bill.date}</td>
-            <td>{this.props.bill.description}</td>
-            <td>{this.props.bill.owed}</td>
-            <td>{this.props.bill.total}</td>
-            <td>{this.props.bill.name_payer}</td>
-            <td>{this.props.bill.ower}</td>
+          <tr className='bill-table-row'>
+            <td className='bill-table-element'>{this.props.bill.date}</td>
+            <td className='bill-table-element'>{this.props.bill.description}</td>
+            <td className='bill-table-element'>{this.props.bill.owed}</td>
+            <td className='bill-table-element'>{this.props.bill.total}</td>
+            <td className='bill-table-element'>{this.props.bill.name_payer}</td>
+            <td className='bill-table-element'>{this.props.bill.ower}</td>
           </tr>
 
 

@@ -22,7 +22,7 @@ class billList extends React.Component{
         <div className='header-block-fix'></div>
         <div className='bill_list_component'>
           <ModalBillForm />
-          <table className='bill_list_component'>
+          <table className='bill-list-table'>
             <thead>
                 <tr>
                   <th>date</th>
