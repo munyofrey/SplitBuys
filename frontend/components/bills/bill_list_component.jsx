@@ -12,7 +12,6 @@ class billList extends React.Component{
   }
 
   render(){
-    debugger;
     return(
       <div className='rightside-block'>
         <div className='header-block-fix'></div>
