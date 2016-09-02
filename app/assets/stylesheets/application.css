@@ -363,6 +363,10 @@ div.bill_item_component{
   color: black;
 }
 
+input{
+  border: #2F4F4F;
+  border-radius: 5px;
+}
 
 
 /*BILL DETAIL*/
