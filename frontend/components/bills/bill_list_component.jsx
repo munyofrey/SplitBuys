@@ -1,6 +1,6 @@
 import React from 'react';
-import BillItem from './bill_item_component'
-
+import BillItem from './bill_item_component';
+import ModalBillForm from './bill_modal_container';
 
 class billList extends React.Component{
   constructor(props){
@@ -13,19 +13,21 @@ class billList extends React.Component{
 
   render(){
     return(
-      <div>
-      <div className='header-block-fix'></div>
-      <div className='bill_list_component'>
-        <div className='new-bill button'></div>
-      <ul className='bill_list_component'>
-        {this.props.bills.map(bill => (<BillItem bill={bill} key={bill.id} clickFunction={()=>console.log(`I work ${bill.id}`)}/>))}
-      </ul>
-      </div>
+      <div className='rightside-block'>
+        <div className='header-block-fix'></div>
+        <div className='bill_list_component'>
+          <ModalBillForm />
+        <ul className='bill_list_component'>
+          {this.props.bills.map(bill => (<BillItem bill={bill} key={bill.id} clickFunction={()=>console.log(`I work ${bill.id}`)}/>))}
+        </ul>
+        </div>
     </div>
     )
   }
 
 
 }
+
+
 
 export default billList;

@@ -6,8 +6,10 @@ export const billActions = {
   REQUEST_BILL: 'REQUEST_BILL',
   REQUEST_BILLS: 'REQUEST_BILLS',
   DELETE_BILL: 'DELETE_BILL',
-  RECEIVE_ERRORS: 'RECEIVE_ERRORS'
+  RECEIVE_ERRORS: 'RECEIVE_ERRORS',
 }
+
+
 
 
 export const receiveBill = bill => ({

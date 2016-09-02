@@ -24,30 +24,33 @@ class UserSearch extends React.Component{
     let users = this.props.users
     let searchInput = this.state.searchInput
     if(searchInput.length === 0){return null}
-    this.props.users.forEach(user => {
-      if (user.name.slice(0, searchInput.length).toLowerCase() === searchInput.toLowerCase()){matches.push(user)}
+    return this.props.users.filter(user => {
+      return (user.name.slice(0, searchInput.length).toLowerCase() === searchInput.toLowerCase()
+            && !(this.props.userOption === user.name))
     })
-    return matches
+    // return matches
   }
 
-  selectName(event){
+  selectName(user){
     let name = event.currentTarget.innerText
-    this.setState({searchInput: name})
+    this.setState({searchInput: user.name})
+    this.props.selectUser(user)
   }
 
 
 
   render(){
-    let matches = this.matches();
+    let matches = this.matches()
     let matchers;
-    if (matches){ matchers = (<ul className='all-users'>{matches.map(user => <li key={`${user.name}${user.id}`} onClick={this.selectName}>{user.name}</li>)}</ul>);
-       if (matches.length === 0){matchers = <ul className='all-users'><li key={`nomatches`}>No matches!</li></ul>}}
+    if (matches){
+      matchers = matches.map(user =>
+        <li key={`${user.name}${user.id}`} onClick={this.selectName.bind(this, user)}>{user.name}</li>)}
     return(
       <div className='user-search-container'>
         <div className='header-block-fix'></div>
           <p>User search for friends(in time)</p>
         <input onChange={this.handleSubmit} value={this.state.searchInput}/>
-        {matchers}
+        <ul className='all-users'>{matchers}</ul>
       </div>
     )
   }

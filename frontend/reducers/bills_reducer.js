@@ -4,6 +4,8 @@ import { merge } from 'lodash';
   const preloadedState = {
     bills: [],
     errors: [],
+    bill: {},
+    modalIsOpen: false
   }
 
 const billReducer = (oldState = preloadedState, action) => {
@@ -23,6 +25,7 @@ const billReducer = (oldState = preloadedState, action) => {
     // return merge({}, oldState, { billDetail: action.bill })
     // case billActions.REQUEST_BILL:
     default: return oldState
+
 
   }
 }

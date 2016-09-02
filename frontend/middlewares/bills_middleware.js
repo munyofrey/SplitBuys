@@ -1,4 +1,4 @@
-import { billActions, receiveBills, receiveErrors, receiveBill } from '../actions/bill_actions'
+import { billActions, receiveBills, receiveErrors, receiveBill, receiveModal } from '../actions/bill_actions'
 import { createBill, fetchAllBills } from '../util/api_bill_util';
 import { hashHistory } from 'react-router'
 
@@ -17,10 +17,11 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
       return next(action)
       break;
     case billActions.REQUEST_BILLS:
-      successCB = bills => {console.log(bills); dispatch(receiveBills(bills))}
+      successCB = bills => {dispatch(receiveBills(bills))}
       fetchAllBills(successCB, errorCB)
       return next(action)
       break;
+
     // case billActions.SIGNUP:
     //   signup(action.user, successCB, errorCB);
     //   next(action)
