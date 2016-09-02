@@ -35,6 +35,15 @@
    background: transparent;
  }
 
+#sliders {
+    width: 300px;
+    padding: 20px;
+}
+
+#sliders li {
+  margin-bottom: 10px;
+}
+
  ul {
    list-style: none;
    padding-left: 0;

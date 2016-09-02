@@ -5,6 +5,11 @@ import Root from './root';
 import {requestAllUsers} from './actions/user_actions';
 import Modal from 'react-modal';
 
+
+
+
+
+
 window.requestAllUsers = () => window.store.dispatch(requestAllUsers())
 
 document.addEventListener("DOMContentLoaded", ()=>{
