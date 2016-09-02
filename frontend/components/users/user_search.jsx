@@ -28,7 +28,6 @@ class UserSearch extends React.Component{
       return (user.name.slice(0, searchInput.length).toLowerCase() === searchInput.toLowerCase()
             && !(this.props.userOption === user.name))
     })
-    // return matches
   }
 
   selectName(user){
@@ -48,7 +47,6 @@ class UserSearch extends React.Component{
     return(
       <div className='user-search-container'>
         <div className='header-block-fix'></div>
-          <p>User search for friends(in time)</p>
         <input onChange={this.handleSubmit} value={this.state.searchInput}/>
         <ul className='all-users'>{matchers}</ul>
       </div>

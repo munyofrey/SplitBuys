@@ -1,6 +1,7 @@
 import React from 'react';
-import BillItem from './bill_item_component';
+import BillDetail from './bill_item_component';
 import ModalBillForm from './bill_modal_container';
+
 
 class billList extends React.Component{
   constructor(props){
@@ -11,15 +12,37 @@ class billList extends React.Component{
     this.props.requestBills()
   }
 
+  clickFunction(){
+
+  }
+
   render(){
     return(
       <div className='rightside-block'>
         <div className='header-block-fix'></div>
         <div className='bill_list_component'>
           <ModalBillForm />
-        <ul className='bill_list_component'>
-          {this.props.bills.map(bill => (<BillItem bill={bill} key={`${bill.id}${bill.description}`} clickFunction={()=>console.log(`I work ${bill.id}`)}/>))}
-        </ul>
+          <table className='bill_list_component'>
+            <thead>
+                <tr>
+                  <th>date</th>
+                  <th>description</th>
+                  <th>owed</th>
+                  <th>total</th>
+                  <th>name_payer</th>
+                  <th>ower</th>
+                </tr>
+              </thead>
+
+
+          {this.props.bills.map(bill => (
+            <BillDetail
+              bill={bill}
+              key={`${bill.id}`}
+              clickFunction={()=>console.log('darn')}
+              onClick={()=>console.log(`I work ${bill.id}`)
+              }/> ))}
+        </table>
         </div>
     </div>
     )

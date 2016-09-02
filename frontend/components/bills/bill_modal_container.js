@@ -5,7 +5,7 @@ import { createBill, receiveErrors, receiveBill } from '../../actions/bill_actio
 const mapStateToProps = state => ({
   bill: state.bills.bill,
   currentUser: state.session.currentUser,
-  errors: state.session.errors
+  errors: state.bills.errors
 })
 
 const mapDispatchToProps = dispatch => ({

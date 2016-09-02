@@ -362,3 +362,18 @@ div.bill_item_component{
   z-index: 0;
   color: black;
 }
+
+
+
+/*BILL DETAIL*/
+
+ul.bill-item{
+  display:flex;
+  justify-content: space-around;
+}
+
+.bill-item-detail{
+  color: black;
+  display: flex;
+  justify-content: space-around;
+}

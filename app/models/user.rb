@@ -30,38 +30,40 @@ class User < ActiveRecord::Base
   #bills
 
   def all_bills
-    query1 = "(SELECT total, bills.description, bills.note, bills.id, bills.user_owe_id as other_user_id, paid.name as name_payer, owed, date, ower.name as ower
-      FROM bills
-      JOIN users as ower ON bills.user_owe_id = ower.id
-      JOIN users AS paid ON paid.id = bills.user_pay_id
-      WHERE bills.user_pay_id = #{self.id}
-      "
-    query2 = "SELECT total, bills.description, bills.note, bills.user_pay_id as other_user_id, bills.id, paid.name as ower, owed, date, ower.name as name_payer
-      FROM bills
-      JOIN users as paid ON bills.user_pay_id = paid.id
-      JOIN users AS ower ON ower.id = bills.user_owe_id
-      WHERE bills.user_owe_id = #{self.id})
-      "
-    query = "SELECT * FROM " + query1 + ' UNION ' + query2 + ' AS together ORDER BY date DESC '
-    Bill.find_by_sql(query)
+    bills = ActiveRecord::Base.connection.execute(<<-SQL)
+      SELECT bills.id, total, bills.description, bills.note, bills.user_owe_id as other_user_id, paid.name as name_payer, owed, date, ower.name as ower
+          FROM bills
+          JOIN users as ower ON bills.user_owe_id = ower.id
+          JOIN users AS paid ON paid.id = bills.user_pay_id
+          WHERE bills.user_pay_id = #{self.id}
+      UNION
+      SELECT bills.id, total, bills.description, bills.note, bills.user_pay_id as other_user_id, paid.name as ower, owed, date, ower.name as name_payer
+          FROM bills
+          JOIN users as paid ON bills.user_pay_id = paid.id
+          JOIN users AS ower ON ower.id = bills.user_owe_id
+      WHERE bills.user_owe_id = #{self.id}
+
+      ORDER BY date DESC
+      SQL
+    bills.map{|bill|  bill}
   end
 
-  def all_bills_for_friend(friend_id)
-    query1 = "(SELECT total, bills.id, bills.user_owe_id as other_user_id, paid.name as name_payer, owed, date, ower.name as ower
-      FROM bills
-      JOIN users as ower ON bills.user_owe_id = ower.id
-      JOIN users AS paid ON paid.id = bills.user_pay_id
-      WHERE bills.user_pay_id = #{self.id} AND bills.user_owe_id = #{friend_id}
-      "
-    query2 = "SELECT total, bills.user_pay_id as other_user_id, bills.id, paid.name as ower, owed, date, ower.name as name_payer
-      FROM bills
-      JOIN users as paid ON bills.user_pay_id = paid.id
-      JOIN users AS ower ON ower.id = bills.user_owe_id
-      WHERE bills.user_owe_id = #{self.id} AND bills.user_pay_id = #{friend_id})
-      "
-    query = "SELECT * FROM " + query1 + ' UNION ' + query2 + ' AS together ORDER BY date DESC '
-    Bill.find_by_sql(query)
-  end
+  # def all_bills_for_friend(friend_id)
+  #   query1 = "(SELECT total, bills.id, bills.user_owe_id as other_user_id, paid.name as name_payer, owed, date, ower.name as ower
+  #     FROM bills
+  #     JOIN users as ower ON bills.user_owe_id = ower.id
+  #     JOIN users AS paid ON paid.id = bills.user_pay_id
+  #     WHERE bills.user_pay_id = #{self.id} AND bills.user_owe_id = #{friend_id}
+  #     "
+  #   query2 = "SELECT total, bills.user_pay_id as other_user_id, bills.id, paid.name as ower, owed, date, ower.name as name_payer
+  #     FROM bills
+  #     JOIN users as paid ON bills.user_pay_id = paid.id
+  #     JOIN users AS ower ON ower.id = bills.user_owe_id
+  #     WHERE bills.user_owe_id = #{self.id} AND bills.user_pay_id = #{friend_id})
+  #     "
+  #   query = "SELECT * FROM " + query1 + ' UNION ' + query2 + ' AS together ORDER BY date DESC '
+  #   Bill.find_by_sql(query)
+  # end
 
 
   def sums

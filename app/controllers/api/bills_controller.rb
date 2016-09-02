@@ -3,8 +3,7 @@ class Api::BillsController < ApplicationController
   def index
     @user = current_user
     @bills = @user.all_bills
-
-    render 'api/bills/index'
+    render json: @bills
   end
 
   def create
