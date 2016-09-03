@@ -1,5 +1,5 @@
 import React from 'react';
-import BillDetail from './bill_item_component';
+import BillDetail from './bill_detail_component';
 import ModalBillForm from './bill_modal_container';
 // import BillDetailModal form './bill_detail_modal'
 
@@ -16,16 +16,6 @@ class billList extends React.Component{
 
   }
 
-  // <thead>
-  //     <tr>
-  //       <th>date</th>
-  //       <th>description</th>
-  //       <th>owed</th>
-  //       <th>total</th>
-  //       <th>name_payer</th>
-  //       <th>ower</th>
-  //     </tr>
-  //   </thead>
   render(){
     return(
       <div className='rightside-block'>
@@ -33,6 +23,16 @@ class billList extends React.Component{
         <div className='bill_list_component'>
           <ModalBillForm />
           <table className='bill-list-table'>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount owed</th>
+                <th>Bill Total</th>
+                <th>Who Payed</th>
+                <th>Who owes</th>
+              </tr>
+            </thead>
 
 
           {this.props.bills.map(bill => (

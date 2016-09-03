@@ -39,7 +39,7 @@ class SignupForm extends React.Component {
 
 	renderErrors(){
 		return(
-			<ul className='after'>
+			<ul className='errors after'>
 				{this.props.errors.map( (error, i) => (
 					<li key={`error-${i}`}>
 						{error}

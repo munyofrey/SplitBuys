@@ -41,16 +41,33 @@ class ModalBillForm extends React.Component{
     this.closeModal = this.closeModal.bind(this)
     this.selectUser = this.selectUser.bind(this)
     this.changeUnentered = this.changeUnentered.bind(this)
-    this.resetModal = this.resetModal.bind(this)
-
+    this.updateTextInput = this.updateTextInput.bind(this)
   }
 
   openModal(){
     this.setState({modalIsOpen: true})
   }
 
+
+
   closeModal(){
-    this.setState({modalIsOpen: false})
+    this.setState({
+     modalIsOpen: false,
+     listElements: true,
+     listQuestions: false,
+     userOption: '',
+     modalIsOpen: false,
+     user_other_id: 0,
+     user_pay_id: this.props.currentUser.id,
+     user_owe_id: this.props.currentUser.id,
+     percentOfTotal: 50,
+     description: '',
+     note: '',
+     owed: 0,
+     total: 0,
+     date: ''
+   });
+   this.props.receiveBills(newBills)
   }
 
   update(field){
@@ -72,32 +89,14 @@ class ModalBillForm extends React.Component{
     }}
 
 
-    this.props.createBill(bill, (newBills) => {this.resetModal})
+    this.props.createBill(bill, (newBills) => {this.closeModal})
   }
 
-  resetModal(){
-      this.closeModal();
-         this.setState({
-          listElements: true,
-          listQuestions: false,
-          userOption: '',
-          modalIsOpen: false,
-          user_other_id: 0,
-          user_pay_id: this.props.currentUser.id,
-          user_owe_id: this.props.currentUser.id,
-          percentOfTotal: 50,
-          description: '',
-          note: '',
-          owed: 0,
-          total: 0,
-          date: ''
-        });
-        this.props.receiveBills(newBills)
-  }
+
 
   renderErrors(){
     return(
-      <ul className='after'>
+      <ul className='errors after'>
         {this.props.errors.map( (error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -140,8 +139,12 @@ class ModalBillForm extends React.Component{
     this.setState({
       percentOfTotal: event.currentTarget.value
     })
+    this.updateTextInput(event.currentTarget.value)
   }
 
+  updateTextInput(val) {
+    document.getElementById('textInput').value=val;
+  }
   handleTotal(event){
     let totalString = event.currentTarget.value
     totalString = totalString === '' ? '0' : totalString
@@ -156,19 +159,20 @@ class ModalBillForm extends React.Component{
     return (
       <div>
         <div id='new-bill' className='new-bill button' onClick={this.openModal}>Add Bill</div>
-        <Modal
+      <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles} >
+          <div className='bill-form-container'>
 
-          <button className='kill-button'onClick={this.resetModal}>x</button>
+          <button className='kill-button'onClick={this.closeModal}>x</button>
           <h2 ref="subtitle">Create a Bill!</h2>
             <div className="new-bill-form-holder">
               <form onSubmit={this.handleSubmit} className="new-bill-form">
                 { this.renderErrors() }
                 <div className='new-bill-form-elements'>
-                <label>You Split a Bill with:<br/>
+                <label><div className='title-detail'>You Split with:</div>
                     <UserSearchContainer
                       selectUser={this.selectUser}
                       nameEntered= {this.state.nameEntered}
@@ -179,7 +183,7 @@ class ModalBillForm extends React.Component{
               </div>
                 { (this.state.listQuestions) ?
                 <div className='new-bill-form load-later'>
-                  Who paid?<br />
+                  <div className='title-detail'>Who paid?</div>
                   <div className='new-bill-form radio-buttons'>
                       <label> I did
                           <input type='radio'
@@ -202,13 +206,24 @@ class ModalBillForm extends React.Component{
                       </label>
                   </div>
 
-                  <label>
+                  <label><div className='title-detail'>
                     Date of bill
+                  </div>
                     <input type='date' onChange={this.update('date')}/>
                   </label>
 
+                  <label><div className='title-detail'>Description: </div>
+
+                  <input
+                    type="text"
+                    value={this.state.description}
+                    onChange={this.update("description")}
+                    className={formInput} />
+                </label>
                   <label>
+                    <div className='title-detail'>
                     Total bill:
+                  </div>
                     <input className='new-bill-form moneyinput'
                     name={this.state.total}
                     value={this.state.total}
@@ -216,30 +231,31 @@ class ModalBillForm extends React.Component{
                     className={formInput}/>
                   </label>
 
-                  <label>
+                  <label><div className='title-detail'>
                     What percent of the total bill does
-                    {currentUser.id === this.state.user_owe_id ? ` ${currentUser.name} ` : ` ${this.state.userOption} `} owe? <br />
+                    {currentUser.id === this.state.user_owe_id ?
+                      ` ${currentUser.name} ` : ` ${this.state.userOption} `}
+                    owe? </div><br />
                     <input
                       type="range"
                       min="0"
                       max="100"
-                      defaultValue={50}
+                      value={this.state.percentOfTotal}
                       onChange={this.sliderUpdate}/>
-                  </label>
-
-                  <label>Description:
-                    <br/>
                     <input
-                      type="text"
-                      value={this.state.description}
-                      onChange={this.update("description")}
-                      className={formInput} />
+                      type="number"
+                      name="amountInput"
+                      min="0" max="100"
+                      value={this.state.percentOfTotal}
+                      onChange={this.sliderUpdate} />
                   </label>
 
-                  <label> notes:
+                    <br/>
+                  <label> <div className='title-detail'>Notes: </div>
                     <textarea
                       value={this.state.note}
                       onChange={this.update("note")}
+                      placeholder='(optional)'
                       className={formInput} />
                   </label>
 
@@ -250,6 +266,7 @@ class ModalBillForm extends React.Component{
                 </div> : ''}
               </form>
             </div>
+          </div>
         </Modal>
       </div>
     );
