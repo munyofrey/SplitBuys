@@ -4,7 +4,6 @@ import { merge } from 'lodash';
   const preloadedState = {
     bills: [],
     errors: [],
-    bill: {},
     modalIsOpen: false
   }
 
@@ -15,14 +14,13 @@ const billReducer = (oldState = preloadedState, action) => {
     case billActions.RECEIVE_ERRORS:
       return merge({}, oldState, {errors: action.errors})
     case billActions.RECEIVE_BILLS:
-      console.log(action.bills);
       action.bills.forEach(bill => {bill.date = new Date(bill.date)})
-      console.log(action.bills);
       return merge({}, preloadedState, { bills: action.bills })
     case billActions.RECEIVE_BILL:
       oldStateClone = merge({}, oldState, oldState);
+      action.bill.date = new Date(bill.date)
       const bills = [action.bill, ...oldState.bills]
-      return merge({}, oldState, {bills: bills, bill: action.bills, errors:[] })
+      return merge({}, oldState, {bills: bills, errors:[] })
     case billActions.DELETE_BILL:
       oldStateClone = merge({}, oldState, oldState);
       newState = [];
