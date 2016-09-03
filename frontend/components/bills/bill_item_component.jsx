@@ -67,14 +67,19 @@ deleteBillItem(bill){
                 {this.props.bill.date.toDateString()}</li>
               <li className='bill-detail'><div className='title-detail'>Description:</div>
                 {this.props.bill.description}</li>
-              <li className='bill-detail'><div className='title-detail'>Amount owed:</div>
+
+              <li className='bill-detail'> <ul className='bill-item-small-list'>
+                <li className='bill-detail'><div className='title-detail'>{this.props.bill.name_payer} owes:</div>
                 ${this.props.bill.owed}</li>
-                <li className='bill-detail'><div className='title-detail'>Total Bill:</div>
-                ${this.props.bill.total}</li>
+                <li className='bill-detail'><div className='title-detail'> Total Bill:</div>
+                ${this.props.bill.total}</li></ul></li>
+
+                <li className='bill-detail'><ul className='bill-item-small-list'>
                 <li className='bill-detail'><div className='title-detail'>Who paid:</div>
                 {this.props.bill.name_payer}</li>
                 <li className='bill-detail'><div className='title-detail'>Who owes:</div>
-                 {this.props.bill.ower}</li>
+                 {this.props.bill.ower}</li></ul></li>
+
                 <li className='bill-detail'><div className='title-detail'>Note:</div>
                  {this.props.bill.note}</li>
                <li className='delete-bill button' onClick={this.deleteBillItem.bind(this, this.props.bill)}>Delete</li>

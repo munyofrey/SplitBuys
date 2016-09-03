@@ -379,6 +379,7 @@ ul.bill-item{
 
 ul.bill-item-detail{
   color: black;
+  max-width: 500px
 }
 
 li.bill-detail{
@@ -389,6 +390,7 @@ div.bill-item-detail{
   display:flex;
   justify-content: center;
   flex-direction: row;
+
 }
 
 div.title-detail{
@@ -400,4 +402,9 @@ div.comments-container{
   background: purple;
   min-width: 50px;
   min-height: 50px;
+}
+
+.bill-item-small-list{
+  display: flex;
+  justify-content: space-between;
 }
