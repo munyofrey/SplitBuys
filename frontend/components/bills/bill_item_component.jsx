@@ -45,7 +45,6 @@ deleteBillItem(bill){
 
     // new Date(this.props.bill.date)
     return(
-
         <tbody  onClick={this.openModal}>
           <tr className='bill-table-row'>
             <td className='bill-table-element'>{this.props.bill.date.toDateString()}</td>
@@ -55,44 +54,42 @@ deleteBillItem(bill){
             <td className='bill-table-element'>{this.props.bill.name_payer}</td>
             <td className='bill-table-element'>{this.props.bill.ower}</td>
 
-          <td className='bill_item_detail'>
-              <Modal
-                isOpen={this.state.modalIsOpen}
-                onAfterOpen={this.afterOpenModal}
-                onRequestClose={this.closeModal}
-                style={customStyles}>
+        <td className='bill_item_detail'>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onAfterOpen={this.afterOpenModal}
+              onRequestClose={this.closeModal}
+              style={customStyles}>
+            <div className='bill-item-detail'>
+              <ul className='bill-item-detail' >
+                <li className='bill-detail'><div className='title-detail'>
+                  Date: </div>
+                {this.props.bill.date.toDateString()}</li>
+              <li className='bill-detail'><div className='title-detail'>Description:</div>
+                {this.props.bill.description}</li>
+              <li className='bill-detail'><div className='title-detail'>Amount owed:</div>
+                ${this.props.bill.owed}</li>
+                <li className='bill-detail'><div className='title-detail'>Total Bill:</div>
+                ${this.props.bill.total}</li>
+                <li className='bill-detail'><div className='title-detail'>Who paid:</div>
+                {this.props.bill.name_payer}</li>
+                <li className='bill-detail'><div className='title-detail'>Who owes:</div>
+                 {this.props.bill.ower}</li>
+                <li className='bill-detail'><div className='title-detail'>Note:</div>
+                 {this.props.bill.note}</li>
+               <li className='delete-bill button' onClick={this.deleteBillItem.bind(this, this.props.bill)}>Delete</li>
+              </ul>
 
-                <ul className='bill-item-detail' >
-                  <li className='bill-detail'>
-                    Date:</li>
-                  <li>{this.props.bill.date.toDateString()}</li>
-                  <li className='bill-detail'>Description:</li>
-                  <li> {this.props.bill.description}</li>
-                  <li className='bill-detail'>Amount owed:</li>
-                  <li> ${this.props.bill.owed}</li>
-                  <li className='bill-detail'>Total Bill:</li>
-                  <li> ${this.props.bill.total}</li>
-                  <li className='bill-detail'>Who paid: </li>
-                  <li>{this.props.bill.name_payer}</li>
-                  <li className='bill-detail'>Who owes:</li>
-                  <li> {this.props.bill.ower}</li>
-                  <li className='bill-detail'>Note:</li>
-                  <li> {this.props.bill.note}</li>
-                  <li className='delete-bill' onClick={this.deleteBillItem.bind(this, this.props.bill)}>Delete Bill</li>
-                </ul>
+              <div className='comments-container'>
+                Comments container
+              </div>
+            </div>
 
-              </Modal>
-            </td>
+            </Modal>
 
-          </tr>
-
-
-
-
-
-
-
-  </tbody>
+        </td>
+      </tr>
+    </tbody>
     )
   }
 }
