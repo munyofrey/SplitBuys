@@ -21,7 +21,7 @@ import { Link } from 'react-router';
   const Header =  ({currentUser, logout}) =>(
     <header className='header'>
       <div className='header-holder'>
-        <h1 className='title'>SplitBys</h1>
+        <Link to="/" className='title'>SplitBys</Link>
        { (currentUser) ? loggedinOptions(currentUser, logout) :loggedOutOptions()}
   </div>
 </header>

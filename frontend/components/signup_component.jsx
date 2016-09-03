@@ -12,6 +12,7 @@ class SignupForm extends React.Component {
 			name: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.navLink.bind(this)
 	}
 
 	componentDidUpdate(){
@@ -48,12 +49,20 @@ class SignupForm extends React.Component {
 		);
 	}
 
+	navLink(){
+		return(
+			<Link to="/" className='kill-button'>x</Link>
+			)
+		}
+
+
 	render() {
 		const formInput= this.props.formType + '-input';
 		const formType= this.props.formType + '-form-box';
 		return (
 			<div className="login-form-container">
 				<div className="login-form-container-vert">
+					{this.navLink()}
 				<form onSubmit={this.handleSubmit} className={formType}>
 					<div className={formInput}>
 						{this.props.loginType ?

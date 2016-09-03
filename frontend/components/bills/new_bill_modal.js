@@ -41,6 +41,7 @@ class ModalBillForm extends React.Component{
     this.closeModal = this.closeModal.bind(this)
     this.selectUser = this.selectUser.bind(this)
     this.changeUnentered = this.changeUnentered.bind(this)
+    this.resetModal = this.resetModal.bind(this)
 
   }
 
@@ -71,24 +72,27 @@ class ModalBillForm extends React.Component{
     }}
 
 
-    this.props.createBill(bill, (newBills) => {this.closeModal();
-       this.setState({
-        listElements: true,
-        listQuestions: false,
-        userOption: '',
-        modalIsOpen: false,
-        user_other_id: 0,
-        user_pay_id: this.props.currentUser.id,
-        user_owe_id: this.props.currentUser.id,
-        percentOfTotal: 50,
-        description: '',
-        note: '',
-        owed: 0,
-        total: 0,
-        date: ''
-      });
-      this.props.receiveBills(newBills)
-  })
+    this.props.createBill(bill, (newBills) => {this.resetModal})
+  }
+
+  resetModal(){
+      this.closeModal();
+         this.setState({
+          listElements: true,
+          listQuestions: false,
+          userOption: '',
+          modalIsOpen: false,
+          user_other_id: 0,
+          user_pay_id: this.props.currentUser.id,
+          user_owe_id: this.props.currentUser.id,
+          percentOfTotal: 50,
+          description: '',
+          note: '',
+          owed: 0,
+          total: 0,
+          date: ''
+        });
+        this.props.receiveBills(newBills)
   }
 
   renderErrors(){
@@ -158,7 +162,7 @@ class ModalBillForm extends React.Component{
           onRequestClose={this.closeModal}
           style={customStyles} >
 
-          <button className='kill-button'onClick={this.closeModal}>close</button>
+          <button className='kill-button'onClick={this.resetModal}>x</button>
           <h2 ref="subtitle">Create a Bill!</h2>
             <div className="new-bill-form-holder">
               <form onSubmit={this.handleSubmit} className="new-bill-form">
@@ -175,8 +179,8 @@ class ModalBillForm extends React.Component{
               </div>
                 { (this.state.listQuestions) ?
                 <div className='new-bill-form load-later'>
+                  Who paid?<br />
                   <div className='new-bill-form radio-buttons'>
-                        Who paid?<br />
                       <label> I did
                           <input type='radio'
                             className='radio-button'

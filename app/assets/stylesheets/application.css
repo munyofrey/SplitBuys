@@ -35,6 +35,15 @@
    background: transparent;
  }
 
+.kill-button{
+  font-size: 16px;
+  font-weight: bolder;
+  color: #ccc;
+  background: inherit;
+  border: none;
+  margin-right: 0;
+}
+
 #sliders {
     width: 300px;
     padding: 20px;
@@ -130,6 +139,7 @@
    padding: 10px 20px;
    font-weight: bold;
    font-size: 32px;
+   color: #eee;
  }
 
  .welcome-user{
@@ -407,4 +417,17 @@ div.comments-container{
 .bill-item-small-list{
   display: flex;
   justify-content: space-between;
+}
+
+
+
+/*BILL FORM*/
+div.new-bill-form.radio-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.radio-buttons{
+
 }
