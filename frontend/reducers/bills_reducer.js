@@ -10,18 +10,21 @@ import { merge } from 'lodash';
 
 const billReducer = (oldState = preloadedState, action) => {
   let newState;
+  let oldStateClone;
   switch (action.type) {
     case billActions.RECEIVE_ERRORS:
       return merge({}, oldState, {errors: action.errors})
     case billActions.RECEIVE_BILLS:
-      newState = merge({}, preloadedState, { bills: action.bills })
-      newState.bills = action.bills;
-      return newState
+      console.log(action.bills);
+      action.bills.forEach(bill => {bill.date = new Date(bill.date)})
+      console.log(action.bills);
+      return merge({}, preloadedState, { bills: action.bills })
     case billActions.RECEIVE_BILL:
+      oldStateClone = merge({}, oldState, oldState);
       const bills = [action.bill, ...oldState.bills]
       return merge({}, oldState, {bills: bills, bill: action.bills, errors:[] })
     case billActions.DELETE_BILL:
-      let oldStateClone = merge({}, oldState, oldState);
+      oldStateClone = merge({}, oldState, oldState);
       newState = [];
       oldStateClone = oldStateClone.bills.forEach(bill => {if(bill.id !== action.bill.id){newState.push(bill)}})
       return merge({}, oldState, { bills: newState })
