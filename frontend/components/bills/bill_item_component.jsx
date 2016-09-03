@@ -24,15 +24,20 @@ constructor(props){
   }
   this.openModal = this.openModal.bind(this)
   this.closeModal = this.closeModal.bind(this)
+  this.deleteBillItem = this.deleteBillItem.bind(this)
 }
 
 openModal(){
-  console.log('I ran!');
   this.setState({modalIsOpen: true})
 }
 
 closeModal(){
   this.setState({modalIsOpen: false})
+}
+
+deleteBillItem(bill){
+  console.log(bill);
+  this.props.deleteBill(bill, () => this.closeModal)
 }
 
   render(){
@@ -48,6 +53,36 @@ closeModal(){
             <td className='bill-table-element'>{this.props.bill.total}</td>
             <td className='bill-table-element'>{this.props.bill.name_payer}</td>
             <td className='bill-table-element'>{this.props.bill.ower}</td>
+
+          <td className='bill_item_detail'>
+              <Modal
+                isOpen={this.state.modalIsOpen}
+                onAfterOpen={this.afterOpenModal}
+                onRequestClose={this.closeModal}
+                style={customStyles}>
+
+                <ul className='bill-item-detail' >
+                  <li className='bill-detail'>
+                    Date:</li>
+                  <li>{this.props.bill.date}</li>
+                  <li className='bill-detail'>Description:</li>
+                  <li> {this.props.bill.description}</li>
+                  <li className='bill-detail'>Amount owed:</li>
+                  <li> ${this.props.bill.owed}</li>
+                  <li className='bill-detail'>Total Bill:</li>
+                  <li> ${this.props.bill.total}</li>
+                  <li className='bill-detail'>Who paid: </li>
+                  <li>{this.props.bill.name_payer}</li>
+                  <li className='bill-detail'>Who owes:</li>
+                  <li> {this.props.bill.ower}</li>
+                  <li className='bill-detail'>Note:</li>
+                  <li> {this.props.bill.note}</li>
+                  <li className='delete-bill' onClick={this.deleteBillItem.bind(this, this.props.bill)}>Delete Bill</li>
+                </ul>
+
+              </Modal>
+            </td>
+
           </tr>
 
 
@@ -55,33 +90,6 @@ closeModal(){
 
 
 
-      <div className='bill_item_detail'>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}>
-
-          <ul className='bill-item-detail' >
-              <li className='bill-detail'>
-                Date:</li>
-              <li>{this.props.bill.date}</li>
-              <li className='bill-detail'>Description:</li>
-              <li> {this.props.bill.description}</li>
-              <li className='bill-detail'>Amount owed:</li>
-              <li> ${this.props.bill.owed}</li>
-              <li className='bill-detail'>Total Bill:</li>
-              <li> ${this.props.bill.total}</li>
-              <li className='bill-detail'>Who paid: </li>
-              <li>{this.props.bill.name_payer}</li>
-              <li className='bill-detail'>Who owes:</li>
-              <li> {this.props.bill.ower}</li>
-              <li className='bill-detail'>Note:</li>
-              <li> {this.props.bill.note}</li>
-          </ul>
-
-        </Modal>
-      </div>
 
   </tbody>
     )

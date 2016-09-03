@@ -47,7 +47,8 @@ export const deleteBill = (bill, success, error) => (
   $.ajax({
     url: `api/bills/${bill.id}`,
     method: 'DELETE',
-    success
+    success,
+    error
   })
 )
 

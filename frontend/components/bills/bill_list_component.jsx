@@ -40,8 +40,8 @@ class billList extends React.Component{
               bill={bill}
               key={`${bill.id}`}
               clickFunction={()=>console.log('darn')}
-              onClick={()=>console.log(`I work ${bill.id}`)
-              }/> ))}
+              deleteBill={this.props.deleteBill}/>
+           ))}
         </table>
         </div>
     </div>

@@ -214,7 +214,7 @@ class ModalBillForm extends React.Component{
 
                   <label>
                     What percent of the total bill does
-                    {currentUser.id === this.state.user_owe_id ? ` ${currentUser.name}` : ` ${this.state.userOption}`}
+                    {currentUser.id === this.state.user_owe_id ? ` ${currentUser.name} ` : ` ${this.state.userOption} `} owe? <br />
                     <input
                       type="range"
                       min="0"
