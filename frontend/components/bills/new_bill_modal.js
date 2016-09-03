@@ -71,7 +71,7 @@ class ModalBillForm extends React.Component{
     }}
 
 
-    this.props.createBill(bill, (newBill) => {this.closeModal();
+    this.props.createBill(bill, (newBills) => {this.closeModal();
        this.setState({
         listElements: true,
         listQuestions: false,
@@ -87,7 +87,7 @@ class ModalBillForm extends React.Component{
         total: 0,
         date: ''
       });
-      this.props.receiveBill(newBill)
+      this.props.receiveBills(newBills)
   })
   }
 

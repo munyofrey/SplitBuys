@@ -20,13 +20,13 @@ export const fetchAllBills = (success, error) =>(
 )
 
 
-//showing
-export const fetchABill = (bill, success, error) => (
-  $.ajax({
-    url: `api/bills/${bill.id}`,
-    success,
-  })
-)
+// //showing
+// export const fetchABill = (bill, success, error) => (
+//   $.ajax({
+//     url: `api/bills/${bill.id}`,
+//     success,
+//   })
+// )
 
 
 

@@ -1,5 +1,5 @@
-import { billActions, receiveBills, receiveErrors, receiveBill, deleteBill } from '../actions/bill_actions'
-import { createBill, fetchAllBills } from '../util/api_bill_util';
+import { billActions, receiveBills, receiveErrors } from '../actions/bill_actions'
+import { createBill, fetchAllBills, deleteBill } from '../util/api_bill_util';
 import { hashHistory } from 'react-router'
 
 
@@ -13,7 +13,7 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
 
   switch (action.type) {
     case billActions.CREATE_BILL:
-      successCB = bill => {dispatch(receiveBill(bill))}
+      successCB = bills => {dispatch(receiveBills(bills))}
       createBill(action.bill, action.success, errorCB);
       return next(action)
       break;

@@ -14,20 +14,9 @@ class Api::BillsController < ApplicationController
              status: 403
     end
     if @bill.save
-      if @bill.user_owe_id == current_user.id
-        @user = User.find_by_id(@bill.user_pay_id)
-        @bill.name_payer_c = @user.name
-        @bill.ower_c = current_user.name
-        @bill.other_user_id_c = @user.id
-        render 'api/bills/show'
-      else
-        @user = @bill.user_owe_id
-        @user = User.find_by_id(@bill.user_owe_id)
-        @bill.ower_c = @user.name
-        @bill.other_user_id_c = @user.id
-        @bill.name_payer_c = current_user.name
-        render 'api/bills/show'
-      end
+      @user = current_user
+      @bills = @user.all_bills
+      render json: @bills
     else
       render json: @bill.errors.full_messages, status: 422
     end
@@ -80,7 +69,7 @@ class Api::BillsController < ApplicationController
     if @bill
       @bill.delete
     end
-    render json: {}
+    render json: ['Did not successfully delete']
   end
 
   private
