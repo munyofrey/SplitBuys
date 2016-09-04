@@ -123,6 +123,7 @@ class ModalBillForm extends React.Component{
   selectUser(user){
     this.setState({
       user_other_id: user.id,
+      user_owe_id: user.id,
       userOption: user.name,
       listQuestions: true,
       listElements: false
@@ -152,6 +153,7 @@ class ModalBillForm extends React.Component{
   updateTextInput(val) {
     document.getElementById('textInput').value=val;
   }
+
   handleTotal(event){
     let totalString = event.currentTarget.value
     totalString = totalString === '' ? '0' : totalString
@@ -178,6 +180,7 @@ class ModalBillForm extends React.Component{
             <div className="new-bill-form-holder">
               <form onSubmit={this.handleSubmit} className="new-bill-form">
                 { this.renderErrors() }
+
                 <div className='new-bill-form-elements'>
                 <label><div className='title-detail'>You Split with:</div>
                     <UserSearchContainer
