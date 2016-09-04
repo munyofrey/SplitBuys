@@ -1,15 +1,20 @@
 import { connect } from 'react-redux';
 import billList from './bill_list_component';
-import { recieveBills, receiveBill, requestBills, deleteBill } from '../../actions/bill_actions';
+import { receiveBills, receiveErrors, requestBills, deleteBill, createBill } from '../../actions/bill_actions';
 
 
 const mapStateToProps = state => ({
-  bills: state.bills.bills
+  bills: state.bills.bills,
+  currentUser: state.session.currentUser,
+  errors: state.bills.errors
 })
 
 const mapDispatchToProps = dispatch => ({
   requestBills: () => dispatch(requestBills()),
-  deleteBill: (bill, success) => dispatch(deleteBill(bill, success))
+  deleteBill: (bill, success) => dispatch(deleteBill(bill, success)),
+  createBill: (bill, success) => dispatch(createBill(bill, success)),
+  receiveBills: bills => dispatch(receiveBills(bills)),
+  receiveErrors: errors => dispatch(receiveErrors(errors))
 })
 
 

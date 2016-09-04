@@ -42,6 +42,7 @@ class ModalBillForm extends React.Component{
     this.selectUser = this.selectUser.bind(this)
     this.changeUnentered = this.changeUnentered.bind(this)
     this.updateTextInput = this.updateTextInput.bind(this)
+    this.createAndRecieve = this.createAndRecieve.bind(this)
   }
 
   openModal(){
@@ -51,6 +52,7 @@ class ModalBillForm extends React.Component{
 
 
   closeModal(){
+    this.props.receiveErrors([])
     this.setState({
      modalIsOpen: false,
      listElements: true,
@@ -67,7 +69,6 @@ class ModalBillForm extends React.Component{
      total: 0,
      date: ''
    });
-   this.props.receiveBills(newBills)
   }
 
   update(field){
@@ -89,8 +90,14 @@ class ModalBillForm extends React.Component{
     }}
 
 
-    this.props.createBill(bill, (newBills) => {this.closeModal})
+    this.props.createBill(bill, bills => this.createAndRecieve(bills))
   }
+
+  createAndRecieve(bills){
+    this.closeModal();
+    this.props.receiveBills(bills)
+  }
+
 
 
 

@@ -1,7 +1,7 @@
 
 
 //creating
-export const createBill = (bill, success, error) =>(
+export const createBill = (bill, success, error) => (
   $.ajax({
     url: 'api/bills',
      method:'POST',

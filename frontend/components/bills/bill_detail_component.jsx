@@ -36,14 +36,10 @@ closeModal(){
 }
 
 deleteBillItem(bill){
-  console.log(bill);
   this.props.deleteBill(bill, () => this.closeModal)
 }
 
   render(){
-    // debugger
-
-    // new Date(this.props.bill.date)
     return(
         <tbody  onClick={this.openModal}>
           <tr className='bill-table-row'>

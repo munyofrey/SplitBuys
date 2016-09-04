@@ -13,7 +13,6 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
 
   switch (action.type) {
     case billActions.CREATE_BILL:
-      successCB = bills => {dispatch(receiveBills(bills))}
       createBill(action.bill, action.success, errorCB);
       return next(action)
       break;
@@ -24,6 +23,7 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
       break;
 
     case billActions.DELETE_BILL:
+    console.log(action.success);
       deleteBill(action.bill, action.success, error => console.log(error))
       return next(action)
       default: return next(action)

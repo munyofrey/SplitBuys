@@ -12,10 +12,12 @@ const billReducer = (oldState = preloadedState, action) => {
   let oldStateClone;
   switch (action.type) {
     case billActions.RECEIVE_ERRORS:
-      return merge({}, oldState, {errors: action.errors})
+      newState = merge({}, oldState, oldState)
+      newState.errors = action.errors;
+      return newState
     case billActions.RECEIVE_BILLS:
       action.bills.forEach(bill => {bill.date = new Date(bill.date)})
-      return merge({}, preloadedState, { bills: action.bills })
+      return merge({}, preloadedState, { bills: action.bills, errors:[] })
     case billActions.DELETE_BILL:
       oldStateClone = merge({}, oldState, oldState);
       newState = [];

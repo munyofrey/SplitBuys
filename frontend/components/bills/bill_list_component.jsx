@@ -1,6 +1,6 @@
 import React from 'react';
 import BillDetail from './bill_detail_component';
-import ModalBillForm from './bill_modal_container';
+import ModalBillForm from './new_bill_modal';
 // import BillDetailModal form './bill_detail_modal'
 
 class billList extends React.Component{
@@ -12,16 +12,17 @@ class billList extends React.Component{
     this.props.requestBills()
   }
 
-  clickFunction(){
-
-  }
-
   render(){
     return(
       <div className='rightside-block'>
         <div className='header-block-fix'></div>
         <div className='bill_list_component'>
-          <ModalBillForm />
+          <ModalBillForm
+            currentUser={this.props.currentUser}
+            errors={this.props.errors}
+            createBill={this.props.createBill}
+            receiveBills={this.props.receiveBills}
+            receiveErrors={this.props.receiveErrors}/>
           <table className='bill-list-table'>
             <thead>
               <tr>
