@@ -11,10 +11,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestBills: () => dispatch(requestBills()),
-  deleteBill: (bill, success) => dispatch(deleteBill(bill, success)),
-  createBill: (bill, success) => dispatch(createBill(bill, success)),
-  receiveBills: bills => dispatch(receiveBills(bills)),
-  receiveErrors: errors => dispatch(receiveErrors(errors))
+  deleteBill: (bill, success) => dispatch(deleteBill(bill, success))
 })
 
 

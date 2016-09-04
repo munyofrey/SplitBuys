@@ -195,24 +195,7 @@ h2 {
  }
 
 
- .button{
-   background: #C0C0C0;
-   border-radius: 5px;
-   height: 36px;
-   width: 60px;
-   border: 1px solid #2F4F4F;
-   padding:5px;
-   color:#2F4F4F;
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
-   text-align: center;
- }
 
- .button:hover{
-   background: #2F4F4F;
-   color:#C0C0C0
- }
 
 
 
@@ -581,4 +564,25 @@ input[type=range]::-ms-fill-upper {
 }
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
+}
+
+
+
+.button{
+  background: #C0C0C0;
+  border-radius: 5px;
+  height: 36px;
+  width: 60px;
+  border: 1px solid #2F4F4F;
+  padding:5px;
+  color:#2F4F4F;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.button:hover{
+  background: #2F4F4F;
+  color:#C0C0C0
 }

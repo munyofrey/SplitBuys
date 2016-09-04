@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-
+import BillFormContainer from './bills/new_bill_container'
 
 
   const loggedOutOptions = () =>(
@@ -14,6 +14,7 @@ import { Link } from 'react-router';
   const loggedinOptions = (currentUser, logout) =>(
     <ul className='welcome-user after'>
       <li className='username-welcome center-flex'> Welcome {currentUser.name}</li>
+      <li className='center-flex'><BillFormContainer className='button'/></li>
       <li className='center-flex'><Link to='logout' className='logout button' onClick={logout}>Logout</Link></li>
     </ul>
   )
