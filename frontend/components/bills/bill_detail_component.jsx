@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import Modal from 'react-modal';
-
+import BillEditFormContainer from './edit/bill_edit_container';
 
 const customStyles = {
   content : {
@@ -45,8 +45,8 @@ deleteBillItem(bill){
           <tr className='bill-table-row'>
             <td className='bill-table-element'>{this.props.bill.date.toDateString()}</td>
             <td className='bill-table-element'>{this.props.bill.description}</td>
-            <td className='bill-table-element'>{this.props.bill.owed}</td>
-            <td className='bill-table-element'>{this.props.bill.total}</td>
+            <td className='bill-table-element'>{`$ ${this.props.bill.owed}`}</td>
+            <td className='bill-table-element'>{`$ ${this.props.bill.total}`}</td>
             <td className='bill-table-element'>{this.props.bill.name_payer}</td>
             <td className='bill-table-element'>{this.props.bill.ower}</td>
 
@@ -78,8 +78,16 @@ deleteBillItem(bill){
 
                 <li className='bill-detail'><div className='title-detail'>Note:</div>
                  {this.props.bill.note}</li>
-               <li className='delete-bill button' onClick={this.deleteBillItem.bind(this, this.props.bill)}>Delete</li>
-              </ul>
+               <li className='delete-edit-button-container'>
+             <div
+               className='delete-bill button'
+               onClick={this.deleteBillItem.bind(this, this.props.bill)}
+               >Delete</div>
+
+               <BillEditFormContainer
+                 bill={this.props.bill}/>
+               </li >
+            </ul>
 
               <div className='comments-container'>
                 Comments container

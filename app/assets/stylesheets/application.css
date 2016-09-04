@@ -167,6 +167,7 @@ h2 {
    display:flex;
    flex-direction: column;
    justify-content: center;
+   margin-left: 5px;
  }
 
 
@@ -337,6 +338,7 @@ h2 {
   width: 75%;
   margin: 0 auto;
   display: flex;
+  background: rgb(135, 137, 123);
 }
 
 
@@ -585,4 +587,12 @@ input[type=range]:focus::-ms-fill-upper {
 .button:hover{
   background: #2F4F4F;
   color:#C0C0C0
+}
+
+.delete-edit-button-container{
+    display: flex
+}
+
+.delete-bill{
+  margin-right: 7px;
 }

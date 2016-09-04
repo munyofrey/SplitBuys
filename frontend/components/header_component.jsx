@@ -13,8 +13,8 @@ import BillFormContainer from './bills/new_bill_container'
 
   const loggedinOptions = (currentUser, logout) =>(
     <ul className='welcome-user after'>
-      <li className='username-welcome center-flex'> Welcome {currentUser.name}</li>
-      <li className='center-flex'><BillFormContainer className='button'/></li>
+      <li className='username-welcome center-flex'><Link to='/landing'> Welcome {currentUser.name}</Link></li>
+      <li className='center-flex'><BillFormContainer className='new-bill button'/></li>
       <li className='center-flex'><Link to='logout' className='logout button' onClick={logout}>Logout</Link></li>
     </ul>
   )
