@@ -67,6 +67,41 @@ class User < ActiveRecord::Base
 
 
   def sums
+    bill_sums = ActiveRecord::Base.connection.execute(<<-SQL)
+      SELECT name, users.id, SUM(paid.owed) as sum
+      FROM bills as paid
+          JOIN users ON users.id = paid.user_owe_id
+      WHERE paid.user_pay_id = #{self.id}
+      GROUP BY users.id
+      SQL
+    bill_negs = ActiveRecord::Base.connection.execute(<<-SQL)
+      SELECT name, users.id, SUM(paid.owed) as sum
+      FROM bills as paid
+          JOIN users ON users.id = paid.user_pay_id
+      WHERE paid.user_owe_id = #{self.id}
+      GROUP BY users.id
+      SQL
+    bill_to = Hash.new()
+    pos = bill_sums.map do |bill|
+      bill_to[bill['id'].to_i] = {
+        'sum' => bill['sum'].to_f.round(2),
+        'name' => bill['name'],
+        'id' => bill['id'].to_i}
+
+    end
+    neg = bill_negs.map do |bill|
+      if bill_to[bill['id'].to_i]
+        bill_to[bill['id'].to_i]['sum'] = (bill_to[bill['id'].to_i]['sum'] - bill['sum'].to_f).round(2)
+      else
+        bill_to[bill['id'].to_i] = {
+          'sum' => bill['sum'].to_f.round(2),
+          'name' => bill['name'],
+          'id' => bill['id'].to_i}
+      end
+    end
+    bill_total = []
+    bill_to.keys.each{|key| bill_total.push({key => bill_to[key]})}
+    bill_total
   end
 
 

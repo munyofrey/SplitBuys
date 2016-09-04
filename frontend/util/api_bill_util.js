@@ -30,6 +30,9 @@ export const updateBill = (bill, success, error) => (
 )
 
 
+
+
+
 //deleting
 export const deleteBill = (bill, success, error) => (
   $.ajax({

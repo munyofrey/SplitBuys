@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :bills, only: [:index, :create, :show, :update, :destroy]
     resources :bills, only: [:index, :create, :show, :update, :destroy]
-    resource :sum, only: :index
+    resources :sums, only: :index
   end
 end
