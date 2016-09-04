@@ -1,5 +1,5 @@
 import { billActions, receiveBills, receiveErrors } from '../actions/bill_actions'
-import { createBill, fetchAllBills, deleteBill } from '../util/api_bill_util';
+import { createBill, fetchAllBills, deleteBill, updateBill } from '../util/api_bill_util';
 import { hashHistory } from 'react-router'
 
 
@@ -23,10 +23,14 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
       break;
 
     case billActions.DELETE_BILL:
-    console.log(action.success);
       deleteBill(action.bill, action.success, error => console.log(error))
       return next(action)
-      default: return next(action)
+      break;
+    case billActions.UPDATE_BILL:
+      debugger;
+      updateBill(action.bill, action.success, errorCB)
+      return next(action)
+    default: return next(action)
 
   }
 }

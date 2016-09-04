@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateBill, receiveErrors } from '../../../actions/bill_actions';
+import { updateBill, receiveErrors, receiveBills } from '../../../actions/bill_actions';
 import BillEditFrom from './bill_edit_modal';
 
 
@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  updateBill: bill => dispatch(updateBill(bill)),
+  updateBill: (bill, success) => dispatch(updateBill(bill, success)),
+  receiveBills: bills => dispatch(receiveBills(bills)),
   receiveErrors: errors => dispatch(receiveErrors(errors))
 })
 

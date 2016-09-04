@@ -1,5 +1,3 @@
-
-
 //creating
 export const createBill = (bill, success, error) => (
   $.ajax({
@@ -20,20 +18,10 @@ export const fetchAllBills = (success, error) =>(
 )
 
 
-// //showing
-// export const fetchABill = (bill, success, error) => (
-//   $.ajax({
-//     url: `api/bills/${bill.id}`,
-//     success,
-//   })
-// )
-
-
-
 //updating
 export const updateBill = (bill, success, error) => (
   $.ajax({
-    url: 'api/bills/3',
+    url: `api/bills/${bill.bill.id}`,
     method:'PATCH',
     data: bill,
     success,

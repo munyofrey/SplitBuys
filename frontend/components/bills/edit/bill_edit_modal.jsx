@@ -28,6 +28,21 @@ class BillEditForm extends React.Component{
       payer_user_id: (this.props.bill.name_payer === this.props.currentUser.name) ? this.props.currentUser.id : this.props.bill.other_user_id,
       ower_user_id: (this.props.bill.ower === this.props.currentUser.name) ? this.props.currentUser.id : this.props.bill.other_user_id
     }
+    this.onClose = {
+      userOption: this.starting.startingUserOption,
+      modalIsOpen: false,
+      other_user_id: parseInt(this.props.bill.other_user_id),
+      user_pay_id: parseInt(this.starting.payer_user_id),
+      user_owe_id: parseInt(this.starting.ower_user_id),
+      percentOfTotal: this.starting.percentOfTotal,
+      description: this.props.bill.description,
+      note: this.props.bill.note,
+      owed: parseFloat(this.props.bill.owed),
+      total: parseFloat(this.props.bill.total),
+      date: this.props.bill.date.toISOString().slice(0, 10),
+      id: this.props.bill.id
+    }
+
     this.state = {
       userOption: this.starting.startingUserOption,
       modalIsOpen: false,
@@ -46,7 +61,7 @@ class BillEditForm extends React.Component{
     this.closeModal = this.closeModal.bind(this)
     this.update = this.update.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.updateAndRecieve = this.updateAndRecieve.bind(this)
+    this.updateAndreceive = this.updateAndreceive.bind(this)
     this.renderErrors = this.renderErrors.bind(this)
     this.handlePayers = this.handlePayers.bind(this)
     this.sliderUpdate = this.sliderUpdate.bind(this)
@@ -63,7 +78,18 @@ class BillEditForm extends React.Component{
   closeModal(){
     this.props.receiveErrors([])
     this.setState({
-      modalIsOpen: false
+      userOption: this.starting.startingUserOption,
+      modalIsOpen: false,
+      other_user_id: parseInt(this.props.bill.other_user_id),
+      user_pay_id: parseInt(this.starting.payer_user_id),
+      user_owe_id: parseInt(this.starting.ower_user_id),
+      percentOfTotal: this.starting.percentOfTotal,
+      description: this.props.bill.description,
+      note: this.props.bill.note,
+      owed: parseFloat(this.props.bill.owed),
+      total: parseFloat(this.props.bill.total),
+      date: this.props.bill.date.toISOString().slice(0, 10),
+      id: this.props.bill.id
     })
   }
 
@@ -86,14 +112,14 @@ class BillEditForm extends React.Component{
       note: billInfo.note,
       total: billInfo.total,
       owed: this.state.owed,
-      date: billInfo.date
+      date: billInfo.date,
+      id: billInfo.id
     }}
-    console.log('submited!');
-    console.log(bill);
+    this.props.updateBill(bill, bills => this.updateAndreceive(bills))
   }
 
 
-  updateAndRecieve(bills){
+  updateAndreceive(bills){
     this.closeModal();
     this.props.receiveBills(bills)
   }

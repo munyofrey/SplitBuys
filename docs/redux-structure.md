@@ -41,7 +41,7 @@ Redux structure, you'll need to do the same.
 currently my samply state stores errors in the corresponding components - but I think I like this implementation better.
 
 ### Error API Response Actions
-* `recieveErrors`
+* `receiveErrors`
   0. invoked from API callbacks on error for actions that generate POST requests
   0. the `ErrorReducer` stores the `form` in the application's state; `errors` are mapped to their respective forms
 * `removeErrors`

@@ -36,9 +36,10 @@ export const createBill = (bill, success) => ({
   success
 })
 
-export const updateBill = bill => ({
+export const updateBill = (bill, success) => ({
   type: billActions.UPDATE_BILL,
-  bill
+  bill,
+  success
 })
 
 export const deleteBill = (bill, success) => ({

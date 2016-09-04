@@ -43,19 +43,12 @@ class Api::BillsController < ApplicationController
   def update
     @bill = Bill.find_by_id(params[:id])
     unless  current_user && (@bill.user_owe_id == current_user.id || @bill.user_pay_id == current_user.id)
-      render(json: ["You can't edit a bill if you aren't a borrower or payer"],
-             status: 403)
-      return
+      render json: ["You can't edit a bill if you aren't a borrower or payer"], status: 403
     end
+
     if @bill && @bill.update(bill_params)
-      if @bill.user_owe_id == current_user.id
-        @user = @bill.user_pay_id
-        debugger;
-        render 'api/bills/show'
-      else
-        @user = @bill.user_owe_id
-        render 'api/bills/show'
-      end
+      @bills = current_user.all_bills
+      render json: @bills
     else
       render json: @bill.errors.full_messages, status: 422
     end
@@ -64,7 +57,7 @@ class Api::BillsController < ApplicationController
   def destroy
     @bill = Bill.find_by_id(params[:id])
     unless @bill.user_owe_id == current_user.id || @bill.user_pay_id == current_user.id
-      render json: ["You can't add a bill if you aren't a borrower or payer"],
+      render json: ["You can't delete a bill if you aren't a borrower or payer"],
              status: 403
     end
     if @bill
