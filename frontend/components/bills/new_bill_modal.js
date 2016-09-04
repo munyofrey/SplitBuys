@@ -29,7 +29,7 @@ class ModalBillForm extends React.Component{
       description: '',
       note: '',
       owed: 0,
-      total: 0,
+      total: '',
       date: ''
     }
 
@@ -66,7 +66,7 @@ class ModalBillForm extends React.Component{
      description: '',
      note: '',
      owed: 0,
-     total: 0,
+     total: '',
      date: ''
    });
   }
@@ -77,7 +77,9 @@ class ModalBillForm extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    this.state.owed = (this.state.total * this.state.percentOfTotal * .01).toFixed(2)
+    if (this.state.total === '') {this.state.total = 0}
+    this.state.owed = (parseFloat(this.state.total).toFixed(2) * this.state.percentOfTotal * .01).toFixed(2)
+    this.setState({total: parseFloat(this.state.total).toFixed(2)})
     const billInfo = this.state;
     const bill = {bill:{
       user_owe_id: billInfo.user_owe_id,
@@ -155,10 +157,8 @@ class ModalBillForm extends React.Component{
   }
 
   handleTotal(event){
-    let totalString = event.currentTarget.value
-    totalString = totalString === '' ? '0' : totalString
     this.setState({
-      total: parseInt(totalString)
+      total: event.currentTarget.value
     })
   }
 
@@ -234,8 +234,12 @@ class ModalBillForm extends React.Component{
                     <div className='title-detail'>
                     Total bill:
                   </div>
-                    <input className='new-bill-form moneyinput'
-                    name={this.state.total}
+                    <input
+                      type = 'number'
+                      step='any'
+                      min="0.01"
+                      className='new-bill-form moneyinput'
+                      placeholder={0}
                     value={this.state.total}
                     onChange={this.handleTotal}
                     className={formInput}/>
