@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.all.where('id != 1')  #FIX FOR NOT GUEST USER!!!
     render 'api/users/index'
   end
 

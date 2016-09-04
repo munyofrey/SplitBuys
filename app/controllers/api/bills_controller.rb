@@ -43,13 +43,14 @@ class Api::BillsController < ApplicationController
   def update
     @bill = Bill.find_by_id(params[:id])
     unless  current_user && (@bill.user_owe_id == current_user.id || @bill.user_pay_id == current_user.id)
-      render(json: ["You can't add a bill if you aren't a borrower or payer"],
+      render(json: ["You can't edit a bill if you aren't a borrower or payer"],
              status: 403)
       return
     end
     if @bill && @bill.update(bill_params)
       if @bill.user_owe_id == current_user.id
         @user = @bill.user_pay_id
+        debugger;
         render 'api/bills/show'
       else
         @user = @bill.user_owe_id

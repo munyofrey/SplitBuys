@@ -58,7 +58,6 @@ class ModalBillForm extends React.Component{
      listElements: true,
      listQuestions: false,
      userOption: '',
-     modalIsOpen: false,
      user_other_id: 0,
      user_pay_id: this.props.currentUser.id,
      user_owe_id: this.props.currentUser.id,

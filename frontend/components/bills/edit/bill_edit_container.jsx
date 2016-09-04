@@ -4,7 +4,8 @@ import BillEditFrom from './bill_edit_modal';
 
 
 const mapStateToProps = state => ({
-  errors: state.bills.errors
+  errors: state.bills.errors,
+  currentUser: state.session.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({
