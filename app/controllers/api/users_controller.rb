@@ -1,7 +1,14 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = User.all.where('id != 1')  #FIX FOR NOT GUEST USER!!!
+    usersStart = User.all.where("id != #{current_user.id}")
+    friends = current_user.friends
+    @users = []
+    usersStart.each  do |user|
+      unless friends.include?(user) || current_user.requests.where('pending = true').include?(user)
+        @users.push(user)
+      end
+    end
     render 'api/users/index'
   end
 

@@ -10,10 +10,7 @@ const Sidebar = () => (
       <Link to='/landing'>All Bills</Link>
     </div>
     <FriendContainer />
-    <div className='friend-search-container'>
-      I DON'T WORK YET
-      <UserSearchContainer />
-    </div>
+  
   </div>
 )
 

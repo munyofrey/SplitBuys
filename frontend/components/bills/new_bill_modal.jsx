@@ -182,8 +182,7 @@ class ModalBillForm extends React.Component{
                 <label><div className='title-detail'>You Split with:</div>
                     <UserSearchContainer
                       selectUser={this.selectUser}
-                      nameEntered= {this.state.nameEntered}
-                      userOptions={this.state.userOption}
+                      users={this.props.friends}
                       listElements={this.state.listElements}
                       changeUnentered={this.changeUnentered}/>
                 </label >

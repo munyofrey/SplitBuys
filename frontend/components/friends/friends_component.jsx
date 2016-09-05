@@ -1,13 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router';
+import UserSearchContainer from '../users/user_search_container'
+
 
 class FriendComponent extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      listElements: false
+    }
+    this.changeUnentered = this.changeUnentered.bind(this);
+    this.selectUser = this.selectUser.bind(this)
   }
 
   componentDidMount(){
     this.props.requestFriends()
+    this.props.requestAllUsers()
+  }
+
+  changeUnentered(){
+    console.log('hit!');
+    this.setState({
+      listElements:true
+    })
+  }
+
+  selectUser(user){
+    console.log('I clicked on a user');
   }
 
   render(){
@@ -35,7 +54,13 @@ class FriendComponent extends React.Component{
             {this.props.friends[1].map(friend => (friend.name))}
           </ul>
         </div>
-
+        <div className='friend-search-container'>
+          <UserSearchContainer
+            selectUser={this.selectUser}
+            users={this.props.users}
+            listElements={this.state.listElements}
+            changeUnentered={this.changeUnentered}/>
+        </div>
       </div>
     )
   }

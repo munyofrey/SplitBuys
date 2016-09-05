@@ -5,7 +5,8 @@ import ModalBillForm from './new_bill_modal'
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  errors: state.bills.errors
+  errors: state.bills.errors,
+  friends: state.friends[0]
 })
 
 const mapDispatchToProps = dispatch => ({

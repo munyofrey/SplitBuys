@@ -8,7 +8,8 @@ class UserSearch extends React.Component{
     }
     this.selectName = this.selectName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.matches = this.matches.bind(this)
+    this.matches = this.matches.bind(this);
+
   }
 
   handleSubmit(event){
@@ -16,14 +17,11 @@ class UserSearch extends React.Component{
     this.setState({searchInput: event.currentTarget.value})
   }
 
-  componentDidMount(){
-    this.props.requestAllUsers()
-  }
 
   matches(){
-    let matches = []
-    let users = this.props.users
-    let searchInput = this.state.searchInput
+    let matches = [];
+    let users = this.props.users;
+    let searchInput = this.state.searchInput;
     if(searchInput.length === 0){return null}
     return this.props.users.filter(user => {
       return (user.name.slice(0, searchInput.length).toLowerCase() === searchInput.toLowerCase())
@@ -31,7 +29,6 @@ class UserSearch extends React.Component{
   }
 
   selectName(user){
-    console.log('clicked');
     let name = event.currentTarget.innerText
     this.setState({searchInput: user.name})
     this.props.selectUser(user)

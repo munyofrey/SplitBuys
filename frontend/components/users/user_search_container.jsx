@@ -4,11 +4,11 @@ import { requestAllUsers } from '../../actions/user_actions';
 
 
 const mapDispatchToProps = dispatch => ({
-  requestAllUsers: () => dispatch(requestAllUsers())
+
 })
 
 const mapStateToProps = state => ({
-  users: state.users
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserSearch)
