@@ -7,11 +7,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create!(name:'tester', email:'guestuser@splitbys.com', password: 'password');
+User.create!(name:'Angela', email:'guestuser@splitbys.com', password: 'password');
+
+Friend.create(user_one_id:1, user_two_id: 2)
+Friend.create(user_one_id:5, user_two_id: 1)
+Friend.create(user_one_id:1, user_two_id: 4, pending: false)
+Friend.create(user_one_id:4, user_two_id: 1, pending: false)
+Friend.create(user_one_id:1, user_two_id: 3, pending: false)
+Friend.create(user_one_id:3, user_two_id: 1, pending: false)
+
 
 15.times{
   user = {
-    name: Faker::Name.name,
+    name: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: Faker::Internet.password(6)
     }
@@ -21,7 +29,7 @@ User.create!(name:'tester', email:'guestuser@splitbys.com', password: 'password'
 10.times{
   Bill.create!(
   description: Faker::Hipster.sentence(3),
-  note: Faker::Hipster.paragraph(3),
+  note: Faker::Hipster.paragraph(2),
   total: 100.50,
   owed: rand(1.00..100.50).round(2),
   user_pay_id: 1,
@@ -33,7 +41,7 @@ User.create!(name:'tester', email:'guestuser@splitbys.com', password: 'password'
 10.times{
   Bill.create!(
   description: Faker::Hipster.sentence(3),
-  note: Faker::Hipster.paragraph(3),
+  note: Faker::Hipster.paragraph(2),
   total: 100.50,
   owed: rand(1.00..100.50).round(2),
   user_owe_id: 1,

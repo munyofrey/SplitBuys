@@ -27,6 +27,27 @@ class User < ActiveRecord::Base
   foreign_key: :user_pay_id,
   class_name: "Bill")
 
+  has_many :friend_items,
+  primary_key: :id,
+  foreign_key: :user_one_id,
+  class_name: 'Friend'
+
+  has_many :request_items,
+  primary_key: :id,
+  foreign_key: :user_two_id,
+  class_name: 'Friend'
+
+  has_many :friends,
+  through: :friend_items,
+  source: :friend_two
+
+  has_many :requests,
+  through: :request_items,
+  source: :friend_one
+
+
+
+
   #bills
 
   def all_bills
@@ -110,6 +131,13 @@ class User < ActiveRecord::Base
       end
     end
     [bill_owed_by, bill_owed_to]
+  end
+
+  def find_friends
+    friends = self.friends.where('pending=false')
+    pending = self.friends.where('pending=true')
+    requests = self.requests.where('pending=true')
+    [friends, pending, requests]
   end
 
 
