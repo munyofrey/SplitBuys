@@ -240,8 +240,8 @@ class BillEditForm extends React.Component{
 
                             <label><div className='title-detail'>
                               What percent of the total bill does
-                              {currentUser.id === this.state.user_owe_id ?
-                                ` ${currentUser.name} ` : ` ${this.state.userOption} `}
+                              {this.props.currentUser.id === this.state.user_owe_id ?
+                                ` ${this.props.currentUser.name} ` : ` ${this.state.userOption} `}
                               owe? </div><br />
                               <input
                                 type="range"

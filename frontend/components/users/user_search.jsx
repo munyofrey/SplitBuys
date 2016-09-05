@@ -31,6 +31,7 @@ class UserSearch extends React.Component{
   }
 
   selectName(user){
+    console.log('clicked');
     let name = event.currentTarget.innerText
     this.setState({searchInput: user.name})
     this.props.selectUser(user)

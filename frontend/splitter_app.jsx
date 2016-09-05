@@ -10,8 +10,6 @@ import Modal from 'react-modal';
 
 
 
-window.requestSums = () => window.store.dispatch(requestSums())
-
 document.addEventListener("DOMContentLoaded", ()=>{
   const root = document.getElementById("root");
   let store;
