@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store'
 import Root from './root';
-import {requestAllUsers} from './actions/user_actions';
+import {requestSums} from './actions/sums_actions';
 import Modal from 'react-modal';
 
 
@@ -10,7 +10,7 @@ import Modal from 'react-modal';
 
 
 
-window.requestAllUsers = () => window.store.dispatch(requestAllUsers())
+window.requestSums = () => window.store.dispatch(requestSums())
 
 document.addEventListener("DOMContentLoaded", ()=>{
   const root = document.getElementById("root");

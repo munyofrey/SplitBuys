@@ -5,6 +5,7 @@ import App from './app';
 import HeaderContainer from './components/header_container';
 import SignupContainer from './components/signup_component_container';
 import Landing from './components/landing_component';
+import Sums from './components/sums/sums_container';
 class AppRouter  extends React.Component{
 
   constructor(props){
@@ -44,6 +45,7 @@ class AppRouter  extends React.Component{
       <Route path='/' component={App}>
         <Route path='logout'/>
         <Route path='landing' component={Landing} onEnter={this._ensureLoggedIn}/>
+        <Route path='totals' component={Sums} onEnter={this._ensureLoggedIn}/>
       </ Route>
     </ Router>
   )}

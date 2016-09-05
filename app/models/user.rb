@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
       end
     end
     bill_total = []
-    bill_to.keys.each{|key| bill_total.push({key => bill_to[key]})}
+    bill_to.keys.each{|key| bill_total.push(bill_to[key])}
     bill_total
   end
 
