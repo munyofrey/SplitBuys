@@ -11,5 +11,5 @@ export const requestSums = () => ({
 
 export const receiveSums = (sums) => ({
   type: sumConstants.RECEIVE_SUMS,
-  sums,
+  sums
 })

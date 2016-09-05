@@ -99,9 +99,18 @@ class User < ActiveRecord::Base
           'id' => bill['id'].to_i}
       end
     end
-    bill_total = []
-    bill_to.keys.each{|key| bill_total.push(bill_to[key])}
-    bill_total
+    bill_owed_to = []
+    bill_owed_by = []
+    bill_to.keys.each do |key|
+      if bill_to[key]['sum'] < 0
+        bill_to[key]['sum'] =bill_to[key]['sum'].abs
+        bill_owed_by.push(bill_to[key])
+      elsif bill_to[key]['sum'] > 0
+        bill_owed_to.push(bill_to[key])
+      end
+    end
+
+    [bill_owed_by, bill_owed_to]
   end
 
 

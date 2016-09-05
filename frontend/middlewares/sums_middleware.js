@@ -11,7 +11,7 @@ const SumsMiddleware = ({getstate, dispatch}) => next => action => {
   };
   switch (action.type) {
     case sumConstants.REQUEST_SUMS:
-      let successCB = sums => dispatch(receiveSums(sums))
+      let successCB = sums => {dispatch(receiveSums(sums))}
       fetchSums(successCB, errorCB);
       return next(action)
       break;
