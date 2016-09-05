@@ -1,16 +1,16 @@
 import React from 'react';
 import BillListContainer from './bills/bill_list_component_container';
-import UserSearchContainer from './users/user_search_container';
+
+import Sidebar from './sidebar'
 
 const Landing = () => (
+  <div>
+  <div className='header-block-fix'/>  
   <div className='body-under-header'>
-    <div className='sidebar'>
-      <div className='friend-search-container'>
-        <UserSearchContainer />
-      </div>
-    </div>
+    <Sidebar />
     <BillListContainer />
   </div>
+</div>
 );
 
 export default Landing;

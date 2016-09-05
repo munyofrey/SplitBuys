@@ -45,8 +45,8 @@ deleteBillItem(bill){
           <tr className='bill-table-row'>
             <td className='bill-table-element'>{this.props.bill.date.toDateString()}</td>
             <td className='bill-table-element'>{this.props.bill.description}</td>
-            <td className='bill-table-element'>{`$ ${this.props.bill.owed}`}</td>
-            <td className='bill-table-element'>{`$ ${this.props.bill.total}`}</td>
+            <td className='bill-table-element'>{`$ ${parseFloat(this.props.bill.owed).toFixed(2)}`}</td>
+            <td className='bill-table-element'>{`$ ${parseFloat(this.props.bill.total).toFixed(2)}`}</td>
             <td className='bill-table-element'>{this.props.bill.name_payer}</td>
             <td className='bill-table-element'>{this.props.bill.ower}</td>
 
@@ -66,9 +66,9 @@ deleteBillItem(bill){
 
               <li className='bill-detail'> <ul className='bill-item-small-list'>
                 <li className='bill-detail'><div className='title-detail'>{this.props.bill.name_payer} owes:</div>
-                ${this.props.bill.owed}</li>
+                ${parseFloat(this.props.bill.owed).toFixed(2)}</li>
                 <li className='bill-detail'><div className='title-detail'> Total Bill:</div>
-                ${this.props.bill.total}</li></ul></li>
+                ${parseFloat(this.props.bill.total).toFixed(2)}</li></ul></li>
 
                 <li className='bill-detail'><ul className='bill-item-small-list'>
                 <li className='bill-detail'><div className='title-detail'>Who paid:</div>

@@ -5,11 +5,13 @@ import { Link } from 'react-router';
 
 const Sidebar = () => (
   <div className='sidebar'>
-    <div className='friend-search-container'>
-
-      <UserSearchContainer />
-    <Link to='/totals'>Totals</Link>
+    <div className='sidebar-nav'>
+      <Link to='/totals'>Totals</Link>
       <Link to='/landing'>All Bills</Link>
+    </div>
+    <div className='friend-search-container'>
+      I DON'T WORK YET
+      <UserSearchContainer />
     </div>
   </div>
 )

@@ -143,7 +143,7 @@ h2 {
  }
 
  .header-block-fix{
-   height:80px;
+   height:76px;
    width: 100%;
  }
 
@@ -325,15 +325,7 @@ h2 {
 
 
 
-.sidebar{
-  margin-left: 0;
-  width: 35%;
-  min-height: 700px;
-  height: 100%;
-  background: gray;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
+
 
 .body-under-header{
   width: 75%;
@@ -450,9 +442,11 @@ div.bill-form-container{
   max-height: 50%;
 }
 
-textarea.new-bill-form-input{
+textarea{
+  resize: none;
   width: 300px;
-  max-height: 200px;
+  height: 100px;
+  border-radius: 5px;
 }
 
 
@@ -607,4 +601,101 @@ div.guest-login.button{
 
   font-weight: bold;
   font-size: 20px;
+}
+
+
+/*SUMS*/
+
+.sums-user-is-owed{
+  width: 30%
+}
+
+h5.sums{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.sums-is-owed{
+}
+
+.sums-is-owed > li{
+  background: rgb(10, 160, 70);
+  margin: 7px;
+  border-radius: 7px;
+  width: 170px;
+  align-items: center;
+  box-shadow: 5px 5px 5px -2px #315c49;
+
+}
+a.link-users:hover{
+  text-shadow: 2px 2px #315c49;
+  color: #eee
+}
+a.link-users{
+  margin-left: 10px;
+  color: #ccc;
+  font-weight: bold;
+}
+
+div.sums-divider{
+  width: 100px;
+}
+div.sum-users{
+  margin-left: 5px;
+  color: #ccc;
+  margin-left: 90px;
+}
+
+.sums-user-owes{
+}
+
+.sums-owes > li{
+  background: rgb(220, 100, 0);
+  margin: 7px;
+  border-radius: 7px;
+  width: 170px;
+  box-shadow: 5px 5px 5px -2px rgb(80, 60, 10);
+  display:block;
+}
+
+.sums-owes{
+  width: 30%
+}
+
+.sums-container{
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+/*Sidebar*/
+
+.sidebar{
+  margin-left: 0;
+  width: 25%;
+  min-height: 700px;
+  height: 100%;
+  background: gray;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.sidebar-nav{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.sidebar-nav > a{
+  margin: 10px 15px;
+  text-align: left;
+  font-size: 18px;
+
+}
+
+.sidebar-nav > a:hover{
+  text-shadow: 1px 1px rgb(45, 90, 60);
+
 }

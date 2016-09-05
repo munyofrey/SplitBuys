@@ -2,19 +2,20 @@ import React from 'react';
 import BillDetail from './bill_detail_component';
 import ModalBillForm from './new_bill_modal';
 
+
 class billList extends React.Component{
   constructor(props){
     super(props)
   }
 
   componentDidMount(){
+    
     this.props.requestBills()
   }
 
   render(){
     return(
       <div className='rightside-block'>
-        <div className='header-block-fix'></div>
         <div className='bill_list_component'>
           <table className='bill-list-table'>
             <thead>
