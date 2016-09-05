@@ -4,7 +4,8 @@ import { requestAllUsers } from '../../actions/user_actions';
 import FriendComponent from './friends_component';
 
 const mapStateToProps = state => ({
-  friends: state.friends
+  friends: state.friends,
+  users: state.users
 })
 
 const mapDispatchToProps = dispatch => ({
