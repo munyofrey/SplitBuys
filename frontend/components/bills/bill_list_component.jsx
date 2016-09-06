@@ -9,8 +9,9 @@ class billList extends React.Component{
   }
 
   componentDidMount(){
-    
-    this.props.requestBills()
+    if (this.props.path.slice(1) === 'landing'){
+      this.props.requestBills()
+    }else{}
   }
 
   render(){
@@ -48,3 +49,8 @@ class billList extends React.Component{
 
 
 export default billList;
+
+//     \w*\/(\d*)
+// new RegExp("\w*\/(\d*)");
+//     this.props.requestFriendHistory(this.props.path)}
+// }

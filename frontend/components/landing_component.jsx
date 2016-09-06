@@ -3,14 +3,20 @@ import BillListContainer from './bills/bill_list_component_container';
 
 import Sidebar from './sidebar'
 
-const Landing = () => (
-  <div>
-  <div className='header-block-fix'/>  
-  <div className='body-under-header'>
-    <Sidebar />
-    <BillListContainer />
-  </div>
-</div>
-);
+class Landing extends React.Component{
+  constructor(props){
+    super(props)
+  }
 
+
+  render(){return(
+    <div>
+    <div className='header-block-fix'/>
+    <div className='body-under-header'>
+      <Sidebar />
+      <BillListContainer path={this.props.location.pathname}/>
+    </div>
+  </div>
+  )};
+}
 export default Landing;

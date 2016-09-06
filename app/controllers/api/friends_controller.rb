@@ -6,12 +6,13 @@ class Api::FriendsController < ApplicationController
 
 
   def show
-    #????
+    @bills = current_user.all_bills_for_friend(params[:id])
+    render json: @bills
   end
 
   def create
     @friend = Friend.new(create_params)
-    
+
     if current_user.requests.where('pending = true').include?(User.find_by_id(create_params[:user_two_id]))
       @friend.pending = false
       Friend.update({
