@@ -27,7 +27,6 @@ const BillsMiddleware = ({getstate, dispatch}) => next => action => {
       return next(action)
       break;
     case billActions.UPDATE_BILL:
-      debugger;
       updateBill(action.bill, action.success, errorCB)
       return next(action)
     default: return next(action)

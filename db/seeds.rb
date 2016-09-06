@@ -10,14 +10,20 @@
 User.create!(name:'Angela', email:'guestuser@splitbys.com', password: 'password');
 
 Friend.create(user_one_id:1, user_two_id: 2)
-Friend.create(user_one_id:5, user_two_id: 1)
+Friend.create(user_one_id:7, user_two_id: 1)
+Friend.create(user_one_id:8, user_two_id: 1)
 Friend.create(user_one_id:1, user_two_id: 4, pending: false)
 Friend.create(user_one_id:4, user_two_id: 1, pending: false)
 Friend.create(user_one_id:1, user_two_id: 3, pending: false)
 Friend.create(user_one_id:3, user_two_id: 1, pending: false)
+Friend.create(user_one_id:1, user_two_id: 5, pending: false)
+Friend.create(user_one_id:5, user_two_id: 1, pending: false)
+Friend.create(user_one_id:1, user_two_id: 6, pending: false)
+Friend.create(user_one_id:6, user_two_id: 1, pending: false)
 
 
-15.times{
+
+20.times{
   user = {
     name: Faker::Name.first_name,
     email: Faker::Internet.email,
@@ -33,7 +39,7 @@ Friend.create(user_one_id:3, user_two_id: 1, pending: false)
   total: 100.50,
   owed: rand(1.00..100.50).round(2),
   user_pay_id: 1,
-  user_owe_id: rand(2..15),
+  user_owe_id: rand(3..6),
   date: Faker::Date.between(90.days.ago, Date.today)
   )
 }
@@ -45,7 +51,7 @@ Friend.create(user_one_id:3, user_two_id: 1, pending: false)
   total: 100.50,
   owed: rand(1.00..100.50).round(2),
   user_owe_id: 1,
-  user_pay_id: rand(2..15),
+  user_pay_id: rand(3..6),
   date: Faker::Date.between(90.days.ago, Date.today)
   )
 }

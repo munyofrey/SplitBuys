@@ -22,8 +22,9 @@ const billReducer = (oldState = preloadedState, action) => {
     case billActions.DELETE_BILL:
       oldStateClone = merge({}, oldState, oldState);
       newState = [];
-      oldStateClone = oldStateClone.bills.forEach(bill => {if(bill.id !== action.bill.id){newState.push(bill)}})
-      return merge({}, oldState, { bills: newState })
+      oldStateClone.bills.forEach(bill => {if(bill.id !== action.bill.id){newState.push(bill)}})
+      oldStateClone.bills = newState
+      return oldStateClone
     default: return oldState
 
 

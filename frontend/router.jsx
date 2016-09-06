@@ -43,7 +43,6 @@ class AppRouter  extends React.Component{
 
 
   render(){
-    console.log(this);
     return (
     <Router history={ hashHistory }>
       <Route path='/signup' component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
