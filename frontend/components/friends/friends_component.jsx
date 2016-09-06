@@ -80,7 +80,7 @@ handleRequest(){
     return(
       <div className='friends-container'>
 
-        <div className='users-friend-requests'>
+        { this.props.friends[2].length === 0 ?  "" : <div className='users-friend-requests'>
           <h5 className='friend-header'>You have friend Requests!</h5>
           <ul>
             {this.props.friends[2].map(friend =>
@@ -91,23 +91,20 @@ handleRequest(){
                     onClick={this.acceptRequest.bind(this, friend)
                     }>Accept Request</div></li>))}
           </ul>
-        </div>
+        </div>}
         <div className='current-friends-list'>
           <h5 className='friend-header'>Friends</h5>
           <ul>
             {this.props.friends[0].map(friend =>
               (<li><Link to={`friends/${friend.id}`}>{friend.name}</Link></li>)
             )}
+            {this.props.friends[1].map(friend => (<li>{friend.name} <strong> pending </strong></li>))}
           </ul>
         </div>
 
-        <div className='friend-pending-requests'>
-          <h5 className='friend-header'>You are awaiting responses from the following users</h5>
-          <ul>
-            {this.props.friends[1].map(friend => (<li>{friend.name}</li>))}
-          </ul>
-        </div>
+
         <div className='friend-search-container'>
+          <h5>Find new friends!</ h5>
           <UserSearchContainer
             selectUser={this.selectUser}
             users={this.props.users}

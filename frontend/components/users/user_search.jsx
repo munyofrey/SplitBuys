@@ -44,7 +44,10 @@ class UserSearch extends React.Component{
           <li key={`${user.name}${user.id}`} onClick={this.selectName.bind(this, user)}>{user.name}</li>)}
       return(
         <div className='user-search-container'>
-          <input onChange={this.handleSubmit} value={this.state.searchInput} />
+          <input onChange={this.handleSubmit}
+            value={this.state.searchInput}
+            className='user-search'
+            placeholder='Find friends' />
           {(this.props.listElements) ? <ul className='all-users'>{matchers}</ul> : ''}
         </div>)
   }
