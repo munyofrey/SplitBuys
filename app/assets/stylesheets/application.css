@@ -363,6 +363,11 @@ table{
   border-radius: 5px;
   box-shadow: 1px 1px 1px #000000, 0px 0px .5px rgb(32, 32, 19);
   margin: 5px 0px;
+  border-collapse: collapse;
+}
+
+tr:hover{
+  background: #eee;
 }
 
  ul.bill_item_list{

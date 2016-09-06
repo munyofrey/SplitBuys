@@ -3,8 +3,7 @@ import { merge } from 'lodash';
 
   const preloadedState = {
     bills: [],
-    errors: [],
-    modalIsOpen: false
+    errors: []
   }
 
 const billReducer = (oldState = preloadedState, action) => {
