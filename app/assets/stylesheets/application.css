@@ -711,10 +711,32 @@ div.current-friends-list > ul{
   border-bottom: 1px solid #ccc;
 }
 
+
 div.current-friends-list > ul >li{
   color: white;
   margin: 5px 0px;
   border-top: 1px solid #ccc;
+
+}
+
+div.users-friend-requests > ul >li{
+  color: white;
+  margin: 5px 0px;
+  border-top: 1px solid #ccc;
+}
+
+div.users-friend-requests > ul{
+  margin-left: 5px;
+  border-bottom: 1px solid #ccc;
+
+}
+.small-button{
+  font-size: 12px;
+  text-align: center;
+  margin-top: 4px;
+}
+.small-button:hover {
+  text-shadow: 1px 1px #2F4F4F;
 }
 
 
@@ -727,10 +749,21 @@ h5.friend-header{
 strong{
   font-weight: normal;
   font-style: italic;
+  font-size: 12px;
+  margin-top: 4px;
 }
 
 
+.bill-form-container > h5{
+  margin: 10px 0px;
+}
 
+
+.request-holder{
+  display: flex;
+  justify-content: space-between;
+
+}
 
 /*table*/
 

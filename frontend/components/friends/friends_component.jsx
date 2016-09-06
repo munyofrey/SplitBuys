@@ -84,12 +84,12 @@ handleRequest(){
           <h5 className='friend-header'>You have friend Requests!</h5>
           <ul>
             {this.props.friends[2].map(friend =>
-              (<li>
+              (<li><div className='request-holder'>
                 <div>{friend.name}</div>
                   <div
                     className='small-button'
                     onClick={this.acceptRequest.bind(this, friend)
-                    }>Accept Request</div></li>))}
+                    }>Accept</div></ div></li>))}
           </ul>
         </div>}
         <div className='current-friends-list'>
@@ -98,7 +98,9 @@ handleRequest(){
             {this.props.friends[0].map(friend =>
               (<li><Link to={`friends/${friend.id}`}>{friend.name}</Link></li>)
             )}
-            {this.props.friends[1].map(friend => (<li>{friend.name} <strong> pending </strong></li>))}
+
+              {this.props.friends[1].map(friend => (<li><div className='request-holder'>{friend.name}
+                <strong> pending </strong></ div></li>))}
           </ul>
         </div>
 
