@@ -6,9 +6,18 @@ class FriendHistoryDetail extends React.Component{
 
   constructor(props){
     super(props)
+    this.state = {
+      path: this.props.location.pathname.split(/\/\w*\/(\d*)/)[1]
+    }
   }
 
   componentDidMount(){
+    console.log(this.props.location.pathname);
+    this.props.requestFriendHistory(this.state.path)
+  }
+
+  componentWillReceiveProps(nextProps, nextState){
+    this.props.requestFriendHistory(nextProps.routeParams.friend_id);
   }
 
 

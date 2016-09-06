@@ -12,9 +12,7 @@ class billList extends React.Component{
     const path = this.props.path.slice(1);
     if ( path === 'landing'){
       this.props.requestBills()
-    }else{
-      console.log(path.split(/\w*\/(\d*)/)[1]);
-      this.props.requestFriendHistory(path.split(/\w*\/(\d*)/)[1])}
+    }
   }
 
   render(){

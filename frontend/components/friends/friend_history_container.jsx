@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  requestFriendHistory: () => dispatch(requestFriendHistory())
+  requestFriendHistory: (friend_id) => dispatch(requestFriendHistory(friend_id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FriendHistoryDetail);

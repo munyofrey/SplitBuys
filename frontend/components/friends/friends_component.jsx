@@ -96,7 +96,7 @@ handleRequest(){
           <h5 className='friend-header'>Friends</h5>
           <ul>
             {this.props.friends[0].map(friend =>
-              (<li><Link to={`friends/${friend.id}`}>{friend.name}</Link></li>)
+              (<li><Link to={`/friends/${friend.id}`}>{friend.name}</Link></li>)
             )}
 
               {this.props.friends[1].map(friend => (<li><div className='request-holder'>{friend.name}

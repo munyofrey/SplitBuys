@@ -15,7 +15,6 @@ const FriendsMiddleware = ({getState, dispatch}) => next => action => {
       return next(action)
     case friendActions.REQUEST_HISTORY:
       successCB = bills => dispatch(receiveBills(bills))
-      console.log(action.friend_id);
       fetchFriendBills(action.friend_id, successCB, errorCB)
     default: return next(action)
 

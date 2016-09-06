@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905174758) do
+ActiveRecord::Schema.define(version: 20160906175634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20160905174758) do
 
   add_index "bills", ["user_owe_id"], name: "index_bills_on_user_owe_id", using: :btree
   add_index "bills", ["user_pay_id"], name: "index_bills_on_user_pay_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "bill_id",    null: false
+    t.string   "body",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["bill_id"], name: "index_comments_on_bill_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "friends", force: :cascade do |t|
     t.integer  "user_one_id",                null: false

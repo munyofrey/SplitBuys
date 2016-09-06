@@ -39,15 +39,22 @@ class AppRouter  extends React.Component{
       }
     }
 
-  render(){ return (
+
+
+
+  render(){
+    console.log(this);
+    return (
     <Router history={ hashHistory }>
-      <Route path='signup' component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
-      <Route path='login' component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
+      <Route path='/signup' component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
+      <Route path='/login' component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
       <Route path='/' component={App}>
-        <Route path='logout'/>
-        <Route path='landing' component={Landing} onEnter={this._ensureLoggedIn}/>
-        <Route path='totals' component={Sums} onEnter={this._ensureLoggedIn}/>
-        <Router path='friends/:friend_id' component={FriendHistoryContainer} onEnter={this._ensureLoggedIn} />
+        <Route path='/logout'/>
+        <Route path='/landing' component={Landing} onEnter={this._ensureLoggedIn} />
+        <Route path='/totals' component={Sums} onEnter={this._ensureLoggedIn}/>
+        <Router path='/friends/:friend_id'
+          component={FriendHistoryContainer}
+          onEnter={this._ensureLoggedIn}/>
       </ Route>
     </ Router>
   )}
