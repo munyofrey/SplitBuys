@@ -7,9 +7,6 @@ import Modal from 'react-modal';
 
 
 
-
-
-
 document.addEventListener("DOMContentLoaded", ()=>{
   const root = document.getElementById("root");
   let store;

@@ -17,3 +17,13 @@ export const createFriend = (friend, success, error) => (
     data: friend
   })
 )
+
+
+
+export const fetchFriendBills = (friend_id, success, error) => (
+  $.ajax({
+    url: `api/friends/${friend_id}`,
+    success,
+    error
+  })
+)

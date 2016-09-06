@@ -5,7 +5,8 @@ import FriendComponent from './friends_component';
 
 const mapStateToProps = state => ({
   friends: state.friends,
-  users: state.users
+  users: state.users,
+  currentUser: state.session.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({

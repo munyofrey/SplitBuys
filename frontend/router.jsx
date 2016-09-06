@@ -6,6 +6,7 @@ import HeaderContainer from './components/header_container';
 import SignupContainer from './components/signup_component_container';
 import Landing from './components/landing_component';
 import Sums from './components/sums/sums_container';
+import FriendHistoryContainer from './components/friends/friend_history_container'
 class AppRouter  extends React.Component{
 
   constructor(props){
@@ -21,7 +22,7 @@ class AppRouter  extends React.Component{
     const currentState = this.context.store.getState();
      const currentUser = currentState.session.currentUser;
      if (currentUser) {
-       hashHistory.push('/');
+       replace('/landing');
      }
    }
 
@@ -46,6 +47,7 @@ class AppRouter  extends React.Component{
         <Route path='logout'/>
         <Route path='landing' component={Landing} onEnter={this._ensureLoggedIn}/>
         <Route path='totals' component={Sums} onEnter={this._ensureLoggedIn}/>
+        <Router path='friends/:friend_id' component={FriendHistoryComponent} />
       </ Route>
     </ Router>
   )}
