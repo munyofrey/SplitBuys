@@ -1,6 +1,6 @@
 import { friendActions, receiveFriends } from '../actions/friend_actions';
 import { receiveBills } from '../actions/bill_actions';
-import { fetchFriends, createFriend, fetchFriendHistory } from '../util/api_friends_util';
+import { fetchFriends, createFriend, fetchFriendBills } from '../util/api_friends_util';
 
 const FriendsMiddleware = ({getState, dispatch}) => next => action => {
   const errorCB = errors => console.log(errors);
@@ -14,8 +14,9 @@ const FriendsMiddleware = ({getState, dispatch}) => next => action => {
       createFriend(action.friend, successCB, errorCB)
       return next(action)
     case friendActions.REQUEST_HISTORY:
-      successCB = bills => dispatch(recieveBills(bills))
-      fetchFriendHistory(action.friend_id, successCB, errorCB)
+      successCB = bills => dispatch(receiveBills(bills))
+      console.log(action.friend_id);
+      fetchFriendBills(action.friend_id, successCB, errorCB)
     default: return next(action)
 
   }

@@ -9,7 +9,6 @@ class FriendHistoryDetail extends React.Component{
   }
 
   componentDidMount(){
-    this.props.requestFriendHistory()
   }
 
 
@@ -20,7 +19,6 @@ class FriendHistoryDetail extends React.Component{
         <div className='body-under-header'>
           <Sidebar/>
           <div>
-            <h2>I'm a friend's transaction history page!</h2>
             <BillListContainer path={this.props.location.pathname}/>
           </div>
         </ div>

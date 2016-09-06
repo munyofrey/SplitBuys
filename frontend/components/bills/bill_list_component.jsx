@@ -9,9 +9,12 @@ class billList extends React.Component{
   }
 
   componentDidMount(){
-    if (this.props.path.slice(1) === 'landing'){
+    const path = this.props.path.slice(1);
+    if ( path === 'landing'){
       this.props.requestBills()
-    }else{}
+    }else{
+      console.log(path.split(/\w*\/(\d*)/)[1]);
+      this.props.requestFriendHistory(path.split(/\w*\/(\d*)/)[1])}
   }
 
   render(){
@@ -35,7 +38,6 @@ class billList extends React.Component{
             <BillDetail
               bill={bill}
               key={`${bill.id}`}
-              clickFunction={()=>console.log('darn')}
               deleteBill={this.props.deleteBill}/>
            ))}
         </table>
@@ -49,8 +51,3 @@ class billList extends React.Component{
 
 
 export default billList;
-
-//     \w*\/(\d*)
-// new RegExp("\w*\/(\d*)");
-//     this.props.requestFriendHistory(this.props.path)}
-// }

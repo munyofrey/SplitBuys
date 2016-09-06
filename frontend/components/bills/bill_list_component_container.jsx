@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   requestBills: () => dispatch(requestBills()),
   deleteBill: (bill, success) => dispatch(deleteBill(bill, success)),
-  requestFriendHistory: () => dispatch(requestFriendHistory())
+  requestFriendHistory: friend_id => dispatch(requestFriendHistory(friend_id))
 })
 
 
