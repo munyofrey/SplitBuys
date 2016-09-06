@@ -807,3 +807,11 @@ div.friend-search-container > h5 {
   margin: 10px;
   color: #2F4F4F;
 }
+
+
+div.user-search-container{
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

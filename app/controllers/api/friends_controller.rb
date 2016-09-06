@@ -29,6 +29,25 @@ class Api::FriendsController < ApplicationController
   end
 
 
+  def destroy
+    friend_one = Friend.find_by({
+      user_two_id: current_user.id,
+      user_one_id: params[:id].to_i,
+      })
+    friend_two = Friend.find_by({
+      user_two_id: params[:id].to_i,
+      user_one_id: current_user.id,
+      })
+    if friend_one
+      friend_one.delete
+    end
+    if friend_two
+      friend_two.delete
+    end
+    render json: current_user.find_friends
+  end
+
+
 private
 
 def create_params

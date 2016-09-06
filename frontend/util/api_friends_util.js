@@ -27,3 +27,13 @@ export const fetchFriendBills = (friend_id, success, error) => (
     error
   })
 )
+
+
+export const deleteFriend = (friend_id, success, error) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/friends/${friend_id}`,
+    success,
+    error
+  })
+)

@@ -46,6 +46,7 @@ class FriendComponent extends React.Component{
     this.props.createFriend(friend)
   }
 
+
   componentDidMount(){
     this.props.requestFriends()
     this.props.requestAllUsers()
@@ -86,10 +87,14 @@ handleRequest(){
             {this.props.friends[2].map(friend =>
               (<li key={`friendlist${friend.id}`}><div className='request-holder'>
                 <div>{friend.name}</div>
-                  <div
+                  <div><div
                     className='small-button'
                     onClick={this.acceptRequest.bind(this, friend)
-                    }>Accept</div></ div></li>))}
+                    }>Accept</div>
+                    <div
+                      className='small-button'
+                      onClick={this.props.deleteFriend.bind(this, friend.id)
+                      }></div></div></div></li>))}
           </ul>
         </div>}
         <div className='current-friends-list'>
