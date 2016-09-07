@@ -27,7 +27,7 @@ const billReducer = (oldState = preloadedState, action) => {
       return oldStateClone
     case commentActions.RECEIVE_COMMENTS:
       oldStateClone = merge({}, oldState, oldState);
-      oldStateClone.comments = action.comments;
+      oldStateClone.bills.forEach(bill => {if(bill.id === action.comments[0].bill_id){bill.comments = action.comments}})
       return oldStateClone
       break;
     default: return oldState

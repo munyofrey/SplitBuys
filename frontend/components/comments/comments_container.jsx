@@ -3,6 +3,7 @@ import CommentComponent from './comment_component';
 import { createComment, deleteComment, requestComments } from '../../actions/comment_actions';
 
 const mapStateToProps = state => ({
+  currentUser: state.session.currentUser
 })
 
 const mapDispatchToProps = dispatch => ({

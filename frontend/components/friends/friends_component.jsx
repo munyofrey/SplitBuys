@@ -94,7 +94,7 @@ handleRequest(){
                     <div
                       className='small-button'
                       onClick={this.props.deleteFriend.bind(this, friend.id)
-                      }></div></div></div></li>))}
+                      }>delete</div></div></div></li>))}
           </ul>
         </div>}
         <div className='current-friends-list'>

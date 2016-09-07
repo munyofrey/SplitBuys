@@ -4,6 +4,7 @@ export const createComment = (comment, success, error) => (
     url: `api/comments`,
     success,
     error,
+    data: comment,
     method: 'POST'
   })
 )
