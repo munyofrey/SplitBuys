@@ -325,6 +325,10 @@ h2 {
 
  .entry-submit.button{
    text-align: center;
+   background: rgb(88, 164, 139);
+   color: black;
+   width:100%;
+   height:100%;
  }
 
 
@@ -342,6 +346,10 @@ h2 {
 .all-users{
   z-index: 0;
   color: black;
+}
+
+.all-users > li{
+  text-align: center;
 }
 
 
@@ -374,6 +382,7 @@ ul.bill-item{
 
 ul.bill-item-detail{
   color: black;
+  padding-right: 15px;
 }
 
 li.bill-detail{
@@ -393,10 +402,40 @@ div.title-detail{
 }
 
 div.comments-container{
-  color: white;
-  background: purple;
+  color: black;
   min-width: 50px;
   min-height: 50px;
+  max-width: 150px;
+  padding-left: 15px;
+  border-left: 1px solid #ccc;
+}
+
+textarea.comments-box{
+  width:90%;
+  height:30px;
+}
+
+div.commenter{
+  font-weight: bold;
+}
+
+div.comment-body{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+div.comments-container > div{
+  height: 100%;
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+}
+
+ul.comments-list > li {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .bill-item-small-list{
@@ -438,15 +477,22 @@ div.bill-form-container{
 
 textarea{
   resize: none;
-  width: 300px;
-  height: 100px;
+  width: 290px;
+  height: 70px;
   border-radius: 5px;
   border: 1px solid black;
+  padding: 5px
 }
 
 a{
   vertical-align: middle;
 }
+
+
+
+
+
+
 /*Percent Range*/
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
@@ -493,7 +539,7 @@ input[type=range]::-moz-range-thumb {
   height: 36px;
   width: 16px;
   border-radius: 3px;
-  background: #ffffff;
+  background: rgb(88, 164, 139);
   cursor: pointer;
 }
 
@@ -505,7 +551,7 @@ input[type=range]::-ms-thumb {
   height: 36px;
   width: 16px;
   border-radius: 3px;
-  background: #ffffff;
+  background: rgb(88, 164, 139);
   cursor: pointer;
 }
 
@@ -514,13 +560,13 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 8.4px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #000000, 0px 0px .5px rgb(44, 54, 1);
-  background: rgb(72, 96, 17);
+  background: rgb( 6, 95, 81);
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: rgb(72, 96, 17);
+  background: rgb( 6, 95, 81);
 }
 
 input[type=range]::-moz-range-track {
@@ -528,7 +574,7 @@ input[type=range]::-moz-range-track {
   height: 8.4px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #000000, 0px 0px .5px rgb(44, 54, 1);
-  background: #3071a9;
+  background: rgb(88, 164, 139);
   border-radius: 1.3px;
   border: 0.2px solid #010101;
 }
@@ -543,50 +589,44 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 input[type=range]::-ms-fill-lower {
-  background: #2a6495;
+  background: rgb(88, 164, 139);
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px .5px rgb(44, 54, 1);
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #3071a9;
+  background: rgb(88, 164, 139);
 }
 input[type=range]::-ms-fill-upper {
-  background: #3071a9;
+  background: rgb(88, 164, 139);
   border: 0.2px solid #010101;
   border-radius: 2.6px;
   box-shadow: 1px 1px 1px #000000, 0px 0px .5px rgb(44, 54, 1);
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #367ebd;
+  background: rgb(88, 164, 139);
 }
 
 
 
+
+/*buttons*/
+
 .button{
-  background: #C0C0C0;
   border-radius: 5px;
   height: 36px;
   width: 60px;
-  border: 1px solid rgb( 6, 95, 81);
-  color:rgb( 6, 95, 81);
+  border: 1px solid white;
+  color:white;
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   align-items: center;
-}
-
-.new-bill.button{
-  background: transparent;
-  color: white;
-  border: 1px solid white;
   font-size: x-large;
 }
-.new-bill.button:hover{
-  background: rgb( 6, 95, 81);
-  color:white
-}
+
+
 
 
 .calc{
@@ -597,19 +637,12 @@ input[type=range]:focus::-ms-fill-upper {
 
 .button:hover{
   background: rgb( 6, 95, 81);
-  color:#C0C0C0;
+  color:white;
   font-weight: bold;
   border-bottom: .5px solid #ccc;
   border-right: .5px solid #ccc;
 }
 
-.delete-edit-button-container{
-    display: flex
-}
-
-.delete-bill{
-  margin-right: 7px;
-}
 
 div.guest-login.button{
   width: 120px;
@@ -619,11 +652,54 @@ div.guest-login.button{
   font-size: 20px;
 }
 
+/*BILL VEIW*/
+
+.delete-edit-button-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top:5px;
+}
+
+.delete-edit-button-container > div{
+  width:35%;
+}
+
+.delete-bill.button{
+  background:rgb(88, 164, 139);
+  font-size: 18px;
+}
+.delete-bill.button:hover{
+  background:rgb( 6, 95, 81);
+  font-weight: bold
+}
+
+.edit-bill.button{
+  background:rgb(88, 164, 139);
+  width:100%;
+  font-size: 18px;
+
+}
+
+.edit-bill.button:hover{
+  background:rgb( 6, 95, 81);
+  font-weight: bold
+}
+
+.send.button{
+  margin: 0 auto;
+  width: 100%;
+  font-size: 18px;
+  background:rgb(88, 164, 139);
+}
+
 
 /*SUMS*/
 
 .sums-user-is-owed{
-  width: 30%
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
 }
 
 h5.sums{
@@ -636,7 +712,8 @@ h5.sums{
 }
 
 .sums-is-owed{
-  width:100%
+  width:80%;
+
 }
 
 .sums-is-owed > li{
@@ -658,7 +735,11 @@ a.link-users{
 }
 
 div.sums-divider{
-  width: 100px;
+  width: 33%;
+  background: url(http://www.clker.com/cliparts/1/c/0/1/12456424591816530454johnny_automatic_cartoon_man.svg.med.png);
+  background-repeat: no-repeat;
+  margin-top: 100px;
+  background-size: 95%;
 }
 div.sum-users{
   margin-left: 10px;
@@ -666,7 +747,10 @@ div.sum-users{
 }
 
 .sums-user-owes{
-  width:33%
+  width:33%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
 }
 
 .sums-owes > li{
@@ -678,7 +762,8 @@ div.sum-users{
 }
 
 .sums-owes{
-  width: 100%
+  width: 80%;
+
 }
 
 .sums-container{
@@ -695,7 +780,6 @@ div.sum-users{
 .sidebar{
   margin-left: 15px;
   width: 25%;
-  min-height: 700px;
   height: 100%;
   background: transparent;
   border-bottom-left-radius: 5px;
@@ -805,7 +889,7 @@ tr.header-table:hover{
 table{
   background: white;
   box-shadow: 0px 0px 27px 2px rgb(32, 32, 19);
-  margin: 5px 0px;
+  margin: 10px 0px 10px 10px;
   border-collapse: collapse;
 }
 

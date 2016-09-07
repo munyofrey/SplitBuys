@@ -68,7 +68,7 @@ bills.each do |bill|
   end
 
 20.times do
-  bill =
+  bill = bills.sample
   Comment.create!({
     body: Faker::Hipster.sentence(2),
     user_id: bill.user_owe_id,

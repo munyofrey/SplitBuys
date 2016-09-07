@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
 import BillFormContainer from './bills/new_bill_container';
-import Signout from 'react-icons/lib/fa/sign-out'
+import Signout from 'react-icons/lib/fa/sign-out';
+import SignIn from 'react-icons/lib/fa/sign-in';
+import SignUp from 'react-icons/lib/fa/plus-square';
 
 
   const loggedOutOptions = () =>(
     <ul className='welcome-user after'>
-      <li className='center-flex'><Link to='/login' className='login button' >Login</Link>
+      <li className='center-flex'><Link to='/login' className='login button' ><SignIn /></Link>
       </li>
-      <li className='center-flex'><Link to='/signup' className='signup button'>Sign Up</Link></li>
+      <li className='center-flex'><Link to='/signup' className='signup button'><SignUp /></Link></li>
     </ul>
 )
 

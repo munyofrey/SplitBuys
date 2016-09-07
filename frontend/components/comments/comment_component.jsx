@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CommentIcon from 'react-icons/lib/fa/commenting'
 
 
 class CommentComponent extends React.Component{
@@ -7,6 +7,7 @@ class CommentComponent extends React.Component{
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.updateBody = this.updateBody.bind(this)
+    this.killButton = this.killButton.bind(this)
     this.state ={
       bill_id: this.props.bill.id,
       user_id: this.props.currentUser.id,
@@ -30,20 +31,28 @@ class CommentComponent extends React.Component{
     this.setState({body: ''})
   }
 
+  killButton(comment){
+    if (this.state.user_id == comment.user_id){
+      return(<div className='kill-button'
+                onClick={this.deleteComment.bind(this, comment.id)}>x</div>)
+    }else{return("")}
+  }
+
+
   render(){
     return(<div>
       <ul className='comments-list'>
         {this.props.bill.comments.map(comment =>
-          <li><div className='kill-button'
-                    onClick={this.deleteComment.bind(this, comment.id)}>x</div>
-                  <div className='comment body'>{comment.name} {comment.body}</div></li>)}
+          <li>{this.killButton(comment)}
+                  <div className='comment body'><div className='commenter'>{comment.name}</ div> {comment.body}</div></li>)}
       </ul>
       <form onSubmit={this.handleSubmit} className="new-bill-form">
-        <input
+        <textarea
           placeholder='Leave a message'
           value={this.state.body}
-          onChange={this.updateBody}></input>
-        <input type="submit" className='entry-submit button' value="Submit" />
+          className='comments-box'
+          onChange={this.updateBody}></textarea>
+        <input type="submit" className='send button' value="Send" ></input>
       </form>
     </div>)
   }
