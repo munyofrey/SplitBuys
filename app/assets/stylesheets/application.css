@@ -108,10 +108,10 @@ h2 {
    font-size: 16px;
    font-weight: 400;
    background: #eee;
-   color: #ccc;
+   color: white;
  }
  input{
-   border: 1px solid #2F4F4F;
+   border: 1px solid rgb( 6, 95, 81);
    border-radius: 5px;
  }
 
@@ -292,7 +292,7 @@ h2 {
  .welcome-text{
    font-size: 34px;
    font-weight: bold;
-   color: #2F4F4F;
+   color: rgb( 6, 95, 81);
  }
 
 
@@ -335,7 +335,7 @@ h2 {
   width: 75%;
   margin: 0 auto;
   display: flex;
-  background: rgb(135, 137, 123);
+  background: rgb(88, 164, 139);
 }
 
 
@@ -352,7 +352,7 @@ h2 {
 div.bill_list_component{
   width:90%;
   margin: 0 auto;
-  color:#2F4F4F;
+  color:rgb( 6, 95, 81);
 }
 
 
@@ -432,7 +432,7 @@ ul.all-users > li{
 }
 
 div.bill-form-container{
-  color: #2F4F4F;
+  color: rgb( 6, 95, 81);
   max-height: 50%;
 }
 
@@ -444,7 +444,9 @@ textarea{
   border: 1px solid black;
 }
 
-
+a{
+  vertical-align: middle;
+}
 /*Percent Range*/
 input[type=range] {
   -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
@@ -566,8 +568,8 @@ input[type=range]:focus::-ms-fill-upper {
   border-radius: 5px;
   height: 36px;
   width: 60px;
-  border: 1px solid #2F4F4F;
-  color:#2F4F4F;
+  border: 1px solid rgb( 6, 95, 81);
+  color:rgb( 6, 95, 81);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -575,10 +577,26 @@ input[type=range]:focus::-ms-fill-upper {
   align-items: center;
 }
 
+.new-bill.button{
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  font-size: x-large;
+}
+.new-bill.button:hover{
+  background: rgb( 6, 95, 81);
+  color:white
+}
+
+
+.calc{
+  margin-bottom: 4px;
+  margin-right: 4px;
+}
 
 
 .button:hover{
-  background: #2F4F4F;
+  background: rgb( 6, 95, 81);
   color:#C0C0C0;
   font-weight: bold;
   border-bottom: .5px solid #ccc;
@@ -613,25 +631,29 @@ h5.sums{
   font-size: 20px;
 }
 
+.sums-user-is-owed{
+  width: 33%
+}
+
 .sums-is-owed{
+  width:100%
 }
 
 .sums-is-owed > li{
   background: rgb(10, 160, 70);
   margin: 7px;
   border-radius: 7px;
-  width: 170px;
   align-items: center;
   box-shadow: 5px 5px 5px -2px #315c49;
 
 }
 a.link-users:hover{
-  text-shadow: 2px 2px #315c49;
-  color: #eee
+  text-shadow: 2px 2px black;
+  color: white
 }
 a.link-users{
+  color:white;
   margin-left: 10px;
-  color: #ccc;
   font-weight: bold;
 }
 
@@ -639,29 +661,29 @@ div.sums-divider{
   width: 100px;
 }
 div.sum-users{
-  margin-left: 5px;
-  color: #ccc;
-  margin-left: 90px;
+  margin-left: 10px;
+
 }
 
 .sums-user-owes{
+  width:33%
 }
 
 .sums-owes > li{
-  background: rgb(220, 100, 0);
+  background: rgb(252, 83, 41);
   margin: 7px;
   border-radius: 7px;
-  width: 170px;
-  box-shadow: 5px 5px 5px -2px rgb(80, 60, 10);
-  display:block;
+  box-shadow: 5px 5px 5px -2px rgb(105, 65, 12);
+  display: block;
 }
 
 .sums-owes{
-  width: 30%
+  width: 100%
 }
 
 .sums-container{
   margin: 0 auto;
+  width: 90%;
   display: flex;
   justify-content: space-between;
 
@@ -733,13 +755,13 @@ div.users-friend-requests > ul{
 }
 
 .small-button:hover {
-  text-shadow: 1px 1px #2F4F4F;
+  text-shadow: 1px 1px rgb( 6, 95, 81);
 }
 
 
 h5.friend-header{
   margin: 5px 0px;
-  color: #2F4F4F;
+  color: rgb( 6, 95, 81);
   font-size: 18px;
 }
 
@@ -820,7 +842,7 @@ input.user-search{
 div.friend-search-container > h5 {
   text-align: center;
   margin: 10px;
-  color: #2F4F4F;
+  color: rgb( 6, 95, 81);
 }
 
 
@@ -829,4 +851,8 @@ div.user-search-container{
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.user-icon{
+  margin-right: 6px;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import UserSearchContainer from '../users/user_search_container';
-
+import WPForm from 'react-icons/lib/fa/wpforms';
 
 const customStyles = {
   content : {
@@ -164,7 +164,7 @@ class ModalBillForm extends React.Component{
     const formInput = 'new-bill-form-input'
     return (
       <div>
-        <div id='new-bill' className='new-bill button' onClick={this.openModal}>Add Bill</div>
+        <div id='new-bill' className='new-bill button' onClick={this.openModal}><WPForm /></div>
       <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}

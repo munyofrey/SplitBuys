@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import UserSearchContainer from '../users/user_search_container';
 import Modal from 'react-modal';
-import UserTimes from 'react-icons/lib/fa/user-times';
+import UserTimes from 'react-icons/lib/fa/trash';
 import UserPlus from 'react-icons/lib/fa/user-plus';
-
+import Users from 'react-icons/lib/fa/user'
 
 const customStyles = {
   content : {
@@ -93,18 +93,18 @@ handleRequest(){
                   <div className='small-button-holder'><div
                     className='small-button'
                     onClick={this.acceptRequest.bind(this, friend)
-                    }><UserPlus color='yellowgreen'/></div>
+                    }><UserPlus className='user-plus'/></div>
                     <div
                       className='small-button'
                       onClick={this.props.deleteFriend.bind(this, friend.id)
-                      }><UserTimes color='darkred'/></div></div></div></li>))}
+                      }><UserTimes className='user-times'/></div></div></div></li>))}
           </ul>
         </div>}
         <div className='current-friends-list'>
           <h5 className='friend-header'>Friends</h5>
           <ul>
             {this.props.friends[0].map(friend =>
-              (<li key={`friendlist${friend.id}`}><Link to={`/friends/${friend.id}`}>{friend.name}</Link></li>)
+              (<li key={`friendlist${friend.id}`}><Users className='user-icon'/><Link to={`/friends/${friend.id}`}>{friend.name}</Link></li>)
             )}
 
               {this.props.friends[1].map(friend => (<li key={`friendlist${friend.id}`}><div className='request-holder'>{friend.name}
