@@ -32,8 +32,10 @@ Friend.create(user_one_id:6, user_two_id: 1, pending: false)
   User.create!(user)
 }
 
+bills = []
+
 10.times{
-  Bill.create!(
+  bills.push(Bill.create!(
   description: Faker::Hipster.sentence(3),
   note: Faker::Hipster.paragraph(2),
   total: 100.50,
@@ -41,11 +43,11 @@ Friend.create(user_one_id:6, user_two_id: 1, pending: false)
   user_pay_id: 1,
   user_owe_id: rand(3..6),
   date: Faker::Date.between(90.days.ago, Date.today)
-  )
+  ))
 }
 
 10.times{
-  Bill.create!(
+  bills.push(Bill.create!(
   description: Faker::Hipster.sentence(3),
   note: Faker::Hipster.paragraph(2),
   total: 100.50,
@@ -53,5 +55,17 @@ Friend.create(user_one_id:6, user_two_id: 1, pending: false)
   user_owe_id: 1,
   user_pay_id: rand(3..6),
   date: Faker::Date.between(90.days.ago, Date.today)
-  )
+  ))
 }
+
+
+bills.each do |bill|
+  Comment.create!({
+    body: Faker::Hipster.sentence(2),
+    user_id: bill.user_pay_id,
+    bill_id: bill.id
+    })
+
+
+
+end
