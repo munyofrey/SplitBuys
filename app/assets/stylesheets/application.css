@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require owl.carousel
+ *= require owl.theme
  */
 
  // Place all the styles related to the StaticPages controller here.
@@ -353,22 +355,6 @@ div.bill_list_component{
   color:#2F4F4F;
 }
 
-td.bill-table-element{
-      vertical-align: baseline;
-}
-
-table{
-  border: 1px solid #2F4F4F;
-  background: white;
-  border-radius: 5px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px .5px rgb(32, 32, 19);
-  margin: 5px 0px;
-  border-collapse: collapse;
-}
-
-tr:hover{
-  background: #eee;
-}
 
  ul.bill_item_list{
    display: flex;
@@ -455,6 +441,7 @@ textarea{
   width: 300px;
   height: 100px;
   border-radius: 5px;
+  border: 1px solid black;
 }
 
 
@@ -736,10 +723,15 @@ div.users-friend-requests > ul{
 
 }
 .small-button{
-  font-size: 12px;
+  margin: 0px 2px;
   text-align: center;
-  margin-top: 4px;
 }
+
+.small-button-holder{
+  display: flex;
+  justify-content: space-between;
+}
+
 .small-button:hover {
   text-shadow: 1px 1px #2F4F4F;
 }
@@ -772,13 +764,32 @@ strong{
 
 /*table*/
 
-td.bill-table-element{
-  min-width: 70px;
+td.bill-item-detail{
+  width: 0px;
 }
 
 
-td.bill-item-detail{
-  width: 0px;
+td.bill-table-element{
+ vertical-align: baseline;
+ min-width: 70px;
+ padding: 5px;
+}
+
+tr.header-table:hover{
+  background:white;
+
+}
+
+table{
+  background: white;
+  box-shadow: 0px 0px 27px 2px rgb(32, 32, 19);
+  margin: 5px 0px;
+  border-collapse: collapse;
+}
+
+
+tr:hover{
+  background: #eee;
 }
 
 
@@ -787,11 +798,12 @@ td.bill-item-detail{
 /*user-search*/
 
 input.user-search{
-  padding: 5px 5px;
+  padding: 3px 5px;
   background: white;
   border: gray;
   margin: 5px;
-  margin: 5px 5px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 div.friend-search-container {
@@ -800,6 +812,9 @@ div.friend-search-container {
   border-radius: 5px;
 }
 
+input.user-search{
+  border: none;
+}
 
 
 div.friend-search-container > h5 {

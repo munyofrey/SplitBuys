@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import UserSearchContainer from '../users/user_search_container';
 import Modal from 'react-modal';
+import UserTimes from 'react-icons/lib/fa/user-times';
+import UserPlus from 'react-icons/lib/fa/user-plus';
+
 
 const customStyles = {
   content : {
@@ -87,14 +90,14 @@ handleRequest(){
             {this.props.friends[2].map(friend =>
               (<li key={`friendlist${friend.id}`}><div className='request-holder'>
                 <div>{friend.name}</div>
-                  <div><div
+                  <div className='small-button-holder'><div
                     className='small-button'
                     onClick={this.acceptRequest.bind(this, friend)
-                    }>Accept</div>
+                    }><UserPlus color='yellowgreen'/></div>
                     <div
                       className='small-button'
                       onClick={this.props.deleteFriend.bind(this, friend.id)
-                      }>delete</div></div></div></li>))}
+                      }><UserTimes color='darkred'/></div></div></div></li>))}
           </ul>
         </div>}
         <div className='current-friends-list'>

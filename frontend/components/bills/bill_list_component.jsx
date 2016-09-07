@@ -21,7 +21,7 @@ class billList extends React.Component{
         <div className='bill_list_component'>
           <table className='bill-list-table'>
             <thead>
-              <tr>
+              <tr className='header-table'>
                 <th>Date</th>
                 <th>Description</th>
                 <th>Amount owed</th>

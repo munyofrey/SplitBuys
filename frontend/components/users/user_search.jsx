@@ -1,4 +1,6 @@
 import React from 'react';
+import Search from 'react-icons/lib/fa/beer'
+
 
 class UserSearch extends React.Component{
   constructor(props){
@@ -47,9 +49,9 @@ class UserSearch extends React.Component{
           <input onChange={this.handleSubmit}
             value={this.state.searchInput}
             className='user-search'
-            placeholder='Find friends' />
+            placeholder='Find friends' /> 
           {(this.props.listElements) ? <ul className='all-users'>{matchers}</ul> : ''}
-        </div>)
+      </ div>)
   }
 
 
