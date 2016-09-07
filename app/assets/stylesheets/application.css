@@ -326,7 +326,7 @@ h2 {
  .entry-submit.button{
    text-align: center;
    background: rgb(88, 164, 139);
-   color: black;
+   color: white;
    width:100%;
    height:100%;
  }
@@ -345,7 +345,7 @@ h2 {
 
 .all-users{
   z-index: 0;
-  color: black;
+  color: rgb( 6, 95, 81);
 }
 
 .all-users > li{
@@ -692,6 +692,10 @@ div.guest-login.button{
   background:rgb(88, 164, 139);
 }
 
+.send.button:hover{
+  background:rgb(6, 95, 81);
+}
+
 
 /*SUMS*/
 
@@ -842,6 +846,10 @@ div.users-friend-requests > ul{
   text-shadow: 1px 1px rgb( 6, 95, 81);
 }
 
+.friend-nav-link:hover{
+  text-shadow: 1px 1px rgb( 6, 95, 81);
+  }
+
 
 h5.friend-header{
   margin: 5px 0px;
@@ -910,6 +918,7 @@ input.user-search{
   margin: 5px;
   border-radius: 5px;
   text-align: center;
+  color:black;
 }
 
 div.friend-search-container {
@@ -939,4 +948,32 @@ div.user-search-container{
 
 .user-icon{
   margin-right: 6px;
+}
+
+.accept-friend-modal{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  color: rgb( 6, 95, 81);
+
+}
+
+div.accept-friend-modal.button{
+  width:100%;
+  background: rgb(88, 164, 139);
+  color: white;
+
+}
+
+.accept-friend-modal.button:hover{
+  background: rgb( 6, 95, 81);
+}
+
+
+
+
+/*BILL EDIT*/
+
+.bill-edit-form-container{
+  color:rgb( 6, 95, 81);
 }

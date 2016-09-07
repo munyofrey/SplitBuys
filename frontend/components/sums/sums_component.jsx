@@ -23,14 +23,14 @@ class SumsComponent extends React.Component{
           <div className='sums-user-is-owed'>
             <h5 className='sums'>You Are Owed</h5>
             <ul className='sums-is-owed'>
-              {this.props.sums[1].map(sum => <SumDetail sum={sum}/>)}
+              {this.props.sums[1].map(sum => <SumDetail key={`${sum.id}${sum.name}${sum.sum}`} sum={sum}/>)}
             </ul>
           </div>
           <div className='sums-divider'/>
           <div className='sums-user-owes'>
             <h5 className='sums'>You Owe</h5>
             <ul className='sums-owes'>
-              {this.props.sums[0].map(sum => <SumDetail key={`${sum.id}${sum.name}`} sum={sum}/>)}
+              {this.props.sums[0].map(sum => <SumDetail key={`${sum.id}${sum.name}${sum.sum}`} sum={sum}/>)}
             </ul>
           </div>
         </div>

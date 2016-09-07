@@ -104,7 +104,7 @@ handleRequest(){
           <h5 className='friend-header'>Friends</h5>
           <ul>
             {this.props.friends[0].map(friend =>
-              (<li key={`friendlist${friend.id}`}><Users className='user-icon'/><Link to={`/friends/${friend.id}`}>{friend.name}</Link></li>)
+              (<li key={`friendlist${friend.id}`}><Users className='user-icon'/><Link className='friend-nav-link' to={`/friends/${friend.id}`}>{friend.name}</Link></li>)
             )}
 
               {this.props.friends[1].map(friend => (<li key={`friendlist${friend.id}`}><div className='request-holder'>{friend.name}
@@ -127,10 +127,11 @@ handleRequest(){
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}>
-
-          <button className='kill-button'onClick={this.closeModal}>x</button>
-          <h5>Would you like to send {this.state.user.name} a friend Request?</h5>
-          <div className='button' onClick={this.handleRequest}>Of course!</div>
+          <div className='accept-friend-modal'>
+            <button className='kill-button'onClick={this.closeModal}>x</button>
+            <h5>Would you like to send {this.state.user.name} a friend Request?</h5>
+            <div className='accept-friend-modal button' onClick={this.handleRequest}>Of course!</div>
+          </div>
         </Modal>
 
       </div>
