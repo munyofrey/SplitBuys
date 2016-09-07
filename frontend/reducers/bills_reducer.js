@@ -1,9 +1,10 @@
 import {billActions} from '../actions/bill_actions';
 import { merge } from 'lodash';
-
+import { commentActions } from '../actions/comment_actions';
   const preloadedState = {
     bills: [],
-    errors: []
+    errors: [],
+    comments: []
   }
 
 const billReducer = (oldState = preloadedState, action) => {
@@ -24,6 +25,8 @@ const billReducer = (oldState = preloadedState, action) => {
       oldStateClone.bills.forEach(bill => {if(bill.id !== action.bill.id){newState.push(bill)}})
       oldStateClone.bills = newState
       return oldStateClone
+
+      break;
     default: return oldState
 
 

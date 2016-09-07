@@ -18,6 +18,8 @@ class Bill < ActiveRecord::Base
 
   validates :user_pay_id, :user_owe_id, :owed, :total, :description, :date, presence:true
 
+  has_many :comments
+
   attr_accessor :name_payer_c, :other_user_id_c, :ower_c
 
   belongs_to :payer,
@@ -29,6 +31,17 @@ class Bill < ActiveRecord::Base
   primary_key: :id,
   foreign_key: :user_owe_id,
   class_name: :User
+
+  def self.comments_and_names(bill_id)
+    comments = ActiveRecord::Base.connection.execute(<<-SQL)
+      SELECT comments.body, users.name, comments.id
+        FROM comments
+        JOIN users ON users.id = comments.user_id
+        WHERE comments.bill_id = #{bill_id}
+      ORDER BY date DESC
+      SQL
+      comments.map{|comment|  comment}
+  end
 
 
 

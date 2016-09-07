@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
 
       ORDER BY date DESC
       SQL
-    bills.map{|bill|  bill}
+    bills.map{|bill|  [bill]}
   end
 
   def all_bills_for_friend(friend_id)

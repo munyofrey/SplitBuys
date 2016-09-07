@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '../sidebar';
 import BillListContainer from '../bills/bill_list_component_container';
+import SearchIcon from 'react-icons/lib/fa/search'
 
 class FriendHistoryDetail extends React.Component{
 
