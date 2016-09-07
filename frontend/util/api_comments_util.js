@@ -1,13 +1,4 @@
 
-
-export const fetchAllComments = (bill_id, success, error) => (
-  $.ajax({
-    url: `api/comments/${bill_id}`,
-    success,
-    error
-  })
-)
-
 export const createComment = (comment, success, error) => (
   $.ajax({
     url: `api/comments`,

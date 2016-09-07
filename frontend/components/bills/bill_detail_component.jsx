@@ -1,6 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import BillEditFormContainer from './edit/bill_edit_container';
+import CommentContainer from '../comments/comments_container';
+
 
 const customStyles = {
   content : {
@@ -90,7 +92,7 @@ deleteBillItem(bill){
             </ul>
 
               <div className='comments-container'>
-                Comments container
+                <CommentContainer bill={this.props.bill}/>
               </div>
             </div>
 

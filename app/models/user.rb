@@ -66,7 +66,12 @@ class User < ActiveRecord::Base
 
       ORDER BY date DESC
       SQL
-    bills.map{|bill|  [bill]}
+      new_bills = []
+    bills.each do |bill|
+      bill['comments'] =  Bill.comments_and_names(bill['id'])
+      new_bills.push(bill)
+    end
+    new_bills
   end
 
   def all_bills_for_friend(friend_id)
@@ -85,7 +90,12 @@ class User < ActiveRecord::Base
 
       ORDER BY date DESC
       SQL
-    bills.map{ |bill| bill }
+      new_bills = []
+      bills.each do |bill|
+        bill['comments'] =  Bill.comments_and_names(bill['id'])
+        new_bills.push(bill)
+      end
+      new_bills
   end
 
 

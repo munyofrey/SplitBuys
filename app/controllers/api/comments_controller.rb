@@ -1,9 +1,5 @@
 class Api::CommentsController < ApplicationController
 
-  def show
-    comments = Bill.comments_and_names(params[:id])
-    render json: comments
-  end
 
   def create
     comment = Comment.new(commment_params)

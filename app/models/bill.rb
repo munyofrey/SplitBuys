@@ -34,11 +34,11 @@ class Bill < ActiveRecord::Base
 
   def self.comments_and_names(bill_id)
     comments = ActiveRecord::Base.connection.execute(<<-SQL)
-      SELECT comments.body, users.name, comments.id
+      SELECT comments.body, users.name, comments.id, comments.user_id as user_id
         FROM comments
         JOIN users ON users.id = comments.user_id
         WHERE comments.bill_id = #{bill_id}
-      ORDER BY date DESC
+      ORDER BY comments.created_at DESC
       SQL
       comments.map{|comment|  comment}
   end
