@@ -198,6 +198,7 @@ h2 {
    justify-content: center;
    text-align: center;
    font-size: 14px;
+   color: rgb(88, 169, 70)
  }
 
 
@@ -208,14 +209,7 @@ h2 {
 
 
 
- .guest-login{
-   width: 110px;
-   height: 35px;
-   z-index: 600;
-   text-align: center;
-   border-radius: 7px;
-   vertical-align: middle;
- }
+
 .splash-holder-center.image{
   width: 100%;
   height: 600px;
@@ -252,6 +246,20 @@ h2 {
 
  }
 
+ .login-form-elements{
+   margin-top: 45px;
+  color: rgb( 6, 95, 81);
+ }
+
+ .login-form-elements > label{
+   font-weight: bold
+ }
+
+ .login-form-elements > input {
+   background: #eee;
+   color: rgb(88, 164, 139);
+ }
+
 
  input.signup-input{
    background: #ccc;
@@ -260,6 +268,7 @@ h2 {
    margin: 10px;
  }
  .login-form-container-vert{
+   margin-top: 20px;
    margin: 0 auto;
    width: 700px;
    height: 400px;
@@ -272,10 +281,11 @@ h2 {
 
  div.logo-signup{
    display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-   margin:30px
-
+   flex-direction: row;
+   justify-content: center;
+   margin-right: 30px;
+   margin-top: 127px;
+   margin-left: 0px;
  }
 
  .signup-input{
@@ -284,15 +294,23 @@ h2 {
  }
 
  .logo-signup-image-holder{
-   width: 100%;
-   height: 100px;
-   background: black;
+   width: 80%;
+    height: 55%;
+    background-image: url(http://res.cloudinary.com/dptutoih6/image/upload/v1473353872/logo-wallet_zbgbw3.png);
+    background-size: 95%;
+    background-repeat: no-repeat;t;
  }
 
  .welcome-text{
-   font-size: 34px;
-   font-weight: bold;
-   color: rgb( 6, 95, 81);
+  font-size: 35px;
+  font-weight: bold;
+  color: rgb( 6, 95, 81);
+  height: 30%;
+  margin:0px;
+ }
+
+ .margin-down{
+   margin-top: 20px;
  }
 
 
@@ -647,9 +665,17 @@ input[type=range]:focus::-ms-fill-upper {
 div.guest-login.button{
   width: 120px;
   height: 50px;
-
-  font-weight: bold;
   font-size: 20px;
+  z-index: 600;
+  text-align: center;
+  border-radius: 7px;
+  background: rgb(88, 164, 139);
+  color: white;
+}
+
+
+div.guest-login.button:hover{
+  background: rgb( 6, 95, 81);
 }
 
 /*BILL VEIW*/

@@ -18,14 +18,15 @@ class GuestComponent extends React.Component{
     else{
       return(
         <div className='splash-holder'>
-          <div className='entry-image-holder'></div>
-          <div className='tagline-holder'>
-            <p className='tagline'>Whether it be a trip to San Francisco or your electricity bill splitting bills with friends just got easier</p>
-          </div>
+          <div className='header-block-fix'/>
           <div className='splash-holder-center'>
+            <div className='tagline-holder'>
+              <p className='tagline'>Whether it be a trip to San Francisco or your electricity bill splitting bills with friends just got easier</p>
+            </div>
 
             <div onClick={this.loginuser} className='guest-login button'>Guest login</div>
           </div>
+          <div className='entry-image-holder'></div>
         </div>
       )
     }

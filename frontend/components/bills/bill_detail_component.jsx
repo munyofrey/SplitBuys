@@ -38,7 +38,7 @@ closeModal(){
 }
 
 deleteBillItem(bill){
-  this.props.deleteBill(bill, () => this.closeModal())
+  this.props.deleteBill(bill)
 }
 
   render(){

@@ -51,7 +51,7 @@ class SignupForm extends React.Component {
 
 	navLink(){
 		return(
-			<Link to="/" className='kill-button'>x</Link>
+			<Link to="/" className='kill-button margin-down'>x</Link>
 			)
 		}
 
@@ -62,15 +62,16 @@ class SignupForm extends React.Component {
 		return (
 			<div className="login-form-container">
 				<div className="login-form-container-vert">
+
 					{this.navLink()}
+					{this.props.loginType ?
+						<p className='welcome-text'>Welcome back!</p> :
+							<div className='logo-signup'>
+								<div className='logo-signup-image-holder'></div>
+								<p className='welcome-text'>Welcome to SplitBys!</p>
+							</div>}
 				<form onSubmit={this.handleSubmit} className={formType}>
 					<div className={formInput}>
-						{this.props.loginType ?
-							<p className='welcome-text'>Welcome back!</p> :
-						<div className='logo-signup'>
-							<div className='logo-signup-image-holder'></div>
-							<p className='welcome-text'>Welcome to SplitBys!</p>
-						</div>}
 					<div className='login-form-elements'>
 						{ this.renderErrors() }
 						{this.props.loginType ? '' :
