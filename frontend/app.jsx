@@ -7,11 +7,9 @@ import { login } from './util/api_session_util';
 
 
 const App = ({ children, location }) => (
-  <div>
+  <div style={{height:'100%'}}>
       <HeaderContainer />
-    <div>
       <GuestContianer path={location.pathname}/>
-    </div>
     {children}
   </ div>
 )

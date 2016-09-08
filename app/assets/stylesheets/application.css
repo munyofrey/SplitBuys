@@ -35,7 +35,13 @@
    vertical-align: inherit;
    box-sizing: inherit;
    background: transparent;
+
  }
+
+html{
+  height:100%
+}
+
 
 .kill-button{
   font-size: 16px;
@@ -108,7 +114,13 @@ h2 {
    font-weight: 400;
    background: #eee;
    color: white;
+   height: 100%
  }
+
+#root{
+  height:100%;
+}
+
  input{
    border: 1px solid rgb( 6, 95, 81);
    border-radius: 5px;
@@ -221,9 +233,8 @@ h2 {
    display: flex;
    justify-content: center;
    width:100%;
-   min-height: 700px;
-   max-height: 800px;
-   background-image: url(https://res.cloudinary.com/dptutoih6/image/upload/r_8/v1472673970/splash_lipyii.jpg);
+   min-height: 100%;
+   background: url(https://res.cloudinary.com/dptutoih6/image/upload/r_8/v1472673970/splash_lipyii.jpg);
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
