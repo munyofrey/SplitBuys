@@ -43,7 +43,7 @@ class CommentComponent extends React.Component{
     return(<div>
       <ul className='comments-list'>
         {this.props.bill.comments.map(comment =>
-          <li key={`${comment.id}${comment.body}`}>{this.killButton(comment)}
+          <li key={`${comment.id}${comment.body}` className='comment-li'}>{this.killButton(comment)}
                   <div className='comment body'><div className='commenter'>{comment.name}</ div> {comment.body}</div></li>)}
       </ul>
       <form onSubmit={this.handleSubmit} className="new-bill-form">

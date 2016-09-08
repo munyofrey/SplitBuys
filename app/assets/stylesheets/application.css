@@ -467,6 +467,9 @@ div.comments-container{
   border-left: 1px solid #ccc;
 }
 
+
+
+
 textarea.comments-box{
   width:90%;
   height:30px;
@@ -474,6 +477,7 @@ textarea.comments-box{
 
 div.commenter{
   font-weight: bold;
+  width: 100%;
 }
 
 div.comment-body{
