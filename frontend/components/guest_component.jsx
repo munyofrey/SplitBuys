@@ -14,7 +14,7 @@ class GuestComponent extends React.Component{
   }
 
   render(currentUser){
-    console.log(this.props);
+    if (this.props.path.length > 1){return <div></div>}else{    
       return(
         <div className='splash-holder'>
           <div className='header-block-fix'/>
@@ -29,6 +29,7 @@ class GuestComponent extends React.Component{
         </div>
       )
     }
+  }
 
 }
 

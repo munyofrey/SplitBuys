@@ -6,11 +6,11 @@ import { login } from './util/api_session_util';
 
 
 
-const App = ({ children }) => (
+const App = ({ children, location }) => (
   <div>
       <HeaderContainer />
     <div>
-      <GuestContianer />
+      <GuestContianer path={location.pathname}/>
     </div>
     {children}
   </ div>
