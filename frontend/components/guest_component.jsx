@@ -14,7 +14,7 @@ class GuestComponent extends React.Component{
   }
 
   render(currentUser){
-    else{
+    console.log(this.props);
       return(
         <div className='splash-holder'>
           <div className='header-block-fix'/>
@@ -29,7 +29,6 @@ class GuestComponent extends React.Component{
         </div>
       )
     }
-  }
 
 }
 
