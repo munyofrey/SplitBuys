@@ -19,12 +19,13 @@ class GuestComponent extends React.Component{
     }else{
       return(
           <div className='entry-image-holder'>
-
+            <div className='centering-holder'>
             <div className='entrance-holder'>
               <p className='tagline'>Whether it be a trip to San Francisco or your electricity bill splitting bills with friends just got easier</p>
 
             {this.props.loggedin ? '' :<div onClick={this.loginuser} className='guest-login button'>Guest login</div>}
           </div>
+        </div>
           </div>
 
       )

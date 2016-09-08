@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store'
 import Root from './root';
-import {requestSums} from './actions/sums_actions';
 import Modal from 'react-modal';
 
 
@@ -17,7 +16,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
   } else {
     store = configureStore();
   }
-  window.store = store;
   Modal.setAppElement(root)
   ReactDOM.render(<Root store={store}/>, root);
 })
