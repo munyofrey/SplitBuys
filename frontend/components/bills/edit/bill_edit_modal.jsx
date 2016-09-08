@@ -65,7 +65,6 @@ class BillEditForm extends React.Component{
     this.renderErrors = this.renderErrors.bind(this)
     this.handlePayers = this.handlePayers.bind(this)
     this.sliderUpdate = this.sliderUpdate.bind(this)
-    this.updateTextInput = this.updateTextInput.bind(this)
     this.handleTotal = this.handleTotal.bind(this)
   }
 
@@ -153,12 +152,8 @@ class BillEditForm extends React.Component{
     this.setState({
       percentOfTotal: event.currentTarget.value
     })
-    this.updateTextInput(event.currentTarget.value)
   }
 
-  updateTextInput(val) {
-    document.getElementById('textInput').value=val;
-  }
 
   handleTotal(event){
     this.setState({

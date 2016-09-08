@@ -41,7 +41,6 @@ class ModalBillForm extends React.Component{
     this.closeModal = this.closeModal.bind(this)
     this.selectUser = this.selectUser.bind(this)
     this.changeUnentered = this.changeUnentered.bind(this)
-    this.updateTextInput = this.updateTextInput.bind(this)
     this.createAndreceive = this.createAndreceive.bind(this)
   }
 
@@ -146,12 +145,9 @@ class ModalBillForm extends React.Component{
     this.setState({
       percentOfTotal: event.currentTarget.value
     })
-    this.updateTextInput(event.currentTarget.value)
   }
 
-  updateTextInput(val) {
-    document.getElementById('textInput').value=val;
-  }
+
 
   handleTotal(event){
     this.setState({
@@ -179,7 +175,7 @@ class ModalBillForm extends React.Component{
                 { this.renderErrors() }
 
                 <div className='new-bill-form-elements'>
-                <label><div className='title-detail'>You Split with:</div>
+                <label><div className='title-detail name'>You Split with:</div>
                     <UserSearchContainer
                       selectUser={this.selectUser}
                       users={this.props.friends}
