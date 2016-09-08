@@ -65,7 +65,7 @@ class SignupForm extends React.Component {
 
 					{this.navLink()}
 					{this.props.loginType ?
-						<p className='welcome-text'>Welcome back!</p> :
+						<div className='signin-welcome'><p className='welcome-text'>Welcome back!</p></div> :
 							<div className='logo-signup'>
 								<div className='logo-signup-image-holder'></div>
 								<p className='welcome-text'>Welcome to SplitBys!</p>

@@ -42,7 +42,6 @@ html{
   height:100%
 }
 
-
 .kill-button{
   font-size: 16px;
   font-weight: bolder;
@@ -112,7 +111,7 @@ h2 {
    margin: 0 auto;
    font-size: 16px;
    font-weight: 400;
-   background: #eee;
+   background: rgb(210,233,225);
    color: white;
    height: 100%
  }
@@ -263,7 +262,16 @@ h2 {
 
  .login-form-elements{
    margin-top: 45px;
-  color: rgb( 6, 95, 81);
+   color: rgb( 6, 95, 81);
+   display: flex;
+   flex-direction: column;
+ }
+
+ .signin-welcome{
+   display: flex;
+   justify-content: center;
+   margin-right: 30px;
+   flex-direction: column;
  }
 
  .login-form-elements > label{
@@ -373,6 +381,11 @@ h2 {
   margin: 0 auto;
   display: flex;
   background: rgb(88, 164, 139);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 
@@ -436,6 +449,7 @@ div.bill-item-detail{
 
 div.title-detail{
   font-weight: bold;
+  text-align: center;
 }
 
 div.comments-container{
