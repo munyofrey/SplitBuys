@@ -14,7 +14,6 @@ class GuestComponent extends React.Component{
   }
 
   render(currentUser){
-    if (this.props.loggedin){return(<div></div>)}
     else{
       return(
         <div className='splash-holder'>
@@ -24,7 +23,7 @@ class GuestComponent extends React.Component{
               <p className='tagline'>Whether it be a trip to San Francisco or your electricity bill splitting bills with friends just got easier</p>
             </div>
 
-            <div onClick={this.loginuser} className='guest-login button'>Guest login</div>
+            {this.props.loggedin ? '' :<div onClick={this.loginuser} className='guest-login button'>Guest login</div>}
           </div>
           <div className='entry-image-holder'></div>
         </div>
