@@ -477,13 +477,13 @@ textarea.comments-box{
 
 div.commenter{
   font-weight: bold;
-  width: 100%;
 }
 
 div.comment-body{
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  width: 100%;
 }
 
 div.comments-container > div{
