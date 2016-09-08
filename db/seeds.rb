@@ -65,6 +65,11 @@ bills.each do |bill|
     user_id: bill.user_pay_id,
     bill_id: bill.id
     })
+  Comment.create!({
+    body: Faker::Hipster.sentence(2),
+    user_id: bill.user_owe_id,
+    bill_id: bill.id
+    })
   end
 
 20.times do
