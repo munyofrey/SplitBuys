@@ -104,7 +104,6 @@ h2 {
    font-family: 'Titillium Web', sans-serif;
    background: #eee;
    margin: 0 auto;
-   height: 900px;
    font-size: 16px;
    font-weight: 400;
    background: #eee;
@@ -193,18 +192,21 @@ h2 {
    justify-content: center;
  }
 
- .tagline-holder{
-   display: flex;
-   justify-content: center;
+ .tagline{
    text-align: center;
    font-size: 14px;
-   color: rgb(88, 169, 70)
+   color: black;
  }
 
 
 
 
-
+.entrance-holder{
+  width: 900px;
+  position: absolute;
+  top: 100px;
+}
+/*right: -114px;*/
 
 
 
@@ -665,17 +667,21 @@ input[type=range]:focus::-ms-fill-upper {
 div.guest-login.button{
   width: 120px;
   height: 50px;
+  margin: 0 auto;
+  margin-top: 67px;
   font-size: 20px;
-  z-index: 600;
   text-align: center;
   border-radius: 7px;
-  background: rgb(88, 164, 139);
-  color: white;
+  background: transparent;
+  color: black;
+  border: 1px solid black;
 }
 
 
+
 div.guest-login.button:hover{
-  background: rgb( 6, 95, 81);
+  background: transparent;
+  border: 2px solid black;
 }
 
 /*BILL VEIW*/
