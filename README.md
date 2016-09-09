@@ -34,7 +34,21 @@ Comments can be created and deleted. If a user is the author of a comment they n
 
 ### Totals
 
-Splitbys gives clients a running tally of money owed to them and by them between friends. When a client navigates to the totals page a call to `SumsController#index` is made and the `SumsStore` is updated. Sums are displayed in different columns depending on if the user is in debt with a friend or can collect.
+Splitbys gives clients a running tally of money owed to them and by them between friends. When a client navigates to the totals page a call to `SumsController#index` is made and the `SumsStore` is updated.
+
+```ruby
+class Api::SumsController < ApplicationController
+
+  def index
+    @user = current_user
+    @totals = current_user.sums
+    render json: @totals
+  end
+
+end
+```
+Here `User#sums` makes a SQL query and returns an array of two arrays that represent money owed to a user and owed from. Sums are displayed in different columns depending on if the user is in debt with a friend or can collect.
+
 ![sums]
 
 Each total item links to the corresponding friend, allowing an easy way to review transaction history between friends.
@@ -49,7 +63,7 @@ Splitbys allows users to search the database of people they may know, and to sea
 ![FriendSearchDropdown]
 ![friendIndex]
 
-The `FriendStore` stores three types of friend relationships - pending requests from the current user, requests to the current user and friends. The database holds three pertinent pieces of information `user_one_id`, `user_two_id` and the boolean `pending`. When a user requests a friend or approves a request a api call is made to `FriendsController#create`
+The `FriendStore` stores three types of friend relationships - pending requests from the current user, requests to the current user and friends. The database holds three pertinent pieces of information `user_one_id`, `user_two_id` and the boolean `pending`. When a user requests a friend or approves a request a api call is made to `FriendsController#create`.
 
 ```ruby
   def create
