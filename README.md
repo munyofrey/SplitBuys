@@ -14,7 +14,23 @@ Splitbys is a full-stack inspired by Splitwise. It relies on Ruby on Rails for t
 Bills can be created, viewed, edited and deleted. In the database the following columns are stored `user_owe_id`, `user_pay_id`, `date`, `total`, `owed`, `description` and `note`. On the front end Bills are kept in the `BillsStore`,
 on login an api call is made to the `BillsController#index` to receive all bills a user shares. Bills update in the store when a user creates, updates or deletes a bill or when they navigate to a friends history page at which point an api call to `FriendsController#show` occurs.
 
+```ruby
+def show
+  @bills = current_user.all_bills_for_friend(params[:id])
+  render json: @bills
+end
+```
+
+`User#all_bills_for_friend` makes a SQL query to the database and returns all bills between friends organized by transaction date.
+
 Any bill can be commented on by the ower or payer. Comments are stored nested under individual bills in the `BillStore`. When a comment is created or deleted the `BillStore` is updated but other bill information is not refetched. The `comments` table in the database stores `body`, `bill_id`, `user_id`.
+
+![BillDetail]
+![CommentsCrop]
+
+Comments can be created and deleted. If a user is the author of a comment they need only click the X to the right of their comment. 
+
+
 
 ### Totals
 
@@ -64,8 +80,8 @@ The `FriendStore` stores three types of friend relationships - pending requests 
 
   Should a user decide to change the friend they are splitting a bill with, the form will disappear. In the `NewBillForm` a client can choose the percentage split between themselves and their friend. On submit the percentage is changed to the `owed` amount stored in the database.
 
-### NavBar
 
+###
 
 
 ##Future Directions for the Project
@@ -84,6 +100,8 @@ The `FriendStore` stores three types of friend relationships - pending requests 
 [smallSum]: ./docs/wireframes/smallSum.png
 [BillSearch]: ./docs/wireframes/BillSearch.png
 [newBill]: ./docs/wireframes/newBill.png
+[BillDetail]: ./docs/wireframes/BillDetail.png
+[CommentsCrop]: ./docs/wireframes/CommentsCrop.png
 [friendIndex]: ./docs/wireframes/friendIndex.png
 [FriendSearch]: ./docs/wireframes/FriendSearch.png
 [FriendSearchDropdown]: ./docs/wireframes/FriendSearchDropdown.png
