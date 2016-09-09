@@ -1,6 +1,7 @@
 # Splitbys 
 
 [Splitbys live][heroku]
+![sums]:./doc/wireframes/Screen Shot 2016-09-08 at 5.12.40 PM
 
 [heroku]:http://splitbys.herokuapp.com
 
@@ -51,7 +52,7 @@ The `FriendStore` stores three types of friend relationships - pending requests 
   
 ### NavBar
 
-[Screen Shot 2016-09-08 at 5.16.34 PM]!
+![sums]
   
 ##Future Directions for the Project
   
