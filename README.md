@@ -28,7 +28,7 @@ Any bill can be commented on by the ower or payer. Comments are stored nested un
 ![BillDetail]
 ![CommentsCrop]
 
-Comments can be created and deleted. If a user is the author of a comment they need only click the X to the right of their comment. 
+Comments can be created and deleted. If a user is the author of a comment they need only click the X to the right of their comment.
 
 
 
@@ -89,10 +89,11 @@ The `FriendStore` stores three types of friend relationships - pending requests 
   The next steps for Splitbys are discussed below.
 
 ###Group Split
+ One of the best most usefull parts of splitbys is their group split possibility. I would like to implement add multiple friends to a bill and configuring each friend's percentage of the split.
 
-###Split Options
 
 ###Checkout
+Currently one can settle up with their friends by adding a bill of equal value to that shown on the totals page. I think it would be fun to implement a settle up function that shows differently on
 
 
 
@@ -104,4 +105,4 @@ The `FriendStore` stores three types of friend relationships - pending requests 
 [CommentsCrop]: ./docs/wireframes/CommentsCrop.png
 [friendIndex]: ./docs/wireframes/friendIndex.png
 [FriendSearch]: ./docs/wireframes/FriendSearch.png
-[FriendSearchDropdown]: ./docs/wireframes/FriendSearchDropdown.png
+[FriendSearchDropdown]: ./docs/wireframes/FriendSearchDropDown.png
