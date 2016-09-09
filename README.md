@@ -2,7 +2,7 @@
 
 [Splitbys live][heroku]
 
-[heroku][http://splitbys.herokuapp.com]
+[heroku]:http://splitbys.herokuapp.com
 
 Splitbys is a full-stack inspired by Splitwise. It relies on Ruby on Rails for the backend, PostgreSQL for the database, and React.js with a Redux framework for the frontend. Splitbys is a single-page application, all content is rendered on one static page. Sensitive client information is kept out of the frontend by only allowing veiw access if `SessionStore#currentUser` is not null.  
 
@@ -47,17 +47,16 @@ The `FriendStore` stores three types of friend relationships - pending requests 
 ```
   
   
+ A user can only create bills with friends for whom `pending` is false. When a client wants to create a bill they are prompted to type in the friends name, like in the new friend search the client is prompted with friends that match what they have typed. When the client find the friend they would liek to create a bill with they can click on their name, propmting the `NewBillForm` to pop up. Should a user decide to change the friend they are spliting a bill with, the form will disappear. In the `NewBillForm` a client can choose the percentage split between themself and their friend. On submit the percentage is changed to the `owed` amount stored in the database. 
   
-  A user can only create bills with friends for whom `pending` is false. When a client wants to create a bill they are prompted to type in the friends name, like in the new friend search the client is prompted with friends that match what they have typed. When the client find the friend they would liek to create a bill with they can click on their name, propmting the `NewBillForm` to pop up. Should a user decide to change the friend they are spliting a bill with, the form will disappear. In the `NewBillForm` a client can choose the percentage split between themself and their friend. On submit the percentage is changed to the `owed` amount stored in the database. 
+### NavBar
   
-  ### NavBar
-  
-  ##Future Directions for the Project
+##Future Directions for the Project
   
   The next steps for Splitbys are discussed below. 
   
-  ###Group Split
+###Group Split
   
-  ###Split Options
+###Split Options
   
-  ###Checkout
+###Checkout
