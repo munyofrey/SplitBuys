@@ -11,13 +11,13 @@ class Api::FriendsController < ApplicationController
   end
 
   def create
-    @friend = Friend.new(create_params)
+    @friend = Friend.new(friend_params)
 
-    if current_user.requests.where('pending = true').include?(User.find_by_id(create_params[:user_two_id]))
+    if current_user.requests.where('pending = true').include?(User.find_by_id(friend_params[:user_two_id]))
       @friend.pending = false
       Friend.update({
-        user_two_id: create_params[:user_one_id].to_i,
-        user_one_id: create_params[:user_two_id].to_i,
+        user_two_id: friend_params[:user_one_id].to_i,
+        user_one_id: friend_params[:user_two_id].to_i,
         })
     end
 
@@ -50,7 +50,7 @@ class Api::FriendsController < ApplicationController
 
 private
 
-def create_params
+def friend_params
   params.require(:friend).permit(:user_one_id, :user_two_id)
 end
 

@@ -496,6 +496,11 @@ justify-content: space-between;
 flex-direction: column;
 }
 
+ul.comments-list{
+  overflow-y: scroll;
+  height: 300px;
+}
+
 ul.comments-list > li {
   display: flex;
   flex-direction: row-reverse;
