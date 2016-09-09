@@ -3,7 +3,6 @@
   session: {
    currentUser: {
      id: 1,
-     email: "jeanie@jeanie.com"
      errors: []
    }
   },
@@ -16,24 +15,20 @@
       amount: 100.56
       comments: {
         user_id: 1,
+        user_name: 'Guest'
         text: "I did not actually pay for this"
       }
-    form: {errors: []}
+    errors: []
     }
   },
-  friends: {
-    1: {
+  friends: [
+    [{
       user_id: 4,
       name: "Jeannie",
-      email: "jeanie@jeanie.com"
-    }
-  },
-  requests: {
-    2: {
-      user_id: 5,
-      name: "Josh",
-      email: "josh@josh.com"
-    }
-  }
+    }], [{pending friend info}], [{request friend info}]
+  ]
+users:[ ALL OTHER USERS (name and id)],
+ sums = [[{user_name: jeanie, user_id:4, sum: 44.3}],[{negative sums information}] ]
+ }
 }
 ```
