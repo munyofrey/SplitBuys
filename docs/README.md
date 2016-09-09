@@ -1,20 +1,20 @@
 # SplitBuys
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku] 
 
-[heroku]:
+[heroku]: http://splitbys.xyz
 
 ## Minimum Viable Product
 
 SplitBuys is a web application inspired by Splitwise built using Ruby on Rails and React/Redux.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] Bills
-- [ ] Spliting Bills - MVP is all one person, or even split
-- [ ] Comments on Bills
-- [ ] Friending - Bills can only be made with friends
-- [ ] Transactions History (I have multiple options listed, but ultimately MVP is a simple list of every transaction  and ability to inspect each one)
+- [X] Hosting on Heroku
+- [X] New account creation, login, and guest/demo login
+- [X] Bills
+- [X] Spliting Bills - MVP is all one person, or even split
+- [X] Comments on Bills
+- [X] Friending - Bills can only be made with friends
+- [X] Transactions History (I have multiple options listed, but ultimately MVP is a simple list of every transaction  and ability to inspect each one)
 - [ ] Production README
 
 ## Design Docs
@@ -38,73 +38,67 @@ SplitBuys is a web application inspired by Splitwise built using Ruby on Rails a
 
 **Objective:** Functioning rails project with front-end Authentication
 
-- [ ] New Rails project
-- [ ] `User` model/migration
-- [ ] Back end authentication (session/password)
-- [ ] `StaticPages` controller and root view
-- [ ] Webpack & react/redux modules
-- [ ] `APIUtil` to interact with the API
-- [ ] Redux cycle for frontend authentication
-- [ ] User signup/signin components
-- [ ] Blank landing component after signup/signin
-- [ ] Style signup/signin components
-- [ ] Seed users
-- [ ] Review phase 1
+- [X] New Rails project
+- [X] `User` model/migration
+- [X] Back end authentication (session/password)
+- [X] `StaticPages` controller and root view
+- [X] Webpack & react/redux modules
+- [X] `APIUtil` to interact with the API
+- [X] Redux cycle for frontend authentication
+- [X] User signup/signin components
+- [X] Blank landing component after signup/signin
+- [X] Style signup/signin components
+- [X] Seed users
+- [X] Review phase 1
 
 ### Phase 2: Bill Model, API, and components (3 days)
 
 **Objective:** Bills can be created, read, edited and destroyed through
 the API. Have veiws that show totals between users as well as transaction history veiws.
 
-- [ ] `Bill` model
-- [ ] Seed database with a small amount of test data
-- [ ] CRUD API for notes (`BillsController`)
-- [ ] JBuilder views for bills
+- [X] `Bill` model
+- [X] Seed database with a small amount of test data
+- [X] CRUD API for notes (`BillsController`)
+- [X] JBuilder views for bills
 - Bills components and respective Redux loops
-  - [ ] `TotalBillsIndex`
-  - [ ] `BillsIndexItem`
-  - [ ] `BillForm`
-    - [ ] `Splitter`
-    - [ ] allows four options: you paid all (owed nothing), they paid all(owed nothing), you paid (split half), they paid(split half)
-    - [ ] Allotting at least two hours to researching how to implement this on a form
-- Bills History components and respective Redux loops
-  - [ ] `AllBillsIndex`
-  - [ ] `BillsIndexItem`
-  - [ ] `BillForm`
-- [ ] Style bills components
-- [ ] Seed notes
+  - [X] `BillsListContianer`
+  - [X] `BillDetailItem`
+  - [X] `NewBillForm`
+    - [X] allows four options: you paid all (owed nothing), they paid all(owed nothing), you paid (split half), they paid(split half)
+    - [X] Allotting at least two hours to researching how to implement this on a form
+- [X] Bills History components and respective Redux loops`
+- [X] Style bills components
+- [X] Seed notes
 
 ### Phase 3: Friending, API, and components (2.5 days)
 
 **Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
 
-- [ ] `Friend` model
-- [ ] Seed database with a small amount of test data
-- [ ] Can add Friend
-- [ ] `FriendSearch` bar allows requesting friend
-- [ ] `FriendsIndex` shows up
-- [ ] Friends Transaction History (`FriendBillsContainer`)
-- [ ] Style `FriendBillsContainer` Components
-- [ ] Style `FriendSearch` Components
-- [ ] Style `FriendIndex` Components
-- [ ] Update Bills so that they can only be created among friends
-- [ ] Update Bills so that they use `FriendBillSearch`
-- [ ] `Request` model
-- [ ] Add and deleting requests
-- [ ] `RequestIndex` shows up (with buttons to add and delete)
-- [ ] Style Request Components
-- [ ] Seed Friends data
+- [X] `Friend` model
+- [X] Seed database with a small amount of test data
+- [X] Can add Friend
+- [X] `UserSearch` bar allows requesting friend
+- [X] `FriendsComponent` shows up
+- [X] Friends Transaction History
+- [X] Style `FriendHistoryContainer` Components
+- [X] Style `UserSearch` Components
+- [X] Style `FriendIndex` Components
+- [X] Update Bills so that they can only be created among friends
+- [X] Update Bills so that they use `UserSearch` for only friends
+- [X] Add and deleting requests
+- [X] `RequestIndex` shows up (with buttons to add and delete)
+- [X] Style Request Components
+- [X] Seed Friends data
 
 ### Phase 4: Comments, API, and components (1.5 days)
 
 **Objective:** Bills can be commented
 
-- [ ] `Comment` model
-- [ ] Fetching comments for a bill
-- [ ] jBuilder view for comment and comment form
-- [ ] Adding comments to a bill
-- [ ] Can add/delete/edit comments you wrote
-- [ ] Seed bills with seed comment data
+- [X] `Comment` model
+- [X] Fetching comments for a bill
+- [X] Adding comments to a bill
+- [X] Can add/delete comments you wrote
+- [X] Seed bills with seed comment data
 
 ### Phase 5: Cleanup, refactoring (.5 days)
 **Objective** Make it DRYer

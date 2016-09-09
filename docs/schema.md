@@ -36,10 +36,5 @@ column name | data type | details
 id          | integer   | not null, primary key
 user_one_id | integer   | not null, foreign key, indexed
 user_two_id | integer   | not null, foreign key, indexed
+pending     | boolean   | not null, default true 
 
-## requests
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-user_one_id | integer   | not null, foreign key, indexed
-user_two_id | integer   | not null, foreign key, indexed

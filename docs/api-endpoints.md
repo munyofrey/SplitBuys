@@ -11,13 +11,13 @@
 ### Users
 
 - `POST /api/users`
-- `PATCH /api/users/:id`
+- `GET /api/users`
+- `GET /api/users`
 
 ### Session
 
 - `POST /api/session`
 - `DELETE /api/session`
-- `GET /api/session`
 
 ### Bills
 
@@ -31,24 +31,17 @@
 
 ### All Bills
 
--`GET api/allsums` - for the 
+-`GET api/sums` - for the sum owed
 
 
 ### Comments
 
-- `POST /api/bills/:id/comments`
-- `DELETE /api/bills/:id/comments/:id`
-- `PATCH /api/bills/:id/comments/:id`
-- `GET /api/bills/:id/comments`
+- `POST /api/comments`
+- `GET /api/comments/:id`
 
 ### Friends
 
-- all accept `user_id`
 - `GET /api/friends`
 - `GET /api/friends/:id`  this is for getting friend's history
-
-### Requests
-- all accept `user_id`
-- `GET /api/requests`
-- `DELETE /api/requests/:id`
-- `GET /api/requests/:id`
+- `POST /api/friends`
+- `DELETE /api/friends/:id` - for deleting friend requests
