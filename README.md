@@ -107,7 +107,7 @@ The `FriendStore` stores three types of friend relationships - pending requests 
 
 
 ###Checkout
-Currently one can settle up with their friends by adding a bill of equal value to that shown on the totals page. I think it would be fun to implement a settle up function that shows differently on
+Currently one can settle up with their friends by adding a bill of equal value to that shown on the totals page. I think it would be fun to implement a settle up function that shows differently on the user's transactions history. To do so I will implement a `SettleComponent` that appears on a friend's transaction page, and a boolean `settle` for the bills table in the database.  
 
 
 
