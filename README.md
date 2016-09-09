@@ -50,6 +50,8 @@ The `FriendStore` stores three types of friend relationships - pending requests 
  A user can only create bills with friends for whom `pending` is false. When a client wants to create a bill they are prompted to type in the friends name, like in the new friend search the client is prompted with friends that match what they have typed. When the client find the friend they would liek to create a bill with they can click on their name, propmting the `NewBillForm` to pop up. Should a user decide to change the friend they are spliting a bill with, the form will disappear. In the `NewBillForm` a client can choose the percentage split between themself and their friend. On submit the percentage is changed to the `owed` amount stored in the database. 
   
 ### NavBar
+
+[Screen Shot 2016-09-08 at 5.16.34 PM]!
   
 ##Future Directions for the Project
   
