@@ -1,7 +1,7 @@
 # Splitbys 
 
 [Splitbys live][heroku]
-![sums]:./doc/wireframes/Screen Shot 2016-09-08 at 5.12.40 PM
+![sums]: ./doc/wireframes/Screen Shot 2016-09-08 at 5.12.40 PM
 
 [heroku]:http://splitbys.herokuapp.com
 
