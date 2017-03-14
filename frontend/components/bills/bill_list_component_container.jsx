@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import billList from './bill_list_component';
 import { receiveBills, receiveErrors, requestBills, deleteBill, createBill } from '../../actions/bill_actions';
-import { requestFriendHistory } from '../../actions/friend_actions'
+import { requestFriendHistory } from '../../actions/friend_actions';
 
 const mapStateToProps = state => ({
   bills: state.bills.bills,

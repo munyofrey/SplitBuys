@@ -26,7 +26,7 @@ class billList extends React.Component{
                 <th>Description</th>
                 <th>Amount owed</th>
                 <th>Bill Total</th>
-                <th>Who Payed</th>
+                <th>Who Paid</th>
                 <th>Who owes</th>
               </tr>
             </thead>
