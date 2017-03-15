@@ -13,19 +13,19 @@
 
 class User < ActiveRecord::Base
 
-  validates :session_token, :email, presence: true, uniqueness:true
+  validates :session_token, :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :password_digest, :name, presence:true
+  validates :password_digest, :name, presence: true
 
   has_many :owed_bills,
   primary_key: :id,
   foreign_key: :user_owe_id,
   class_name: :Bill
 
-  has_many(:paid_bills,
+  has_many :paid_bills,
   primary_key: :id,
   foreign_key: :user_pay_id,
-  class_name: "Bill")
+  class_name: "Bill"
 
   has_many :friend_items,
   primary_key: :id,
@@ -51,51 +51,17 @@ class User < ActiveRecord::Base
   #bills
 
   def all_bills
-    bills = ActiveRecord::Base.connection.execute(<<-SQL)
-      SELECT bills.id, total, bills.description, bills.note, bills.user_owe_id as other_user_id, paid.name as name_payer, owed, date, ower.name as ower
-          FROM bills
-          JOIN users as ower ON bills.user_owe_id = ower.id
-          JOIN users AS paid ON paid.id = bills.user_pay_id
-          WHERE bills.user_pay_id = #{self.id}
-      UNION
-      SELECT bills.id, total, bills.description, bills.note, bills.user_pay_id as other_user_id, paid.name as ower, owed, date, ower.name as name_payer
-          FROM bills
-          JOIN users as paid ON bills.user_pay_id = paid.id
-          JOIN users AS ower ON ower.id = bills.user_owe_id
-          WHERE bills.user_owe_id = #{self.id}
-
-      ORDER BY date DESC
-      SQL
-      new_bills = []
-    bills.each do |bill|
-      bill['comments'] =  Bill.comments_and_names(bill['id'])
-      new_bills.push(bill)
-    end
-    new_bills
+    self.owed_bills
+    .includes("comments") + self.paid_bills
+    .includes("comments")
   end
 
   def all_bills_for_friend(friend_id)
-    bills = ActiveRecord::Base.connection.execute(<<-SQL)
-      SELECT bills.id, total, bills.description, bills.note, bills.user_owe_id as other_user_id, paid.name as name_payer, owed, date, ower.name as ower
-          FROM bills
-          JOIN users as ower ON bills.user_owe_id = ower.id
-          JOIN users AS paid ON paid.id = bills.user_pay_id
-          WHERE bills.user_pay_id = #{self.id} AND bills.user_owe_id = #{friend_id}
-      UNION
-      SELECT bills.id, total, bills.description, bills.note, bills.user_pay_id as other_user_id, paid.name as ower, owed, date, ower.name as name_payer
-          FROM bills
-          JOIN users as paid ON bills.user_pay_id = paid.id
-          JOIN users AS ower ON ower.id = bills.user_owe_id
-          WHERE bills.user_owe_id = #{self.id} AND user_pay_id = #{friend_id}
-
-      ORDER BY date DESC
-      SQL
-      new_bills = []
-      bills.each do |bill|
-        bill['comments'] =  Bill.comments_and_names(bill['id'])
-        new_bills.push(bill)
-      end
-      new_bills
+    self.owed_bills
+        .where(user_pay_id: friend_id)
+        .includes("comments") + self.paid_bills
+        .where(user_owe_id: friend_id)
+        .includes("comments")
   end
 
 
