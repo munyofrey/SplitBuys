@@ -84,10 +84,10 @@ handleRequest(){
     return(
       <div className='friends-container'>
 
-        { this.props.friends[2].length === 0 ?  "" : <div className='users-friend-requests'>
+        { this.props.requested.length === 0 ?  "" : <div className='users-friend-requests'>
           <h5 className='friend-header'>You have friend Requests!</h5>
           <ul >
-            {this.props.friends[2].map(friend =>
+            {this.props.requested.map(friend =>
               (<li key={`friendlist${friend.id}`}><div className='request-holder'>
                 <div>{friend.name}</div>
                   <div className='small-button-holder'><div
@@ -103,11 +103,11 @@ handleRequest(){
         <div className='current-friends-list'>
           <h5 className='friend-header'>Friends</h5>
           <ul>
-            {this.props.friends[0].map(friend =>
+            {this.props.friends.map(friend =>
               (<li key={`friendlist${friend.id}`}><Users className='user-icon'/><Link className='friend-nav-link' to={`/friends/${friend.id}`}>{friend.name}</Link></li>)
             )}
 
-              {this.props.friends[1].map(friend => (<li key={`friendlist${friend.id}`}><div className='request-holder'>{friend.name}
+              {this.props.friends.map(friend => (<li key={`friendlist${friend.id}`}><div className='request-holder'>{friend.name}
                 <strong> pending </strong></ div></li>))}
           </ul>
         </div>

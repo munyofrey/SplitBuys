@@ -1,7 +1,8 @@
 class Api::FriendsController < ApplicationController
 
   def index
-    render json: current_user.find_friends
+    @friends =  current_user.find_friends
+    # render json: current_user.find_friends
   end
 
 

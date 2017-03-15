@@ -112,9 +112,9 @@ class User < ActiveRecord::Base
   end
 
   def find_friends
-    friends = self.friends.where('pending=false')
-    pending = self.friends.where('pending=true')
-    requests = self.requests.where('pending=true')
+    friends = self.friends.where('pending=false').select(:id, :name)
+    pending = self.friends.where('pending=true').select(:id, :name)
+    requests = self.requests.where('pending=true').select(:id, :name)
     [friends, pending, requests]
   end
 
