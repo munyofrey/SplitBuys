@@ -16,9 +16,7 @@ const billReducer = (oldState = preloadedState, action) => {
       newState.errors = action.errors;
       return newState
     case billActions.RECEIVE_BILLS:
-      // action.bills.forEach(bill => {bill.date = new Date(bill.date)})
       return merge({}, preloadedState, { bills: action.bills, errors:[] })
-
     case billActions.DELETE_BILL:
       oldStateClone = merge({}, oldState, oldState);
       newState = [];
@@ -27,9 +25,13 @@ const billReducer = (oldState = preloadedState, action) => {
       return oldStateClone
     case commentActions.RECEIVE_COMMENT:
       newState = merge({}, oldState);
-      // newState.bills[action.comment.bill_id].comments[]
-
-      return oldStateClone
+      newState.bills[action.comment.bill_id].comments[action.comment.id] = action.comment
+      return newState
+      break;
+    case commentActions.REMOVE_COMMENT:
+      newState = merge({}, oldState);
+      delete newState.bills[action.comment.bill_id].comments[action.comment.id]
+      return newState
       break;
     default: return oldState
 

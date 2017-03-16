@@ -7,7 +7,7 @@ export const createComment = (comment, success, error) => (
     data: comment,
     method: 'POST'
   })
-)
+);
 
 export const deleteComment = (comment_id, success, error) => (
   $.ajax({
@@ -16,4 +16,4 @@ export const deleteComment = (comment_id, success, error) => (
     error,
     method: 'DELETE'
   })
-)
+);

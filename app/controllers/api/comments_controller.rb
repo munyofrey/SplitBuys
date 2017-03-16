@@ -1,12 +1,10 @@
 class Api::CommentsController < ApplicationController
 
-
   def create
-    comment = Comment.new(comment_params)
-    comment.user_id = current_user.id
-    if comment.save
-      comments = Bill.comments_and_names(comment.bill_id)
-      render json: comments
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save
+      render :show
     else
       render json: comment.errors.full_messages, status: 422
     end
@@ -17,9 +15,10 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.find_by_id(params[:id])
     if @comment
       @comment.destroy
+    else
+      render json: @comment.errors.full_messages, status: 422
     end
-    comments = Bill.comments_and_names(@comment.bill_id)
-    render json: comments
+    render :show
   end
 
   private
@@ -27,6 +26,4 @@ class Api::CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:bill_id, :body)
   end
-
-
 end
