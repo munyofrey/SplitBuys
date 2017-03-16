@@ -44,7 +44,7 @@ class CommentComponent extends React.Component{
       <ul className='comments-list'>
         {this.props.comments.map(comment =>
           <li key={`${comment.id}${comment.body}`}>{this.killButton(comment)}
-                  <div className='comment body'><div className='commenter'>{comment.name}</ div> {comment.body}</div></li>)}
+                  <div className='comment body'><div className='commenter'>{this.props.users[comment.user_id].name}</ div> {comment.body}</div></li>)}
       </ul>
       <form onSubmit={this.handleSubmit} className="new-bill-form">
         <textarea

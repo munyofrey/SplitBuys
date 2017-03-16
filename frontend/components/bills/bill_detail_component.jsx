@@ -46,7 +46,7 @@ deleteBillItem(bill){
     return(
         <tbody  onClick={this.openModal}>
           <tr className='bill-table-row'>
-            <td className='bill-table-element'>{this.props.bill.date.toDateString()}</td>
+            <td className='bill-table-element'>{this.props.bill.date}</td>
             <td className='bill-table-element'>{this.props.bill.description}</td>
             <td className='bill-table-element'>{`$ ${parseFloat(this.props.bill.owed).toFixed(2)}`}</td>
             <td className='bill-table-element'>{`$ ${parseFloat(this.props.bill.total).toFixed(2)}`}</td>
@@ -63,7 +63,7 @@ deleteBillItem(bill){
               <ul className='bill-item-detail' >
                 <li className='bill-detail'><div className='title-detail'>
                   Date: </div>
-                {this.props.bill.date.toDateString()}</li>
+                {this.props.bill.date}</li>
               <li className='bill-detail'><div className='title-detail'>Description:</div>
                 {this.props.bill.description}</li>
 

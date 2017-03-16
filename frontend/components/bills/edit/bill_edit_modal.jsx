@@ -39,7 +39,7 @@ class BillEditForm extends React.Component{
       note: this.props.bill.note,
       owed: parseFloat(this.props.bill.owed),
       total: parseFloat(this.props.bill.total),
-      date: this.props.bill.date.toISOString().slice(0, 10),
+      date: this.props.bill.date,
       id: this.props.bill.id
     }
 
@@ -54,7 +54,7 @@ class BillEditForm extends React.Component{
       note: this.props.bill.note,
       owed: parseFloat(this.props.bill.owed),
       total: parseFloat(this.props.bill.total),
-      date: this.props.bill.date.toISOString().slice(0, 10),
+      date: this.props.bill.date.slice(0, 10),
       id: this.props.bill.id
     }
     this.openModal = this.openModal.bind(this)
@@ -87,7 +87,7 @@ class BillEditForm extends React.Component{
       note: this.props.bill.note,
       owed: parseFloat(this.props.bill.owed),
       total: parseFloat(this.props.bill.total),
-      date: this.props.bill.date.toISOString().slice(0, 10),
+      date: this.props.bill.date,
       id: this.props.bill.id
     })
   }

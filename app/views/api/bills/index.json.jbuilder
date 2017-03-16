@@ -1,1 +1,5 @@
-json.array! @bills, partial:'api/bills/bills', as: :bill
+@bills.each do |bill|
+  json.set! bill.id do
+    json.partial! 'api/bills/bills', locals:{ bill: bill}
+  end
+end

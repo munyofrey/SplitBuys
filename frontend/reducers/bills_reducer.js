@@ -2,7 +2,7 @@ import {billActions} from '../actions/bill_actions';
 import { merge } from 'lodash';
 import { commentActions } from '../actions/comment_actions';
   const preloadedState = {
-    bills: [],
+    bills: {},
     errors: []
   }
 
@@ -16,7 +16,7 @@ const billReducer = (oldState = preloadedState, action) => {
       newState.errors = action.errors;
       return newState
     case billActions.RECEIVE_BILLS:
-      action.bills.forEach(bill => {bill.date = new Date(bill.date)})
+      // action.bills.forEach(bill => {bill.date = new Date(bill.date)})
       return merge({}, preloadedState, { bills: action.bills, errors:[] })
 
     case billActions.DELETE_BILL:
