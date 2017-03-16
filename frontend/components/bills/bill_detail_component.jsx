@@ -42,6 +42,7 @@ deleteBillItem(bill){
 }
 
   render(){
+
     return(
         <tbody  onClick={this.openModal}>
           <tr className='bill-table-row'>
@@ -49,8 +50,8 @@ deleteBillItem(bill){
             <td className='bill-table-element'>{this.props.bill.description}</td>
             <td className='bill-table-element'>{`$ ${parseFloat(this.props.bill.owed).toFixed(2)}`}</td>
             <td className='bill-table-element'>{`$ ${parseFloat(this.props.bill.total).toFixed(2)}`}</td>
-            <td className='bill-table-element'>{this.props.bill.user_pay_id}</td>
-            <td className='bill-table-element'>{this.props.bill.user_owe_id}</td>
+            <td className='bill-table-element'>{this.props.users[this.props.bill.user_pay_id].name}</td>
+            <td className='bill-table-element'>{this.props.users[this.props.bill.user_owe_id].name}</td>
 
         <td className='bill_item_detail'>
             <Modal

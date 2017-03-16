@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import CommentComponent from './comment_component';
 import { createComment, deleteComment, requestComments } from '../../actions/comment_actions';
 
-const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.session.currentUser,
+  comments: ownProps.bill.comments
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -1,9 +1,7 @@
 class Api::BillsController < ApplicationController
 
   def index
-    @user = current_user
-    @bills = @user.all_bills
-    render json: @bills
+    @bills = current_user.all_bills
   end
 
   def create

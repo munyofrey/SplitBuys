@@ -42,7 +42,7 @@ class CommentComponent extends React.Component{
   render(){
     return(<div>
       <ul className='comments-list'>
-        {this.props.bill.comments.map(comment =>
+        {this.props.comments.map(comment =>
           <li key={`${comment.id}${comment.body}`}>{this.killButton(comment)}
                   <div className='comment body'><div className='commenter'>{comment.name}</ div> {comment.body}</div></li>)}
       </ul>

@@ -35,6 +35,7 @@ class billList extends React.Component{
           {this.props.bills.map(bill => (
             <BillDetail
               bill={bill}
+              users={this.props.users}
               key={`${bill.id}`}
               deleteBill={this.props.deleteBill}/>
            ))}

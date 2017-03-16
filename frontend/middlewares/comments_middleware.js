@@ -1,8 +1,8 @@
-import { receiveComments, commentActions } from '../actions/comment_actions';
+import { receiveComment, commentActions } from '../actions/comment_actions';
 import { createComment, deleteComment } from '../util/api_comments_util';
 
 const CommentsMiddleware = ({ getState, dispatch }) => next => action => {
-  const successCB = comments => dispatch(receiveComments(comments))
+  const successCB = comments => dispatch(receiveComment(comments))
   switch (action.type) {
     case commentActions.CREATE_COMMENT:
       createComment(action.comment, successCB, errors => console.log(errors))

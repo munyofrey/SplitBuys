@@ -3,11 +3,11 @@ import { merge } from 'lodash';
 import { commentActions } from '../actions/comment_actions';
   const preloadedState = {
     bills: [],
-    errors: [],
-    comments: []
+    errors: []
   }
 
 const billReducer = (oldState = preloadedState, action) => {
+  Object.freeze(oldState)
   let newState;
   let oldStateClone;
   switch (action.type) {
@@ -25,9 +25,10 @@ const billReducer = (oldState = preloadedState, action) => {
       oldStateClone.bills.forEach(bill => {if(bill.id !== action.bill.id){newState.push(bill)}})
       oldStateClone.bills = newState
       return oldStateClone
-    case commentActions.RECEIVE_COMMENTS:
-      oldStateClone = merge({}, oldState, oldState);
-      oldStateClone.bills.forEach(bill => {if(bill.id === action.comments[0].bill_id){bill.comments = action.comments}})
+    case commentActions.RECEIVE_COMMENT:
+      newState = merge({}, oldState);
+      // newState.bills[action.comment.bill_id].comments[]
+
       return oldStateClone
       break;
     default: return oldState
