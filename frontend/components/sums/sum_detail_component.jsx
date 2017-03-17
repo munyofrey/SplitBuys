@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 
 
-const SumDetail = ({sum}) => (
+const SumDetail = ({sum, friend}) => (
+  sum ?
   <li >
-    <Link to={`/friends/${sum.id}`} className='link-users'>{sum.name}</Link>
-    <div className='sum-users'>{`$ ${sum.sum}`}</div>
+    <Link to={`/friends/${friend.id}`} className='link-users'>{friend.name}</Link>
+    <div className='sum-users'>{`$ ${sum}`}</div>
   </li>
+  : <li></li>
 )
 
 export default SumDetail
