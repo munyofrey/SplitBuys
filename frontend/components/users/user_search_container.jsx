@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UserSearch from './user_search';
-import { requestAllUsers } from '../../actions/user_actions';
+import { requestUsers } from '../../actions/user_actions';
 
 
 const mapDispatchToProps = dispatch => ({

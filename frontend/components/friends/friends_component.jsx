@@ -52,7 +52,7 @@ class FriendComponent extends React.Component{
 
   componentDidMount(){
     this.props.requestFriends()
-    this.props.requestAllUsers()
+    this.props.requestUsers()
   }
 
   changeUnentered(){

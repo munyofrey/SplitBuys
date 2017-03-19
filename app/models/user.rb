@@ -25,17 +25,17 @@ class User < ActiveRecord::Base
   has_many :paid_bills,
   primary_key: :id,
   foreign_key: :user_pay_id,
-  class_name: "Bill"
+  class_name: :Bill
 
   has_many :friend_items,
   primary_key: :id,
   foreign_key: :user_one_id,
-  class_name: 'Friend'
+  class_name: :Friend
 
   has_many :request_items,
   primary_key: :id,
   foreign_key: :user_two_id,
-  class_name: 'Friend'
+  class_name: :Friend
 
   has_many :friends,
   through: :friend_items,

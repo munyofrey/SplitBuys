@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { createFriend, requestFriends, deleteFriend } from '../../actions/friend_actions';
-import { requestAllUsers } from '../../actions/user_actions';
+import { requestUsers } from '../../actions/user_actions';
 import FriendComponent from './friends_component';
 import {values} from 'lodash';
 
@@ -15,7 +15,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   createFriend: (friend) => dispatch(createFriend(friend)),
   requestFriends: () => dispatch(requestFriends()),
-  requestAllUsers: () => dispatch(requestAllUsers()),
+  requestUsers: (users) => dispatch(requestUsers(users)),
   deleteFriend: (friend) => dispatch(deleteFriend(friend))
 })
 

@@ -1,15 +1,23 @@
 class Api::UsersController < ApplicationController
 
   def index
-    usersStart = User.all.where("id != #{current_user.id}")
-    friends = current_user.friends
-    @users = []
-    usersStart.each  do |user|
-      unless friends.include?(user) || current_user.requests.where('pending = true').include?(user)
-        @users.push(user)
-      end
-    end
-    render 'api/users/index'
+    # Gives friends that are not users
+    # User.all.where.not(id: "#{self.friend_items.pluck(:user_two_id)} or #{self.request_items.where('pending="true"')pluck(:user_one_id)} )
+
+
+    # usersStart = User.all.where("id != #{current_user.id}")
+    # friends = current_user.friends
+    # @users = []
+    # usersStart.each  do |user|
+    #   unless friends.include?(user) || current_user.requests.where('pending = true').include?(user)
+    #     @users.push(user)
+    #   end
+    # end
+    @users = User.where
+                .not(id: (Friend.where(user_one_id: current_user.id).pluck(:user_two_id) + Friend.where(user_two_id: current_user.id).pluck(:user_one_id) + [current_user.id]))
+                .where("lower(name) LIKE '#{params[:queryParams].downcase}%'")
+    render json: @users
+    # render 'api/users/index'
   end
 
   def create
