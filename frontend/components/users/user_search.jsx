@@ -9,25 +9,15 @@ class UserSearch extends React.Component{
       searchInput: ''
     }
     this.selectName = this.selectName.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.matches = this.matches.bind(this);
 
   }
 
-  handleSubmit(event){
-    this.props.changeUnentered()
-    this.setState({searchInput: event.currentTarget.value})
-  }
-
-
-  matches(){
-    let matches = [];
-    let users = this.props.users;
-    let searchInput = this.state.searchInput;
-    if(searchInput.length === 0){return null}
-    return this.props.users.filter(user => {
-      return (user.name.slice(0, searchInput.length).toLowerCase() === searchInput.toLowerCase())
-    })
+  handleChange(event){
+    this.props.changeUnentered();
+    event.currentTarget.value.length > 0 ? this.props.requestUsers(event.currentTarget.value) : this.props.receiveUsers();
+    this.setState({searchInput: event.currentTarget.value});
   }
 
   selectName(user){
@@ -39,18 +29,16 @@ class UserSearch extends React.Component{
 
 
   render(){
-      let matches = this.matches()
-      let matchers;
-      if (matches){
-        matchers = matches.map(user =>
-          <li key={`${user.name}${user.id}`} onClick={this.selectName.bind(this, user)}>{user.name}</li>)}
       return(
         <div className='user-search-container'>
-          <input onChange={this.handleSubmit}
+          <input onInput={this.handleChange}
             value={this.state.searchInput}
             className='user-search'
-            placeholder='Find friends' /> 
-          {(this.props.listElements) ? <ul className='all-users'>{matchers}</ul> : ''}
+            placeholder='Find friends' />
+          <ul className='all-users'>{this.props.users.map(user =>
+              <li key={`${user.name}${user.id}`}
+                onClick={this.selectName.bind(this, user)}>{user.name} </li> )}
+          </ul>
       </ div>)
   }
 

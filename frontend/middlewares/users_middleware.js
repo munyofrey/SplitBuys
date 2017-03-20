@@ -1,4 +1,4 @@
-import { userConstants, receiveAllUsers } from '../actions/user_actions'
+import { userConstants, receiveUsers } from '../actions/user_actions'
 import { fetchUsers } from '../util/api_users_util';
 
 
@@ -10,7 +10,7 @@ const UsersMiddleware = ({getstate, dispatch}) => next => action => {
   };
   switch (action.type) {
     case userConstants.REQUEST_USERS:
-      successCB = users => { dispatch(receiveAllUsers(users)) }
+      successCB = users => { dispatch(receiveUsers(users)) }
       fetchUsers(action.users, successCB, errorCB)
       return next(action)
       break;

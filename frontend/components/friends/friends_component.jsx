@@ -52,7 +52,6 @@ class FriendComponent extends React.Component{
 
   componentDidMount(){
     this.props.requestFriends()
-    this.props.requestUsers()
   }
 
   changeUnentered(){
@@ -117,8 +116,6 @@ handleRequest(){
           <h5>Find new friends!</ h5>
           <UserSearchContainer
             selectUser={this.selectUser}
-            users={this.props.users}
-            listElements={this.state.listElements}
             changeUnentered={this.changeUnentered}/>
         </div>
 
