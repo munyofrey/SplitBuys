@@ -23,7 +23,8 @@ class Api::FriendsController < ApplicationController
     end
 
     if @friend.save
-      render json: current_user.find_friends
+      @friends = current_user.find_friends
+      render :index
     else
       render json: @friend.errors.full_messages, status: 422
     end
