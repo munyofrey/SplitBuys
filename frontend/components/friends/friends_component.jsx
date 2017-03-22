@@ -1,21 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 import UserSearchContainer from '../users/user_search_container';
-import Modal from 'react-modal';
 import UserTimes from 'react-icons/lib/fa/trash';
 import UserPlus from 'react-icons/lib/fa/user-plus';
 import Users from 'react-icons/lib/fa/user'
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
 
 
 class FriendComponent extends React.Component{
@@ -24,22 +13,12 @@ class FriendComponent extends React.Component{
     this.state = {
       listElements: false,
       user: {},
-      modalIsOpen: false,
     }
-    this.changeUnentered = this.changeUnentered.bind(this);
-    this.selectUser = this.selectUser.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleRequest = this.handleRequest.bind(this);
     this.acceptRequest = this.acceptRequest.bind(this);
   }
 
 
-  closeModal(){
-    this.setState({
-      modalIsOpen: false,
-      user:{}
-    })
-  }
+
 
   acceptRequest(user){
     const friend = {friend: {
@@ -54,12 +33,6 @@ class FriendComponent extends React.Component{
     this.props.requestFriends()
   }
 
-  changeUnentered(){
-    this.setState({
-      listElements:true,
-      user: {}
-    })
-  }
 
 handleRequest(){
   const friend = {friend: {
@@ -67,17 +40,8 @@ handleRequest(){
     user_two_id: this.state.user.id
   }}
   this.props.createFriend(friend);
-  this.closeModal();
 }
 
-
-  selectUser(user){
-    this.setState({
-      user: user,
-      modalIsOpen:true,
-      listElements:false
-    })
-  }
 
   render(){
     return(
@@ -111,25 +75,7 @@ handleRequest(){
           </ul>
         </div>
 
-
-        <div className='friend-search-container'>
-          <h5>Find new friends!</ h5>
-          <UserSearchContainer
-            selectUser={this.selectUser}
-            changeUnentered={this.changeUnentered}/>
-        </div>
-
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}>
-          <div className='accept-friend-modal'>
-            <button className='kill-button'onClick={this.closeModal}>x</button>
-            <h5>Would you like to send {this.state.user.name} a friend Request?</h5>
-            <div className='accept-friend-modal button' onClick={this.handleRequest}>Of course!</div>
-          </div>
-        </Modal>
+        <UserSearchContainer />
 
       </div>
     )

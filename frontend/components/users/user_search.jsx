@@ -1,29 +1,75 @@
 import React from 'react';
-import Search from 'react-icons/lib/fa/beer'
+import Search from 'react-icons/lib/fa/beer';
+import Modal from 'react-modal';
+
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
 
 
 class UserSearch extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      searchInput: ''
+      user: {},
+      searchInput: '',
+      modalIsOpen: false
     }
     this.selectName = this.selectName.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.matches = this.matches.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.changeUnentered = this.changeUnentered.bind(this);
+    this.handleRequest = this.handleRequest.bind(this);
+  }
 
+  closeModal(){
+    this.setState({
+      modalIsOpen: false,
+      user:{}
+    })
+  }
+
+  selectUser(user){
+    this.setState({
+      user: user,
+      modalIsOpen:true
+    })
+  }
+
+  handleRequest(){
+    const friend = {friend: {
+      user_one_id: this.props.currentUser.id,
+      user_two_id: this.state.user.id
+    }}
+    this.props.createFriend(friend);
+    this.closeModal();
+  }
+
+  changeUnentered(){
+    this.setState({
+      listElements:true,
+      user: {}
+    })
   }
 
   handleChange(event){
-    this.props.changeUnentered();
+    this.changeUnentered();
     event.currentTarget.value.length > 0 ? this.props.requestUsers(event.currentTarget.value) : this.props.receiveUsers();
     this.setState({searchInput: event.currentTarget.value});
   }
 
   selectName(user){
-    let name = event.currentTarget.innerText
-    this.setState({searchInput: user.name})
-    this.props.selectUser(user)
+    this.setState({searchInput: user.name});
+    console.log(user);
+    this.selectUser(user);
   }
 
 
@@ -39,6 +85,23 @@ class UserSearch extends React.Component{
               <li key={`${user.name}${user.id}`}
                 onClick={this.selectName.bind(this, user)}>{user.name} </li> )}
           </ul>
+
+
+          <div className='friend-search-container'>
+            <h5>Find new friends!</ h5>
+          </div>
+
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onRequestClose={this.closeModal}
+            style={customStyles}>
+            <div className='accept-friend-modal'>
+              <button className='kill-button'onClick={this.closeModal}>x</button>
+              <h5>Would you like to send {this.state.user.name} a friend Request?</h5>
+              <div className='accept-friend-modal button' onClick={this.handleRequest}>Of course!</div>
+            </div>
+          </Modal>
+
       </ div>)
   }
 
