@@ -19,17 +19,17 @@ class billList extends React.Component{
     return(
       <div className='rightside-block'>
         <div className='bill_list_component'>
-          <table className='bill-list-table'>
-            <thead>
-              <tr className='header-table'>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Amount owed</th>
-                <th>Bill Total</th>
-                <th>Who Paid</th>
-                <th>Who owes</th>
-              </tr>
-            </thead>
+          <div className='bill-list-table'>
+            <div>
+              <ul className='header-table'>
+                <li>Date</li>
+                <li>Description</li>
+                <li>Amount owed</li>
+                <li>Bill Total</li>
+                <li>Who Paid</li>
+                <li>Who owes</li>
+              </ul>
+            </div>
 
 
           {this.props.bills.map(bill => (
@@ -39,7 +39,7 @@ class billList extends React.Component{
               key={`${bill.id}`}
               deleteBill={this.props.deleteBill}/>
            ))}
-        </table>
+        </div>
         </div>
     </div>
     )
