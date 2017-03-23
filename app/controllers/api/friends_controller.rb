@@ -46,7 +46,8 @@ class Api::FriendsController < ApplicationController
     if friend_two
       friend_two.delete
     end
-    render json: current_user.find_friends
+    @friends =  current_user.find_friends
+    render :index
   end
 
 

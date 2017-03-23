@@ -10,9 +10,12 @@ const mapDispatchToProps = dispatch => ({
   createFriend: (friend) => dispatch(createFriend(friend))
 })
 
-const mapStateToProps = state => ({
-  users: state.users,
-  currentUser: state.session.currentUser
-})
+const mapStateToProps = (state, ownProps) => {
+  const users = ownProps.users ? ownProps.users : state.users
+  return({
+    users,
+    currentUser: state.session.currentUser
+  })
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserSearch)
