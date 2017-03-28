@@ -68,10 +68,11 @@ handleRequest(){
           <ul>
             {this.props.friends.map(friend =>
               (<li key={`friendlist${friend.id}`}><Users className='user-icon'/><Link className='friend-nav-link' to={`/friends/${friend.id}`}>{friend.name}</Link></li>)
-            )}
-
-              {this.props.pending.map(friend => (<li key={`friendlist${friend.id}`}><div className='request-holder'>{friend.name}
-                <strong> pending </strong></ div></li>))}
+            )}</ul>
+            <ul>
+            <h5 className='friend-header'>Pending Requests</h5>
+              {this.props.pending.map(friend => (<li key={`friendlist${friend.id}`} className='pending'>{friend.name}
+                </li>))}
           </ul>
         </div>
 

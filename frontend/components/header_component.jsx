@@ -8,28 +8,27 @@ import SignUp from 'react-icons/lib/fa/plus-square';
 
   const loggedOutOptions = () =>(
     <ul className='welcome-user after'>
-      <li className='center-flex'><Link to='/login' className='login button' ><SignIn /></Link>
+      <li ><Link to='/login' className='login button' ><SignIn /></Link>
       </li>
-      <li className='center-flex'><Link to='/signup' className='signup button'><SignUp /></Link></li>
+      <li ><Link to='/signup' className='signup button'><SignUp /></Link></li>
     </ul>
 )
 
   const loggedinOptions = (currentUser, logout) =>(
     <ul className='welcome-user after'>
       <li className='username-welcome center-flex'><Link to='/landing'> Welcome {currentUser.name}</Link></li>
-      <li className='center-flex'><BillFormContainer className='new-bill button'/></li>
-      <li className='center-flex'><Link to='/logout' className='new-bill button' onClick={logout}><Signout /></Link></li>
+      <li ><BillFormContainer className='new-bill button'/></li>
+      <li ><Link to='/logout' className='new-bill button' onClick={logout}><Signout /></Link></li>
     </ul>
   )
 
   const Header =  ({currentUser, logout}) =>(
     <header className='header'>
-      <div className='header-holder'>
+      <div className="header-holder">
         <Link to="/" className='title'>SplitBys</Link>
-       { (currentUser) ? loggedinOptions(currentUser, logout) :loggedOutOptions()}
-  </div>
-</header>
-  )
+       { (currentUser) ? loggedinOptions(currentUser, logout) : loggedOutOptions()}
+     </div>
+     </header>)
 
 
 export default Header;

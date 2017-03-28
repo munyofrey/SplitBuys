@@ -17,31 +17,21 @@ class billList extends React.Component{
 
   render(){
     return(
-      <div className='rightside-block'>
-        <div className='bill_list_component'>
+      <div className='middle'>
+
           <div className='bill-list-table'>
-            <div>
-              <ul className='header-table'>
-                <li>Date</li>
-                <li>Description</li>
-                <li>Amount owed</li>
-                <li>Bill Total</li>
-                <li>Who Paid</li>
-                <li>Who owes</li>
-              </ul>
-            </div>
 
 
           {this.props.bills.map(bill => (
             <BillDetail
               bill={bill}
               users={this.props.users}
+              currentUser={this.props.currentUser}
               key={`${bill.id}`}
               deleteBill={this.props.deleteBill}/>
            ))}
         </div>
-        </div>
-    </div>
+      </div>
     )
   }
 

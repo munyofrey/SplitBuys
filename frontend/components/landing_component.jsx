@@ -9,12 +9,13 @@ class Landing extends React.Component{
   }
 
 
-  render(){return(
+  render(){
+    return(
     <div>
     <div className='header-block-fix'/>
     <div className='body-under-header'>
       <Sidebar />
-      <BillListContainer path={this.props.location.pathname}/>
+      <BillListContainer path={this.props.location.pathname} />
     </div>
   </div>
   )};

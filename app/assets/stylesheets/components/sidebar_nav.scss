@@ -1,0 +1,13 @@
+.sidebar-nav{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+
+  a{
+    padding: 5px;
+    text-transform: uppercase;
+    svg{
+      padding-right: 3px;
+    }
+  }
+}

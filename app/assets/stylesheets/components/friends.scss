@@ -1,0 +1,41 @@
+.current-friends-list {
+  li{
+      color: inherit;
+      display: block;
+      height: 19px;
+      font-size: 14px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      padding: 3px 8px 2px 8px;
+      text-decoration: none;
+      border-left: 6px solid $white;
+      a{
+        margin-left: 5px;
+      }
+  }
+
+  li:hover{
+    background: $light-gray;
+    color: #666;
+  }
+
+  .pending:hover{
+    background: white;
+    color:inherit;
+  }
+
+}
+
+.friend-header{
+  margin-left: 5px;
+  background: #f6f6f6;
+  color: #999;
+  font-size: 11px;
+  margin-top: 5px;
+  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid $light-gray;
+  text-transform: uppercase;
+  padding: 5px;
+  margin-bottom: 1px;
+}

@@ -27,9 +27,7 @@ class FriendHistoryDetail extends React.Component{
         <div className='header-block-fix'/>
         <div className='body-under-header'>
           <Sidebar/>
-          <div>
-            <BillListContainer path={this.props.location.pathname}/>
-          </div>
+          <BillListContainer path={this.props.location.pathname}/>
         </ div>
       </ div>
   )}
