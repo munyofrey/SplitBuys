@@ -51,11 +51,13 @@ class UserSearch extends React.Component{
     }}
     this.props.createFriend(friend);
     this.closeModal();
+    this.setState({searchInput: ""});
+    this.props.receiveUsers();
+    this.changeUnentered();
   }
 
   changeUnentered(){
     this.setState({
-      listElements:true,
       user: {}
     })
   }
@@ -68,7 +70,6 @@ class UserSearch extends React.Component{
 
   selectName(user){
     this.setState({searchInput: user.name});
-    console.log(user);
     this.selectUser(user);
   }
 
@@ -86,10 +87,10 @@ class UserSearch extends React.Component{
             value={this.state.searchInput}
             className='user-search'
             placeholder='Find friends' />
-          <ul className='all-users'>{this.props.users.map(user =>
+          {this.props.users.length > 0 ? <ul className='all-users'>{this.props.users.map(user =>
               <li key={`${user.name}${user.id}`}
                 onClick={this.selectName.bind(this, user)}>{user.name} </li> )}
-          </ul>
+          </ul> : ""}
         </form>
 
 

@@ -84,9 +84,10 @@
   .all-users{
     border-right: 1px solid $edge-gray;
     border-left: 1px solid $edge-gray;
-    position: absolute;
+    border-bottom: 1px solid $edge-gray;
+    position: relative;
     z-index: 1;
-    margin-right: -1px;
+    left: -1px;
     width: 140px;
     li:hover{
       background: $light-gray;
