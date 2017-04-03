@@ -1,9 +1,32 @@
-.button{
-  padding: 9px 14px;
-  font-size: 15px;
-  line-height: normal;
-  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
-  border: 1px solid;
-  display: inline-block;
-      border-radius: 5px;
-}
+
+.button {
+   border-top: 1px solid #598c7b;
+   background: #bfc4a3;
+   background: -webkit-gradient(linear, left top, left bottom, from(#95aa91), to(#bfc4a3));
+   background: -webkit-linear-gradient(top, #95aa91, #bfc4a3);
+   background: -moz-linear-gradient(top, #95aa91, #bfc4a3);
+   background: -ms-linear-gradient(top, #95aa91, #bfc4a3);
+   background: -o-linear-gradient(top, #95aa91, #bfc4a3);
+   padding: 5px 10px;
+   -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   border-radius: 7px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #a7bfa3;
+   background: #a7bfa3;
+   color: #42635b;
+   }
+.button:active {
+   border-top-color: #95aa91;
+   background: #95aa91;
+   }

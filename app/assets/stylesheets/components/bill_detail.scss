@@ -10,14 +10,17 @@
 .bill_item_detail{
   display: flex;
   margin: 5px 10px;
-
+  .bill-item-detail{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
   .delete-edit-button-container{
     display: flex;
     margin-right: 5px;
     flex-direction: row-reverse;
     justify-content: space-between;
-    color: $white;
-    font-weight: bold;
+
   }
 
 .comments-container{

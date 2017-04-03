@@ -77,6 +77,11 @@ class UserSearch extends React.Component{
   render(){
       return(
         <div className='user-search-container'>
+            <div className='find-friend'>
+              <h5>Find new friends!</ h5>
+              </div>
+
+          <form>
           <input onInput={this.handleChange}
             value={this.state.searchInput}
             className='user-search'
@@ -85,11 +90,9 @@ class UserSearch extends React.Component{
               <li key={`${user.name}${user.id}`}
                 onClick={this.selectName.bind(this, user)}>{user.name} </li> )}
           </ul>
+        </form>
 
 
-          <div className='friend-search-container'>
-            <h5>Find new friends!</ h5>
-          </div>
 
           <Modal
             isOpen={this.state.modalIsOpen}

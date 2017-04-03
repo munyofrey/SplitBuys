@@ -39,3 +39,61 @@
   padding: 5px;
   margin-bottom: 1px;
 }
+
+
+
+
+// search
+.user-search-container{
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 140px;
+  border: 1px solid $edge-gray;
+  .find-friend{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    text-align: center;
+    margin: 0px;
+    margin-top: 0px;
+    background-color: $green-yellow-gray;
+    h5{
+      margin: 0px;
+    }
+  }
+
+  .user-search{
+      background: $white;
+
+  }
+  form.user-search{
+  }
+  input.user-search {
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left: 3px;
+    margin-right: 1px;
+    border-radius: 3px;
+    width: 120px;
+  }
+
+   ul.user-search{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .all-users{
+    border-right: 1px solid $edge-gray;
+    border-left: 1px solid $edge-gray;
+    position: absolute;
+    z-index: 1;
+    margin-right: -1px;
+    width: 140px;
+    li:hover{
+      background: $light-gray;
+    }
+    li{
+      border-top: 1px solid $edge-gray;
+    }
+
+  }
+}
