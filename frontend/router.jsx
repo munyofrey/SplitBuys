@@ -51,7 +51,6 @@ class AppRouter  extends React.Component{
       <Route path='/login' component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
       <Route path='/' component={App}>
         <IndexRoute component={GuestComponent} />
-        <Route path='/logout'/>
         <Route path='/landing' component={Landing} onEnter={this._ensureLoggedIn} />
         <Route path='/totals' component={Sums} onEnter={this._ensureLoggedIn}/>
         <Route path='/friends/:friend_id'

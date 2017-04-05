@@ -25,8 +25,7 @@
 }
 
 .try-button span:last-child {
-  background-image: url(http://res.cloudinary.com/fafafariba/image/upload/v1489953936/button-texture_d6aobr.png);
-  background-color: rgba(255,235,205,.9);
+  background-color: $tan-orange;
   color: black;
   // box-shadow: $black-shadow;
 }
@@ -66,9 +65,9 @@ min-height: 600px;
 
 .blurb-1, .blurb-3{
   position: relative;
-  color: #ddd;
+  color: $light-gray;
   background-color: $green-gray;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   text-align:center;
   padding:30px 80px;
   text-align: justify;
@@ -81,10 +80,10 @@ min-height: 600px;
 
 .blurb-2, .blurb-4{
   position: relative;
-  color:#777;
+  color:$dark-gray;
   background-color:$forest-green;
   text-align:center;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   padding:30px 80px;
   text-align: justify;
 }
