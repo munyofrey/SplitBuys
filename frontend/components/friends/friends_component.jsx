@@ -48,7 +48,7 @@ handleRequest(){
       <div className='friends-container'>
 
         { this.props.requested.length === 0 ?  "" : <div className='users-friend-requests'>
-          <h5 className='friend-header'>You have friend Requests!</h5>
+          <h5 className='friend-header'>Aprrove Friends</h5>
           <ul >
             {this.props.requested.map(friend =>
               (<li key={`friendlist${friend.id}`}><div className='request-holder'>

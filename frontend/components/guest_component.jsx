@@ -1,5 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router'
+import { Link, hashHistory } from 'react-router'
+
+
 
 class GuestComponent extends React.Component{
   constructor(props){
@@ -14,22 +16,67 @@ class GuestComponent extends React.Component{
   }
 
   render(currentUser){
-    if (this.props.path.length > 1){
-      return <div></div>
-    }else{
-      return(
-          <div className='entry-image-holder'>
-            <div className='centering-holder'>
-            <div className='entrance-holder'>
-              <p className='tagline'>Whether it be a trip to San Francisco or your electricity bill splitting bills with friends just got easier</p>
-
-            {this.props.loggedin ? '' :<div onClick={this.loginuser} className='guest-login button'>Guest login</div>}
+    return(
+      <main className="splash-page">
+        <div className="bgimg-1">
+          <div className="caption">
+            <span className="border">SPLITBYS</span>
           </div>
         </div>
+
+        <div className="blurb-1">
+          <p id="blurb">Splitting the tab has never been easier</p>
+        </div>
+
+        <div className="bgimg-2">
+          <div className="caption">
+            <span className="border">FRIEND</span>
           </div>
+        </div>
+
+        <div>
+          <div className="blurb-2">
+            <p id="blurb">Connect with friends and start splitting</p>
+          </div>
+        </div>
+
+        <div className="bgimg-3">
+          <div className="caption">
+            <span className="border">MANAGE</span>
+          </div>
+        </div>
+
+        <div>
+          <div className="blurb-3">
+            <p id="blurb">Keep a running tally with your coworker or your roommate</p>
+          </div>
+        </div>
+
+        <div className="bgimg-4">
+          <div className="caption">
+            <span className="border">FOLLOW</span>
+          </div>
+        </div>
+
+        <div>
+          <div className="blurb-4">
+            <p id="blurb">Track your favorites</p>
+          </div>
+        </div>
+
+        <div className="bgimg-5">
+          <div className="caption">
+            <a className="try-button" href="#">
+            <span className="border" onClick={()=>this.loginuser()}>TRY IT NOW</span>
+            </a>
+          </div>
+        </div>
+
+
+
+      </main>
 
       )
-    }
   }
 
 }

@@ -4,9 +4,11 @@ import Root from './root';
 import App from './app';
 import HeaderContainer from './components/header_container';
 import SignupContainer from './components/signup_component_container';
+import GuestComponent from './components/guest_component_container';
 import Landing from './components/landing_component';
 import Sums from './components/sums/sums_container';
 import FriendHistoryContainer from './components/friends/friend_history_container'
+
 class AppRouter  extends React.Component{
 
   constructor(props){
@@ -48,6 +50,7 @@ class AppRouter  extends React.Component{
       <Route path='/signup' component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
       <Route path='/login' component={SignupContainer} onEnter={this._redirectIfLoggedIn}/>
       <Route path='/' component={App}>
+        <IndexRoute component={GuestComponent} />
         <Route path='/logout'/>
         <Route path='/landing' component={Landing} onEnter={this._ensureLoggedIn} />
         <Route path='/totals' component={Sums} onEnter={this._ensureLoggedIn}/>

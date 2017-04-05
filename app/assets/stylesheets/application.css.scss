@@ -22,7 +22,8 @@
 @import "base/navigation.scss";
 
 
-
+@import "components/splash.scss";
+@import "components/header";
 @import "components/bill_table.scss";
 @import "components/bill_detail.scss";
 @import "components/friends.scss";

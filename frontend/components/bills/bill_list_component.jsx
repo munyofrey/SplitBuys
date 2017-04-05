@@ -1,7 +1,7 @@
 import React from 'react';
 import BillDetail from './bill_detail_component';
 import ModalBillForm from './new_bill_modal';
-
+// import NewBillContainer from './'
 
 class billList extends React.Component{
   constructor(props){

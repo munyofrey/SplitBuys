@@ -1,0 +1,90 @@
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
+  position: relative;
+  opacity: 0.7;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+.try-button span:last-child {
+  background-image: url(http://res.cloudinary.com/fafafariba/image/upload/v1489953936/button-texture_d6aobr.png);
+  background-color: rgba(255,235,205,.9);
+  color: black;
+  // box-shadow: $black-shadow;
+}
+
+.try-button span:hover {
+  // -webkit-filter: $brightness;
+  // filter: $brightness;
+
+  box-shadow: none;
+}
+
+.bgimg-1{
+  background-image: url("http://res.cloudinary.com/dptutoih6/image/upload/v1491359344/aranxa-esteve-130752_kvlu4y.jpg");
+  min-height: 500px;
+}
+
+.bgimg-2 {
+  background-image: url("http://res.cloudinary.com/dptutoih6/image/upload/v1491359305/luke-porter-108506_esyyqn.jpg");
+  min-height: 500px;
+}
+
+.bgimg-3 {
+  background-image: url("http://res.cloudinary.com/dptutoih6/image/upload/v1491281485/zachary-staines-181100_mae5m9.jpg");
+  min-height: 500px;
+}
+
+.bgimg-4 {
+  background-image: url("http://res.cloudinary.com/dptutoih6/image/upload/v1491281543/rob-bye-141865_dbmrwk.jpg");
+  min-height: 500px;
+}
+
+.bgimg-5 {
+background-image: url("http://res.cloudinary.com/dptutoih6/image/upload/v1491281472/chiara-pinna-29587_amwvg9.jpg");
+min-height: 600px;
+}
+
+
+.blurb-1, .blurb-3{
+  position: relative;
+  color: #ddd;
+  background-color: $green-gray;
+  letter-spacing: 10px;
+  text-align:center;
+  padding:30px 80px;
+  text-align: justify;
+}
+
+#blurb {
+  font-size: 18px;
+}
+
+
+.blurb-2, .blurb-4{
+  position: relative;
+  color:#777;
+  background-color:$forest-green;
+  text-align:center;
+  letter-spacing: 10px;
+  padding:30px 80px;
+  text-align: justify;
+}
