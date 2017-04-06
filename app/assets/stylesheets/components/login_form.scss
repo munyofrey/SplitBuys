@@ -1,0 +1,35 @@
+.login-form-container{
+  background: $light-gray;
+  border: 1px solid $edge-gray;
+  .welcome-text{
+    text-transform: uppercase;
+    color: $forest-green;
+    font-size: 15px;
+    margin: 10px 5px;
+    align-items: center;
+    text-align: center;
+
+  }
+  input{
+    align-items: center;
+    background: $white;
+    margin: 10px 5px;
+    padding: 5px;
+  }
+
+  .errors{
+    color: $bill-orange;
+  }
+
+  .button{
+    background: #D8DDBF;
+  }
+}
+
+.signup{
+  background: $tan-orange;
+}
+
+.login{
+  background: $green-gray;
+}

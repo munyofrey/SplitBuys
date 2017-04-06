@@ -32,7 +32,7 @@
 
 .try-button span:hover {
   // -webkit-filter: $brightness;
-  // filter: $brightness;
+  filter: $brightness;
 
   box-shadow: none;
 }

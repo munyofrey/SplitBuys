@@ -4,14 +4,17 @@ import SignupComponentContainer from './signup_component_container';
 
 
   const loggedOutOptions = () =>(
+    <div>
+
     <div className='welcome-user after'>
-      <div onClick={toggleLogin}>Sign In </div>
-      <div className='hidden dropdown login'>
-        <SignupComponentContainer formType='login' /></div>
-      <div onClick={toggleSignup}>Sign Up</div>
-      <div className='hidden dropdown signup'>
-        <SignupComponentContainer formType='signup' /></div>
+      <div className="button login" onClick={toggleLogin}>Sign In </div>
+      <div className="button signup" onClick={toggleSignup}>Sign Up</div>
     </div>
+    <div className='hidden dropdown signup'>
+        <SignupComponentContainer formType='signup' /></div>
+        <div className='hidden dropdown login'>
+        <SignupComponentContainer formType='login' /></div>
+      </div>
 )
 
   const toggleDropdown = () => {
@@ -21,18 +24,27 @@ import SignupComponentContainer from './signup_component_container';
 
   const toggleLogin = () => {
     $('.dropdown.login').toggleClass('hidden')
-    $('.dropdown.signup').toggleClass('hidden', false)
+    $('.button.login').toggleClass('brightness')
     const signup = $('.dropdown.signup');
     if (!signup.hasClass('hidden')){
       signup.addClass('hidden')
+    }
+    const signupButton = $('.button.signup');
+    if (signupButton.hasClass('brightness')){
+      signupButton.removeClass('brightness')
     }
   }
 
   const toggleSignup = () => {
     $('.dropdown.signup').toggleClass('hidden')
+    $('.button.signup').toggleClass('brightness')
     const login = $('.dropdown.login');
     if (!login.hasClass('hidden')){
       login.addClass('hidden')
+    }
+    const loginButton = $('.button.login');
+    if (loginButton.hasClass('brightness')){
+      loginButton.removeClass('brightness')
     }
   }
 

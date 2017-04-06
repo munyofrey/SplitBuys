@@ -4,7 +4,7 @@ $green-gray: #95AA91;
 $green-yellow-gray: #D8DDBF;
 $light-purple: #966FE1;
 $gray-purple: #736FAA;
-
+$brightness: brightness(.85);
 
 $bill-orange: #E49D3A;
 $tan-orange: rgba(255, 235, 205, 0.9);
@@ -15,3 +15,5 @@ $edge-gray: #ccc;
 $light-dark-gray: #aaa;
 $white: #fff;
 $dark-gray: #111;
+
+$filter-button: drop-shadow(1px 2px 1px $dark-gray) saturate(200%);

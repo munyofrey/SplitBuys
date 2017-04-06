@@ -36,7 +36,7 @@ class SignupForm extends React.Component {
 
 	renderErrors(){
 		return(
-			<ul className='errors after'>
+			<ul className='errors'>
 				{this.props.errors.map( (error, i) => (
 					<li key={`error-${i}`}>
 						{error}
@@ -61,41 +61,40 @@ class SignupForm extends React.Component {
 			<div className="login-form-container">
 
 					{this.props.loginType ?
-						<div className='signin-welcome'><p className='welcome-text'>Welcome back!</p></div> :
-							<div className='logo-signup'>
-								<div className='logo-signup-image-holder'></div>
-								<p className='welcome-text'>Welcome to SplitBys!</p>
-							</div>}
+						<p className='welcome-text'>Welcome back!</p> :
+
+								<p className='welcome-text'>Welcome to <br/> SplitBys!</p>
+							}
 				<form onSubmit={this.handleSubmit} className={formType}>
-					<div className={formInput}>
-					<div className='login-form-elements'>
 						{ this.renderErrors() }
 						{this.props.loginType ? '' :
 
-						    <label> You go by:<br/>
+						    <label>
 								<input type="text"
 											value={this.state.name}
+											placeholder="Your name"
 											onChange={this.update("name")}
 											className={formInput} />
+										<br/>
 									</label>
 											}
-						<label>Your email is:
+						<label>
 							<input type="text"
 								value={this.state.email}
+								placeholder="Email"
 								onChange={this.update("email")}
 								className={formInput} />
-						</label>
-						<label> Password:
+						</label><br/>
+						<label>
 							<input type="password"
 								value={this.state.password}
+								placeholder="Password"
 								onChange={this.update("password")}
 								className={formInput} />
-						</label>
-						<div className='justify-left-flex submit-level'>
-						<input type="submit" className='entry-submit button' value="Submit" />
-						</div>
-					</div>
-					</div>
+						</label><br/>
+
+						<input type="submit" className='entry-submit button' value={this.props.loginType ? "Login" : "Sign up"} />
+
 				</form>
 			</div>
 		);

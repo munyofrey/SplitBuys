@@ -15,10 +15,12 @@
 }
 
 .welcome-user{
+  width: 150px;
+  position: absolute;
+  top: 20px;
+  right: 8pc;
   display: flex;
-  width: 40%;
   justify-content: space-between;
-  align-items: center;
 }
 
 
