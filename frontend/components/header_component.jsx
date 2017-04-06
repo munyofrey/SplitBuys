@@ -1,19 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router';
-import SignIn from 'react-icons/lib/fa/sign-in';
-import SignUp from 'react-icons/lib/fa/plus-square';
+import SignupComponentContainer from './signup_component_container';
 
 
   const loggedOutOptions = () =>(
-    <ul className='welcome-user after'>
-      <li >Sign Up</li>
-      <li >Sign In</li>
-    </ul>
+    <div className='welcome-user after'>
+      <div onClick={toggleLogin}>Sign In </div>
+      <div className='hidden dropdown login'>
+        <SignupComponentContainer formType='login' /></div>
+      <div onClick={toggleSignup}>Sign Up</div>
+      <div className='hidden dropdown signup'>
+        <SignupComponentContainer formType='signup' /></div>
+    </div>
 )
 
   const toggleDropdown = () => {
     $('.dropdown').toggleClass('hidden')
     $('.username-welcome').toggleClass('white')
+  }
+
+  const toggleLogin = () => {
+    $('.dropdown.login').toggleClass('hidden')
+    $('.dropdown.signup').toggleClass('hidden', false)
+    const signup = $('.dropdown.signup');
+    if (!signup.hasClass('hidden')){
+      signup.addClass('hidden')
+    }
+  }
+
+  const toggleSignup = () => {
+    $('.dropdown.signup').toggleClass('hidden')
+    const login = $('.dropdown.login');
+    if (!login.hasClass('hidden')){
+      login.addClass('hidden')
+    }
   }
 
 

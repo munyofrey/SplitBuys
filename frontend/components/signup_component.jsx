@@ -12,18 +12,15 @@ class SignupForm extends React.Component {
 			name: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.navLink.bind(this)
 	}
 
-	componentDidUpdate(){
-		this.redirectIfLoggedIn();
-	}
-
-	redirectIfLoggedIn(){
-		if (this.props.loggedIn){
-			hashHistory.push("/");
+	componentWillReceiveProps(newProps){
+		console.log(newProps);
+		if (newProps.loggedin){
+			hashHistory.push("/landing");
 		}
 	}
+
 
 	update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
@@ -48,12 +45,13 @@ class SignupForm extends React.Component {
 			</ul>
 		);
 	}
+	//
+	// navLink(){
+	// 	return(
+	// 		<Link to="/" className='kill-button margin-down'>x</Link>
+	// 		)
+	// 	}
 
-	navLink(){
-		return(
-			<Link to="/" className='kill-button margin-down'>x</Link>
-			)
-		}
 
 
 	render() {
@@ -61,9 +59,7 @@ class SignupForm extends React.Component {
 		const formType= this.props.formType + '-form-box';
 		return (
 			<div className="login-form-container">
-				<div className="login-form-container-vert">
 
-					{this.navLink()}
 					{this.props.loginType ?
 						<div className='signin-welcome'><p className='welcome-text'>Welcome back!</p></div> :
 							<div className='logo-signup'>
@@ -101,7 +97,6 @@ class SignupForm extends React.Component {
 					</div>
 					</div>
 				</form>
-			</div>
 			</div>
 		);
 	}

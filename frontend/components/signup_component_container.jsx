@@ -8,15 +8,12 @@ const mapStateToProps = state => ({
   errors: state.session.errors,
 })
 
-  const mapDispatchToProps = (dispatch, ownProps) => {
-    const formType=ownProps.location.pathname.slice(1);
-    const loginType = (formType==='login') ? true : false
-    return({
+  const mapDispatchToProps = (dispatch, ownProps) => ({
       signup: user => dispatch(signup(user)),
       login: user => dispatch(login(user)),
-      formType,
-      loginType
-  })}
+      formType: ownProps.formType,
+      loginType: ownProps.formType === 'login' 
+  })
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupForm)
