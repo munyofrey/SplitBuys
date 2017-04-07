@@ -19,6 +19,10 @@
 
   .errors{
     color: $bill-orange;
+    width: 100px;
+    word-wrap: normal;
+    list-style: circle;
+    margin-left: 26px;
   }
 
   .button{

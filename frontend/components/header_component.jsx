@@ -3,12 +3,12 @@ import { Link } from 'react-router';
 import SignupComponentContainer from './signup_component_container';
 
 
-  const loggedOutOptions = () =>(
+  const loggedOutOptions = (clearErrors) =>(
     <div>
 
     <div className='welcome-user after'>
-      <div className="button login" onClick={toggleLogin}>Sign In </div>
-      <div className="button signup" onClick={toggleSignup}>Sign Up</div>
+      <div className="button login" onClick={() => toggleLogin(clearErrors)}>Sign In </div>
+      <div className="button signup" onClick={() => toggleSignup(clearErrors)}>Sign Up</div>
     </div>
     <div className='hidden dropdown signup'>
         <SignupComponentContainer formType='signup' /></div>
@@ -22,7 +22,8 @@ import SignupComponentContainer from './signup_component_container';
     $('.username-welcome').toggleClass('white')
   }
 
-  const toggleLogin = () => {
+  const toggleLogin = (clearErrors) => {
+    clearErrors()
     $('.dropdown.login').toggleClass('hidden')
     $('.button.login').toggleClass('brightness')
     const signup = $('.dropdown.signup');
@@ -35,7 +36,8 @@ import SignupComponentContainer from './signup_component_container';
     }
   }
 
-  const toggleSignup = () => {
+  const toggleSignup = (clearErrors) => {
+    clearErrors()
     $('.dropdown.signup').toggleClass('hidden')
     $('.button.signup').toggleClass('brightness')
     const login = $('.dropdown.login');
@@ -59,11 +61,11 @@ import SignupComponentContainer from './signup_component_container';
   </div>
   )
 
-  const Header =  ({currentUser, logout}) =>(
+  const Header =  ({currentUser, logout, clearErrors}) =>(
     <header className='header'>
       <div className="header-holder">
         <Link to="/" className='title'>SplitBys</Link>
-       { (currentUser) ? loggedinOptions(currentUser, logout) : loggedOutOptions()}
+       { (currentUser) ? loggedinOptions(currentUser, logout) : loggedOutOptions(clearErrors)}
      </div>
      </header>)
 

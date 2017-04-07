@@ -1,6 +1,6 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import SignupForm from './signup_component';
-import { login, logout, signup } from '../actions/session_actions';
+import { login, logout, signup, receiveErrors } from '../actions/session_actions';
 
 
 const mapStateToProps = state => ({
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
       signup: user => dispatch(signup(user)),
       login: user => dispatch(login(user)),
       formType: ownProps.formType,
-      loginType: ownProps.formType === 'login' 
+      loginType: ownProps.formType === 'login'
   })
 
 
