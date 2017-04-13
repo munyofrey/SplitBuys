@@ -3,7 +3,7 @@ import GuestComponent from './guest_component';
 import { login } from '../actions/session_actions';
 
 const mapStateToProps = state => ({
-  loggedin: (state.session.currentUser) ? true : false
+  loggedin: Boolean(state.session.currentUser)
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

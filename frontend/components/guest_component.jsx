@@ -60,14 +60,14 @@ class GuestComponent extends React.Component{
 
         <div>
           <div className="blurb-4">
-            <p id="blurb">Track your favorites</p>
+            <p id="blurb">Track your expenses</p>
           </div>
         </div>
 
         <div className="bgimg-5">
           <div className="caption">
-            <a className="try-button" href="#">
-            <span className="border" onClick={()=>this.loginuser()}>TRY IT NOW</span>
+             <a className="try-button" href="#">
+            <span className="border" onClick={()=>this.loginuser()}>{this.props.loggedin ? "BACK TO YOUR EXPENSES" : "TRY IT NOW"}</span>
             </a>
           </div>
         </div>

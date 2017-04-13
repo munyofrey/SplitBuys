@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import SignupComponentContainer from './signup_component_container';
 
 
@@ -56,6 +56,7 @@ import SignupComponentContainer from './signup_component_container';
     <div className='username-welcome' onClick={toggleDropdown}> Welcome {currentUser.name}
       <b className="caret"></b></div>
     <ul className='dropdown logout-drop hidden after'>
+        <li className='logout' onClick={() => hashHistory.push('/landing')}>All Bills</li>
         <li className='logout' onClick={logout}>Sign out</li>
     </ul>
   </div>

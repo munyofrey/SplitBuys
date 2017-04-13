@@ -32,11 +32,12 @@
     text-align: center;
   }
 
+  .logout:hover{
+    background: $light-gray;
+  }
+
 }
 
-.logout-drop:hover{
-  background: $light-gray;
-}
 
 .username-welcome{
   position: absolute;
