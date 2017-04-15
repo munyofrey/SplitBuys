@@ -8,7 +8,7 @@ class Api::FriendsController < ApplicationController
 
   def show
     @bills = current_user.all_bills_for_friend(params[:id])
-    render json: @bills
+    render 'api/bills/index'
   end
 
   def create

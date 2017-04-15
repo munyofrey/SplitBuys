@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from '../sidebar';
 import BillListContainer from '../bills/bill_list_component_container';
-import SearchIcon from 'react-icons/lib/fa/search'
+import SearchIcon from 'react-icons/lib/fa/search';
 
 class FriendHistoryDetail extends React.Component{
 
@@ -27,7 +27,7 @@ class FriendHistoryDetail extends React.Component{
         <div className='header-block-fix'/>
         <div className='body-under-header'>
           <Sidebar/>
-          <BillListContainer path={this.props.location.pathname}/>
+          <BillListContainer path={this.props.location.pathname} friendId={this.props.routeParams.friend_id}/>
         </ div>
       </ div>
   )}

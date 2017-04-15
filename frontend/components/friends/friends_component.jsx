@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import UserSearchContainer from '../users/user_search_container';
 import UserTimes from 'react-icons/lib/fa/trash';
 import UserPlus from 'react-icons/lib/fa/user-plus';
@@ -16,9 +16,6 @@ class FriendComponent extends React.Component{
     }
     this.acceptRequest = this.acceptRequest.bind(this);
   }
-
-
-
 
   acceptRequest(user){
     const friend = {friend: {
@@ -51,24 +48,28 @@ handleRequest(){
           <h5 className='friend-header'>Aprrove Friends</h5>
           <ul >
             {this.props.requested.map(friend =>
-              (<li key={`friendlist${friend.id}`}><div className='request-holder'>
-                <div>{friend.name}</div>
-                  <div className='small-button-holder'><div
-                    className='small-button'
+              (<li key={`friendlist${friend.id}`}>
+                {friend.name}
+                  <div className='add-delete'><div
+                    className='add-friend'
                     onClick={this.acceptRequest.bind(this, friend)
                     }><UserPlus className='user-plus'/></div>
                     <div
-                      className='small-button'
+                      className='delete-friend'
                       onClick={this.props.deleteFriend.bind(this, friend.id)
-                      }><UserTimes className='user-times'/></div></div></div></li>))}
+                      }><UserTimes className='user-times'/></div> </div ></li>))}
           </ul>
         </div>}
         <div className='current-friends-list'>
           <h5 className='friend-header'>Friends</h5>
           <ul>
             {this.props.friends.map(friend =>
-              (<li key={`friendlist${friend.id}`}><Users className='user-icon'/><Link className='friend-nav-link' to={`/friends/${friend.id}`}>{friend.name}</Link></li>)
-            )}</ul>
+              (friend.id == this.props.currentUser.id ? "" : <li
+                                                          onClick={()=> hashHistory.push(`/friends/${friend.id}`)}
+                                                          key={`friendlist${friend.id}`}>
+                                                            <Users className='user-icon'/> {friend.name}</li>)
+            )}
+          </ul>
             <ul>
             <h5 className='friend-header'>Pending Requests</h5>
               {this.props.pending.map(friend => (<li key={`friendlist${friend.id}`} className='pending'>{friend.name}

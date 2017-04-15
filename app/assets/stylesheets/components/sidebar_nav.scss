@@ -2,12 +2,19 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  padding-right: 0px;
 
   a{
+    font-size: 14px;
     padding: 5px;
     text-transform: uppercase;
     svg{
       padding-right: 3px;
     }
   }
+  a:hover{
+    background: $light-gray;
+    color: #666;
+  }
+
 }

@@ -15,7 +15,6 @@ class SignupForm extends React.Component {
 	}
 
 	componentWillReceiveProps(newProps){
-		console.log(newProps);
 		if (newProps.loggedin){
 			hashHistory.push("/landing");
 		}

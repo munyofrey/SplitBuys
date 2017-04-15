@@ -10,6 +10,7 @@
       padding: 3px 8px 2px 8px;
       text-decoration: none;
       border-left: 6px solid $white;
+      cursor: pointer;
       a{
         margin-left: 5px;
       }
@@ -19,13 +20,54 @@
     background: $light-gray;
     color: #666;
   }
+  .pending{
+    cursor: default;
+  }
 
   .pending:hover{
     background: white;
     color:inherit;
   }
 
+
 }
+.users-friend-requests{
+  li{
+    color: inherit;
+    display: block;
+    height: 19px;
+    font-size: 14px;
+    padding: 3px 8px 2px 8px;
+    text-decoration: none;
+    border-left: 6px solid $white;
+  }
+
+  .add-delete{
+    display: inline-flex;
+    float: right;
+    margin-right: 7px;
+    justify-content: space-between;
+    svg{
+      margin-right: 3px;
+      cursor: pointer;
+    }
+
+    .add-friend:hover{
+      path{
+        color: $forest-green;
+      }
+    }
+
+    .delete-friend:hover{
+      path{
+        color: $bill-orange;
+      }
+    }
+  }
+
+
+}
+
 
 .friend-header{
   margin-left: 5px;

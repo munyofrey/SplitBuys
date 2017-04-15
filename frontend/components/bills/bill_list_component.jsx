@@ -2,9 +2,9 @@ import React from 'react';
 import BillDetail from './bill_detail_component';
 import ModalBillForm from './new_bill_modal';
 import BillFormContainer from '../bills/new_bill_container';
-// import NewBillContainer from './'
+import MainHeader from '../main_header_container';
 
-class billList extends React.Component{
+class BillList extends React.Component{
   constructor(props){
     super(props)
   }
@@ -19,7 +19,7 @@ class billList extends React.Component{
   render(){
     return(
       <div className='middle'>
-
+          <MainHeader friendId={this.props.friendId}/>
           <div className='bill-list-table'>
 
 
@@ -40,4 +40,4 @@ class billList extends React.Component{
 }
 
 
-export default billList;
+export default BillList;

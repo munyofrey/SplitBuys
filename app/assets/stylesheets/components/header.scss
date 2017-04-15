@@ -19,6 +19,7 @@
   content: "";
 }
 
+
 .dropdown{
   position: absolute;
   top: 75px;
@@ -28,6 +29,7 @@
   z-index: 1;
 
   .logout{
+    cursor: pointer;
     padding: 10px 5px;
     text-align: center;
   }
@@ -40,6 +42,7 @@
 
 
 .username-welcome{
+  cursor: pointer;
   position: absolute;
   right: 8pc;
   top: 30px;
