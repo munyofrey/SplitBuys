@@ -7,12 +7,20 @@ import { merge, values } from 'lodash';
 const mapStateToProps = state => {
   const users = state.session.currentUser ? merge(state.friends.friends, {[state.session.currentUser.id]: state.session.currentUser}) : {};
   return ({
-    bills: values(state.bills.bills),
+    bills: values(state.bills.bills).sort(billSort),
     currentUser: state.session.currentUser,
     errors: state.bills.errors,
     users
     })
   }
+
+const billSort = (billA, billB) => {
+  if(billA.date <= billB.date){
+    return 1
+  } else{
+    return -1
+  }
+}
 
 const mapDispatchToProps = dispatch => ({
   requestBills: () => dispatch(requestBills()),

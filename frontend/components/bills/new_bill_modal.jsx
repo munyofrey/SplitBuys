@@ -32,7 +32,7 @@ class ModalBillForm extends React.Component{
       total: '',
       date: ''
     }
-
+    if(props.friend ){this.selectUser(props.friend)}
     this.handleTotal = this.handleTotal.bind(this)
     this.sliderUpdate = this.sliderUpdate.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -67,6 +67,19 @@ class ModalBillForm extends React.Component{
      total: '',
      date: ''
    });
+  }
+
+  componentWillReceiveProps(newProps){
+    if (this.props.friend){
+      if(! newProps.friend ){
+        this.selectUser({});
+        this.setState({listQuestions: false});
+      }else if(this.props.friend.id != newProps.friend.id ){
+        this.selectUser(newProps.friend);
+      }
+    }else if (newProps.friend) {
+
+    }
   }
 
   update(field){
@@ -113,8 +126,7 @@ class ModalBillForm extends React.Component{
 
   changeUnentered(){
     this.setState({
-      listQuestions: false,
-      listElements: true
+      listQuestions: false
     })
   }
 
@@ -123,8 +135,7 @@ class ModalBillForm extends React.Component{
       user_other_id: user.id,
       user_owe_id: user.id,
       userOption: user.name,
-      listQuestions: true,
-      listElements: false
+      listQuestions: true
     });
     }
 
@@ -176,11 +187,7 @@ class ModalBillForm extends React.Component{
 
                 <div className='new-bill-form-elements'>
                 <label><div className='title-detail name'>You Split with:</div>
-                    <UserSearchContainer
-                      selectUser={this.selectUser}
-                      users={this.props.friends}
-                      listElements={this.state.listElements}
-                      changeUnentered={this.changeUnentered}/>
+
                 </label >
               </div>
                 { (this.state.listQuestions) ?
