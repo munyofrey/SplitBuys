@@ -5,27 +5,63 @@ import {withRouter} from 'react-router';
 class MainHeader extends React.Component {
   constructor(props){
     super(props)
+    this.bill = this.bill.bind(this);
+    this.billFriend = this.billFriend.bind(this);
+  }
+
+  bill(){
+    return {listElements: true,
+    modalIsOpen: false,
+    percentOfTotal: 50,
+    description: '',
+    user_pay_id: this.props.currentUser.id,
+    note: '',
+    owed: 0,
+    total: '',
+    date: '',
+    user_other_id: 0,
+    user_owe_id: this.props.currentUser.id,
+    userOption: '',
+    listQuestions: false
+    }
+  }
+
+  billFriend(friend){
+    return {listElements: true,
+    modalIsOpen: false,
+    percentOfTotal: 50,
+    description: '',
+    user_pay_id: this.props.currentUser.id,
+    note: '',
+    owed: 0,
+    total: '',
+    date: '',
+    user_other_id: friend.id,
+    user_owe_id: friend.id,
+    userOption: friend.name,
+    listQuestions: true
+    }
   }
 
   render(){
     if (!this.props.bills){
       if(this.props.friend){
         return <div className='no-bills main-header'>
-          {`You are all settled up with ${this.props.friend.name}`} <NewBill friend={this.props.friend}/>
+          {`You are all settled up with ${this.props.friend.name}`} <NewBill friend={this.props.friend} bill={this.billFriend(this.props.friend)} />
         </div>
       } else{
         return <div className='no-bills main-header'>
-          You are all settled up <NewBill />
+          You are all settled up <NewBill bill={this.bill()} />
         </div>
       }
     }else{
       if(this.props.friend){
         return <div className='bills main-header'>
-          {`Your bills with ${this.props.friend.name}`} <NewBill friend={this.props.friend}/>
+          {`Your bills with ${this.props.friend.name}`} <NewBill friend={this.props.friend} bill={this.billFriend(this.props.friend)}/>
         </div>
       } else{
         return <div className='bills main-header'>
-          All Bills <NewBill />
+          All Bills <NewBill bill={this.bill()}/>
         </div>
     }
   }

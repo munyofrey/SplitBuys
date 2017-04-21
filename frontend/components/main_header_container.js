@@ -5,7 +5,8 @@ import {values} from 'lodash';
 
 const mapStateToProps = (state, ownProps) => ({
     friend: state.friends.friends[ownProps.friendId],
-    bills: Boolean(values(state.bills.bills).length > 0)
+    bills: Boolean(values(state.bills.bills).length > 0),
+    currentUser: state.session.currentUser
   })
 
 const mapDispatchToProps = () => ({

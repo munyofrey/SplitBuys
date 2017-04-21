@@ -22,7 +22,6 @@ class BillList extends React.Component{
           <MainHeader friendId={this.props.friendId}/>
           <div className='bill-list-table'>
 
-
           {this.props.bills.map(bill => (
             <BillDetail
               bill={bill}

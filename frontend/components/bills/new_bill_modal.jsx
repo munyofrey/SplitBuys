@@ -17,22 +17,14 @@ const customStyles = {
 class ModalBillForm extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-      listElements: true,
-      listQuestions: false,
-      userOption: '',
-      modalIsOpen: false,
-      user_other_id: 0,
-      user_pay_id: this.props.currentUser.id,
-      user_owe_id: this.props.currentUser.id,
-      percentOfTotal: 50,
-      description: '',
-      note: '',
-      owed: 0,
-      total: '',
-      date: ''
+    let user_other_id, user_owe_id, userOption, listQuestions;
+    this.state = this.props.bill;
+    if (props.edit) {
+      this.state.listQuestions = true;
+      this.state.userOption= props.friend.name;
+
     }
-    if(props.friend ){this.selectUser(props.friend)}
+
     this.handleTotal = this.handleTotal.bind(this)
     this.sliderUpdate = this.sliderUpdate.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -104,9 +96,9 @@ class ModalBillForm extends React.Component{
     this.props.createBill(bill, bills => this.createAndreceive(bills))
   }
 
-  createAndreceive(bills){
+  createAndreceive(bill){
     this.closeModal();
-    this.props.receiveBills(bills)
+    this.props.receiveBill(bill)
   }
 
 
@@ -186,9 +178,9 @@ class ModalBillForm extends React.Component{
                 { this.renderErrors() }
 
                 <div className='new-bill-form-elements'>
-                <label><div className='title-detail name'>You Split with:</div>
-
-                </label >
+                {this.state.listQuestions? "" :<label><div className='title-detail name'>You Split with: </div>
+                  <input onChange={this.updateName}></input>
+                </label >}
               </div>
                 { (this.state.listQuestions) ?
                 <div className='new-bill-form load-later'>

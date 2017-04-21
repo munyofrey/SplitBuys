@@ -1,6 +1,6 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
-import BillEditFormContainer from './edit/bill_edit_container';
+import BillFormContainer from './new_bill_container';
 import CommentContainer from '../comments/comments_container';
 import moment from 'moment'
 
@@ -86,6 +86,8 @@ class BillDetail extends React.Component{
 
 
     render(){
+      const friend = this.props.bill.user_pay_id == this.props.currentUser.id ? this.props.users[this.props.bill.user_owe_id] : this.props.users[this.props.bill.user_pay_id];
+
       return(
          <Collapsible trigger={this.trigger()}>
           <div className='bill_item_detail'>
@@ -98,13 +100,16 @@ class BillDetail extends React.Component{
                  onClick={this.deleteBillItem.bind(this, this.props.bill)}
                  >Delete</div>
 
-                 <BillEditFormContainer
-                   bill={this.props.bill}/>
+                 <BillFormContainer
+                   friend={ friend }
+                   bill={ this.props.bill }
+                   edit={true}
+                   />
                </div >
              </div>
 
                 <div className='comments-container'>
-                  <CommentContainer bill={this.props.bill}/>
+                  <CommentContainer bill={this.props.bill} />
                 </div>
 
           </div>
