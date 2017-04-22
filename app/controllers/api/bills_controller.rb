@@ -45,8 +45,7 @@ class Api::BillsController < ApplicationController
     end
 
     if @bill && @bill.update(bill_params)
-      @bills = current_user.all_bills
-      render json: @bills
+      # render json:
     else
       render json: @bill.errors.full_messages, status: 422
     end

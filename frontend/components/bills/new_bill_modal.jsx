@@ -21,7 +21,9 @@ class ModalBillForm extends React.Component{
     this.state = this.props.bill;
     if (props.edit) {
       this.state.listQuestions = true;
-      this.state.userOption= props.friend.name;
+      this.state.userOption = props.friend.name;
+      this.state.user_other_id = props.friend.id;
+      this.state.listElements = false;
 
     }
 
@@ -44,21 +46,23 @@ class ModalBillForm extends React.Component{
 
   closeModal(){
     this.props.receiveErrors([])
-    this.setState({
-     modalIsOpen: false,
-     listElements: true,
-     listQuestions: false,
-     userOption: '',
-     user_other_id: 0,
-     user_pay_id: this.props.currentUser.id,
-     user_owe_id: this.props.currentUser.id,
-     percentOfTotal: 50,
-     description: '',
-     note: '',
-     owed: 0,
-     total: '',
-     date: ''
-   });
+    this.setState({modalIsOpen: false});
+    if (this.props.new) {
+      this.setState({
+       listQuestions: false,
+       userOption: '',
+       user_other_id: 0,
+       user_pay_id: this.props.currentUser.id,
+       user_owe_id: this.props.currentUser.id,
+       percentOfTotal: 50,
+       description: '',
+       note: '',
+       owed: 0,
+       total: '',
+       date: ''
+      });
+    }
+
   }
 
   componentWillReceiveProps(newProps){
@@ -91,9 +95,14 @@ class ModalBillForm extends React.Component{
       note: billInfo.note,
       total: billInfo.total,
       owed: this.state.owed,
-      date: billInfo.date
+      date: billInfo.date,
+      id: this.props.bill.id
     }}
-    this.props.createBill(bill, bills => this.createAndreceive(bills))
+    if (this.props.edit){
+      this.props.updateBill(bill, bills => this.createAndreceive(bills))
+    }else{
+      this.props.createBill(bill, bills => this.createAndreceive(bills))
+    }
   }
 
   createAndreceive(bill){

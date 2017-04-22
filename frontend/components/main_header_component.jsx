@@ -51,7 +51,7 @@ class MainHeader extends React.Component {
         </div>
       } else{
         return <div className='no-bills main-header'>
-          You are all settled up <NewBill bill={this.bill()} />
+          You are all settled up <NewBill new={true} bill={this.bill()} />
         </div>
       }
     }else{
@@ -61,7 +61,7 @@ class MainHeader extends React.Component {
         </div>
       } else{
         return <div className='bills main-header'>
-          All Bills <NewBill bill={this.bill()}/>
+          All Bills <NewBill new={true} bill={this.bill()}/>
         </div>
     }
   }
