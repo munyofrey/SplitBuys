@@ -5,16 +5,13 @@ class Api::BillsController < ApplicationController
   end
 
   def create
-    puts params
     @bill = Bill.new(bill_params)
     unless current_user && (@bill.user_owe_id == current_user.id || @bill.user_pay_id == current_user.id)
       render json: ["You can't add a bill if you aren't a borrower or payer"],
              status: 403
     end
     if @bill.save
-      @user = current_user
-      @bills = @user.all_bills
-      render json: @bills
+      render :show
     else
       render json: @bill.errors.full_messages, status: 422
     end
@@ -31,7 +28,7 @@ class Api::BillsController < ApplicationController
       other_user = User.find_by_id(@bill.user_owe_id)
       @bill.other_user = other_user.name
       @bill.other_user_id = other_user.id
-      render 'api/bills/show'
+      render :show
     else
       render json: ["You can't at other people's bills!"],
              status: 403
@@ -45,7 +42,7 @@ class Api::BillsController < ApplicationController
     end
 
     if @bill && @bill.update(bill_params)
-      # render json:
+      render :show
     else
       render json: @bill.errors.full_messages, status: 422
     end

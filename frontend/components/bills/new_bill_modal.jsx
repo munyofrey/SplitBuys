@@ -24,8 +24,10 @@ class ModalBillForm extends React.Component{
       this.state.userOption = props.friend.name;
       this.state.user_other_id = props.friend.id;
       this.state.listElements = false;
+      this.state.percentOfTotal = parseInt(props.bill.owed / props.bill.total * 100);
+     }
 
-    }
+    this.intial = props.bill;
 
     this.handleTotal = this.handleTotal.bind(this)
     this.sliderUpdate = this.sliderUpdate.bind(this)
@@ -47,23 +49,8 @@ class ModalBillForm extends React.Component{
   closeModal(){
     this.props.receiveErrors([])
     this.setState({modalIsOpen: false});
-    if (this.props.new) {
-      this.setState({
-       listQuestions: false,
-       userOption: '',
-       user_other_id: 0,
-       user_pay_id: this.props.currentUser.id,
-       user_owe_id: this.props.currentUser.id,
-       percentOfTotal: 50,
-       description: '',
-       note: '',
-       owed: 0,
-       total: '',
-       date: ''
-      });
+    this.setState(this.inital);
     }
-
-  }
 
   componentWillReceiveProps(newProps){
     if (this.props.friend){
@@ -88,7 +75,7 @@ class ModalBillForm extends React.Component{
     this.state.owed = (parseFloat(this.state.total).toFixed(2) * this.state.percentOfTotal * .01).toFixed(2)
     this.setState({total: parseFloat(this.state.total).toFixed(2)})
     const billInfo = this.state;
-    const bill = {bill:{
+    const bill = { bill :{
       user_owe_id: billInfo.user_owe_id,
       user_pay_id: billInfo.user_pay_id,
       description: billInfo.description,
@@ -219,7 +206,7 @@ class ModalBillForm extends React.Component{
                   <label><div className='title-detail'>
                     Date of bill
                   </div>
-                    <input type='date' onChange={this.update('date')}/>
+                    <input type='date' value={this.state.date} onChange={this.update('date')}/>
                   </label>
 
                   <label><div className='title-detail'>Description: </div>

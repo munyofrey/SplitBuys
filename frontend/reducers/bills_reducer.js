@@ -1,6 +1,7 @@
-import {billActions} from '../actions/bill_actions';
+import { billActions } from '../actions/bill_actions';
 import { merge } from 'lodash';
 import { commentActions } from '../actions/comment_actions';
+
   const preloadedState = {
     bills: {},
     errors: []
@@ -17,25 +18,26 @@ const billReducer = (oldState = preloadedState, action) => {
       return newState
     case billActions.RECEIVE_BILLS:
       return merge({}, preloadedState, { bills: action.bills, errors:[] })
+    case billActions.RECEIVE_BILL:
+      newState = merge({}, oldState);
+      newState.bills[action.bill.id] = action.bill;
+      newState.errors = [];
+      return newState
     case billActions.DELETE_BILL:
-      oldStateClone = merge({}, oldState, oldState);
-      newState = [];
-      oldStateClone.bills.forEach(bill => {if(bill.id !== action.bill.id){newState.push(bill)}})
-      oldStateClone.bills = newState
-      return oldStateClone
-    case commentActions.RECEIVE_COMMENT:
+      newState = merge({}, oldState, oldState);
+      delete(newState.bills[action.bill.id]);
+      return newState;
+    case billActions.RECEIVE_COMMENT:
       newState = merge({}, oldState);
       newState.bills[action.comment.bill_id].comments[action.comment.id] = action.comment
       return newState
       break;
-    case commentActions.REMOVE_COMMENT:
+    case billActions.REMOVE_COMMENT:
       newState = merge({}, oldState);
       delete newState.bills[action.comment.bill_id].comments[action.comment.id]
       return newState
-      break;
-    default: return oldState
-
-
+    default:
+      return oldState
   }
 }
 
