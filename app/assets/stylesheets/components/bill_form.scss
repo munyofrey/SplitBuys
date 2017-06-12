@@ -1,0 +1,56 @@
+.bill-form-container{
+
+  h2{
+    text-align: center;
+    font-size: 25px;
+    background: $forest-green;
+    text-transform: uppercase;
+    color: white;
+    padding: 10px;
+  }
+  .new-bill-form-holder{
+    margin: 30px;
+
+  section{
+    .user-swtich{
+      border-radius: 3px;
+      border: 1px dashed $edge-gray;
+    }
+
+    .user-swtich:hover{
+      border-radius: 3px;
+      border: 1px dashed $bill-orange;
+    }
+  }
+
+
+  .bill-info-container{
+
+    .description-box{
+      width: 150px;
+      font-size: 20px;
+      height: 20px;
+      margin: 3px;
+      border-bottom: 1px dashed $edge-gray;
+      text-align: initial;
+    }
+
+    .cost{
+      width: 150px;
+      height: 20px;
+      margin: 3px;
+      border-bottom: 1px dashed $edge-gray;
+      align-items: center;
+      span{
+        font-weight: bolder;
+      }
+      input{
+        text-align: initial;
+        margin-left: 5px;
+
+      }
+    }
+  }
+  }
+
+}

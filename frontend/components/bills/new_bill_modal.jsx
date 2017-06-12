@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 import UserSearchContainer from '../users/user_search_container';
-import WPForm from 'react-icons/lib/fa/wpforms';
 
 const customStyles = {
   content : {
@@ -10,49 +9,51 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    padding               : "0px"
   }
 };
 
-class ModalBillForm extends React.Component{
+class BillForm extends React.Component{
   constructor(props){
     super(props)
     let user_other_id, user_owe_id, userOption, listQuestions;
     this.state = this.props.bill;
+    this.state.friends = [];
     if (props.edit) {
       this.state.listQuestions = true;
       this.state.userOption = props.friend.name;
       this.state.user_other_id = props.friend.id;
       this.state.listElements = false;
       this.state.percentOfTotal = parseInt(props.bill.owed / props.bill.total * 100);
-     }
+      }
 
     this.intial = props.bill;
 
-    this.handleTotal = this.handleTotal.bind(this)
-    this.sliderUpdate = this.sliderUpdate.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handlePayers = this.handlePayers.bind(this)
-    this.openModal = this.openModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
-    this.selectUser = this.selectUser.bind(this)
-    this.changeUnentered = this.changeUnentered.bind(this)
-    this.createAndreceive = this.createAndreceive.bind(this)
+    this.handleTotal = this.handleTotal.bind(this);
+    this.sliderUpdate = this.sliderUpdate.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePayers = this.handlePayers.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.selectUser = this.selectUser.bind(this);
+    this.changeUnentered = this.changeUnentered.bind(this);
+    this.createAndreceive = this.createAndreceive.bind(this);
+    this.updateName = this.updateName.bind(this);
   }
 
-  openModal(){
+  openModal () {
     this.setState({modalIsOpen: true})
   }
 
 
-
-  closeModal(){
+  closeModal () {
     this.props.receiveErrors([])
     this.setState({modalIsOpen: false});
     this.setState(this.inital);
     }
 
-  componentWillReceiveProps(newProps){
+  componentWillReceiveProps (newProps) {
     if (this.props.friend){
       if(! newProps.friend ){
         this.selectUser({});
@@ -60,16 +61,19 @@ class ModalBillForm extends React.Component{
       }else if(this.props.friend.id != newProps.friend.id ){
         this.selectUser(newProps.friend);
       }
-    }else if (newProps.friend) {
-
     }
   }
 
-  update(field){
-    return e => { this.setState({[field]: e.currentTarget.value }); };
+  update (field) {
+    return event => { this.setState({[field]: event.currentTarget.value }); };
   }
 
-  handleSubmit(e){
+  updateName (event) {
+    const friends = this.props.friends.filter(friend => (friend.name.toLowerCase().includes(event.currentTarget.value.toLowerCase()) && friend.id != this.props.currentUser.id));
+    this.setState({ friends })
+  }
+
+  handleSubmit (e) {
     e.preventDefault();
     if (this.state.total === '') {this.state.total = 0}
     this.state.owed = (parseFloat(this.state.total).toFixed(2) * this.state.percentOfTotal * .01).toFixed(2)
@@ -92,15 +96,12 @@ class ModalBillForm extends React.Component{
     }
   }
 
-  createAndreceive(bill){
+  createAndreceive (bill) {
     this.closeModal();
     this.props.receiveBill(bill)
   }
 
-
-
-
-  renderErrors(){
+  renderErrors () {
     return(
       <ul className='errors after'>
         {this.props.errors.map( (error, i) => (
@@ -112,13 +113,14 @@ class ModalBillForm extends React.Component{
     );
   }
 
-  changeUnentered(){
+  changeUnentered () {
     this.setState({
-      listQuestions: false
+      listQuestions: false,
+      friends: []
     })
   }
 
-  selectUser(user){
+  selectUser (user) {
     this.setState({
       user_other_id: user.id,
       user_owe_id: user.id,
@@ -127,39 +129,39 @@ class ModalBillForm extends React.Component{
     });
     }
 
-
-  handlePayers(event){
-    const payer = parseInt(event.currentTarget.value);
-    let ower;
-    if (payer === this.props.currentUser.id){
-      ower = parseInt(this.state.user_other_id);
-    }else{ ower = parseInt(this.props.currentUser.id);}
-    this.setState({
-      user_pay_id: payer,
-      user_owe_id: ower
-    });
+  handlePayers (payer) {
+    return e => {
+      let ower;
+      if (payer === this.props.currentUser.id){
+        ower = this.state.user_other_id;
+      }else{
+        ower = this.props.currentUser.id;}
+      this.setState({
+        user_pay_id: payer,
+        user_owe_id: ower
+      });
+    }
   }
 
-  sliderUpdate(event){
+  sliderUpdate (event) {
     this.setState({
       percentOfTotal: event.currentTarget.value
     })
   }
 
-
-
-  handleTotal(event){
+  handleTotal (event) {
     this.setState({
       total: event.currentTarget.value
     })
   }
 
-
   render(){
+    const payer = this.state.user_pay_id === this.props.currentUser.id;
+    const updater = payer ? this.state.user_other_id : this.props.currentUser.id;
     const formInput = 'new-bill-form-input'
     return (
       <div>
-        <div id='new-bill' className='new-bill button' onClick={this.openModal}><WPForm /></div>
+        <div id='new-bill' className='new-bill button' onClick={this.openModal}>Bill</div>
       <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -168,40 +170,46 @@ class ModalBillForm extends React.Component{
           <div className='bill-form-container'>
 
           <button className='kill-button'onClick={this.closeModal}>x</button>
-          <h2 ref="subtitle">Create a Bill!</h2>
+          <h2 ref="subtitle">Create a Bill</h2>
             <div className="new-bill-form-holder">
               <form onSubmit={this.handleSubmit} className="new-bill-form">
                 { this.renderErrors() }
 
                 <div className='new-bill-form-elements'>
-                {this.state.listQuestions? "" :<label><div className='title-detail name'>You Split with: </div>
+                {this.state.listQuestions ? "" : <label><div className='title-detail name'>You Split with: </div>
                   <input onChange={this.updateName}></input>
-                </label >}
+                  <ul>{this.state.friends.map(friend => <li
+                                                          key={`friend-list-${friend.id}`}
+                                                          onClick={this.selectUser.bind(this, friend)}
+                                                          >{friend.name}</li>)}</ul>
+              </label >}
               </div>
                 { (this.state.listQuestions) ?
                 <div className='new-bill-form load-later'>
-                  <div className='title-detail'>Who paid?</div>
-                  <div className='new-bill-form radio-buttons'>
-                      <label> I did
-                          <input type='radio'
-                            className='radio-button'
-                            name='You'
-                            value={this.props.currentUser.id}
-                            onChange={this.handlePayers}
-                            checked={this.state.user_pay_id === this.props.currentUser.id}
-                            className={formInput}/>
-                          </label>
-                              <br/>
-                  <label> {this.state.userOption}
-                        <input type='radio'
-                          className='radio-button'
-                          name={this.state.userOption}
-                          checked ={this.state.user_pay_id === this.state.user_other_id}
-                          value={this.state.user_other_id}
-                          onChange={this.handlePayers}
-                          className={formInput}/>
-                      </label>
-                  </div>
+
+
+                  <div className="bill-info-container">
+                  <input
+                    type="text"
+                    value={this.state.description}
+                    onChange={this.update("description")}
+                    className={`${formInput} description-box`}
+                    placeholder="Description"
+                    />
+
+                    <div className='cost'>
+                      <span class="currency">$</span>
+                    <input
+                      type ='number'
+                      step='any'
+                      min="0.00"
+                      className='new-bill-form moneyinput'
+                      placeholder={"0.00"}
+                      value={this.state.total}
+                      onChange={this.handleTotal}
+                      className={formInput}/>
+                  </div></div>
+                <section><div onClick={ this.handlePayers(updater)} className="user-switch">{payer ? "I" : this.state.userOption}</div> paid</section>
 
                   <label><div className='title-detail'>
                     Date of bill
@@ -209,28 +217,6 @@ class ModalBillForm extends React.Component{
                     <input type='date' value={this.state.date} onChange={this.update('date')}/>
                   </label>
 
-                  <label><div className='title-detail'>Description: </div>
-
-                  <input
-                    type="text"
-                    value={this.state.description}
-                    onChange={this.update("description")}
-                    className={formInput} />
-                </label>
-                  <label>
-                    <div className='title-detail'>
-                    Total bill:
-                  </div>
-                    <input
-                      type = 'number'
-                      step='any'
-                      min="0.01"
-                      className='new-bill-form moneyinput'
-                      placeholder={0}
-                    value={this.state.total}
-                    onChange={this.handleTotal}
-                    className={formInput}/>
-                  </label>
 
                   <label><div className='title-detail'>
                     What percent of the total bill does
@@ -278,4 +264,4 @@ class ModalBillForm extends React.Component{
 
 
 
-export default ModalBillForm;
+export default BillForm;

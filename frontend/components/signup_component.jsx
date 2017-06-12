@@ -12,6 +12,7 @@ class SignupForm extends React.Component {
 			name: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.loginuser = this.loginuser.bind(this);
 	}
 
 	componentWillReceiveProps(newProps){
@@ -20,6 +21,10 @@ class SignupForm extends React.Component {
 		}
 	}
 
+	loginuser(){
+    const user = {user: {email:'guestuser@splitbys.com', password:'password'}};
+    this.props.login(user);
+  }
 
 	update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
@@ -64,7 +69,7 @@ class SignupForm extends React.Component {
 
 								<p className='welcome-text'>Welcome to <br/> SplitBys!</p>
 							}
-				<form onSubmit={this.handleSubmit} className={formType}>
+				<form className={formType}>
 						{ this.renderErrors() }
 						{this.props.loginType ? '' :
 
@@ -91,9 +96,11 @@ class SignupForm extends React.Component {
 								onChange={this.update("password")}
 								className={formInput} />
 						</label><br/>
+					<div className="signin-buttons">
 
-						<input type="submit" className='entry-submit button' value={this.props.loginType ? "Login" : "Sign up"} />
-
+						<input type="submit" className='entry-submit button' onClick={this.handleSubmit} value={this.props.loginType ? "Login" : "Sign up"} />
+						<button className='button guest-user' onClick={this.loginuser} >Demo</button>
+					</div>
 				</form>
 			</div>
 		);

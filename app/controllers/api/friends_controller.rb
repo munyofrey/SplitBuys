@@ -2,13 +2,12 @@ class Api::FriendsController < ApplicationController
 
   def index
     @friends =  current_user.find_friends
-    # render json: current_user.find_friends
   end
 
 
   def show
     @bills = current_user.all_bills_for_friend(params[:id])
-    render 'api/bills/index'
+    render :index
   end
 
   def create

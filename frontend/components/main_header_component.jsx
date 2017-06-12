@@ -47,26 +47,27 @@ class MainHeader extends React.Component {
     if (!this.props.bills){
       if(this.props.friend){
         return <div className='no-bills main-header'>
-          {`You are all settled up with ${this.props.friend.name}`} <NewBill friend={this.props.friend} bill={this.billFriend(this.props.friend)} />
+          <h5>{`You are all settled up with ${this.props.friend.name}`}</h5> <NewBill friend={this.props.friend} bill={this.billFriend(this.props.friend)} />
         </div>
       } else{
         return <div className='no-bills main-header'>
-          You are all settled up <NewBill new={true} bill={this.bill()} />
+          <h5>You are all settled up</h5> <NewBill new={true} bill={this.bill()} />
         </div>
       }
     }else{
       if(this.props.friend){
         return <div className='bills main-header'>
-          {`Your bills with ${this.props.friend.name}`} <NewBill friend={this.props.friend} bill={this.billFriend(this.props.friend)}/>
+          <h5>{`Your bills with ${this.props.friend.name}`}</h5> <NewBill friend={this.props.friend} bill={this.billFriend(this.props.friend)}/>
         </div>
       } else{
         return <div className='bills main-header'>
-          All Bills <NewBill new={true} bill={this.bill()}/>
+          <h5>All Bills</h5> <NewBill new={true} bill={this.bill()}/>
         </div>
     }
   }
 }
 }
+
 
 
 export default withRouter(MainHeader);

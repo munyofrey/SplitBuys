@@ -61,3 +61,22 @@
     border-top: 4px solid $white;
   }
 }
+
+
+.main-header{
+  display: flex;
+  justify-content: space-between;
+  h5{
+    text-transform: uppercase;
+    margin-left: 20px;
+    font-size: small;
+  }
+
+  .button{
+    width: 30px;
+    text-align: center;
+    background: $forest-green;
+    padding: 5px;
+    margin: 21px;
+  }
+}

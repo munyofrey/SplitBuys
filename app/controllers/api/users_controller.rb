@@ -12,7 +12,9 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      render 'api/users/show'
+      Friend.create(user_one_id: @user.id, user_two_id: 2, pending:true)
+      Friend.create(user_one_id: 1, user_two_id: @user.id, pending:true)
+      render :show
     else
       render json: @user.errors.full_messages, status: 422
     end

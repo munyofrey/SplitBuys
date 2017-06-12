@@ -8,6 +8,17 @@
 
 
 User.create!(name:'Angela', email:'guestuser@splitbys.com', password: 'password');
+# User.create!(name:'Demo', email:'demo@splitbys.com', password: 'password');
+
+
+20.times{
+  user = {
+    name: Faker::Name.first_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(6)
+    }
+  User.create!(user)
+}
 
 Friend.create(user_one_id:1, user_two_id: 2)
 Friend.create(user_one_id:7, user_two_id: 1)
@@ -20,26 +31,15 @@ Friend.create(user_one_id:1, user_two_id: 5, pending: false)
 Friend.create(user_one_id:5, user_two_id: 1, pending: false)
 Friend.create(user_one_id:1, user_two_id: 6, pending: false)
 Friend.create(user_one_id:6, user_two_id: 1, pending: false)
-
-
-
-20.times{
-  user = {
-    name: Faker::Name.first_name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(6)
-    }
-  User.create!(user)
-}
-
 bills = []
 
 10.times{
+  random_tot = rand(10.00..150.3).round(2)
   bills.push(Bill.create!(
   description: Faker::Hipster.sentence(3),
   note: Faker::Hipster.paragraph(2),
-  total: 100.50,
-  owed: rand(1.00..100.50).round(2),
+  total: random_tot,
+  owed: random_tot.round(2),
   user_pay_id: 1,
   user_owe_id: rand(3..6),
   date: Faker::Date.between(90.days.ago, Date.today)
@@ -47,11 +47,12 @@ bills = []
 }
 
 10.times{
+  random_tot = rand(10.00..150.3).round(2)
   bills.push(Bill.create!(
   description: Faker::Hipster.sentence(3),
   note: Faker::Hipster.paragraph(2),
-  total: 100.50,
-  owed: rand(1.00..100.50).round(2),
+  total: random_tot,
+  owed: random_tot.round(2),
   user_owe_id: 1,
   user_pay_id: rand(3..6),
   date: Faker::Date.between(90.days.ago, Date.today)

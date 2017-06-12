@@ -14,6 +14,9 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    .bill-detail{
+      width: 420px;
+    }
   }
   .delete-edit-button-container{
     display: flex;

@@ -29,14 +29,19 @@
 @import "components/friends.scss";
 @import "components/sidebar_nav.scss";
 @import "components/login_form.scss";
+@import "components/bill_form.scss";
 
 .kill-button{
+  float: right;
+  margin-right: 7px;
   font-size: 16px;
   font-weight: bolder;
   color: $edge-gray;
   background: inherit;
   border: none;
-  margin-right: 0;
+}
+.kill-button:hover{
+  color: $bill-orange;
 }
 
 #root{
