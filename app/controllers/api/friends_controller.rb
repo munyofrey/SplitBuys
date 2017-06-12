@@ -7,7 +7,7 @@ class Api::FriendsController < ApplicationController
 
   def show
     @bills = current_user.all_bills_for_friend(params[:id])
-    render :index
+    render 'api/bills/index'
   end
 
   def create
