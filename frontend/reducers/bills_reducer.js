@@ -1,6 +1,6 @@
 import { billActions } from '../actions/bill_actions';
-import { merge } from 'lodash';
 import { commentActions } from '../actions/comment_actions';
+import { merge } from 'lodash';
 
   const preloadedState = {
     bills: {},
@@ -27,12 +27,16 @@ const billReducer = (oldState = preloadedState, action) => {
       newState = merge({}, oldState, oldState);
       delete(newState.bills[action.bill.id]);
       return newState;
-    case billActions.RECEIVE_COMMENT:
+    case commentActions.RECEIVE_COMMENT:
       newState = merge({}, oldState);
-      newState.bills[action.comment.bill_id].comments[action.comment.id] = action.comment
+      if (newState.bills[action.comment.bill_id].comments){
+        newState.bills[action.comment.bill_id].comments[action.comment.id] = action.comment
+      } else {
+        newState.bills[action.comment.bill_id].comments = {[action.comment.id]: action.comment}
+      }
       return newState
       break;
-    case billActions.REMOVE_COMMENT:
+    case commentActions.REMOVE_COMMENT:
       newState = merge({}, oldState);
       delete newState.bills[action.comment.bill_id].comments[action.comment.id]
       return newState

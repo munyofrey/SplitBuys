@@ -30,6 +30,8 @@
 @import "components/sidebar_nav.scss";
 @import "components/login_form.scss";
 @import "components/bill_form.scss";
+@import "components/date-picker.scss";
+@import "components/slider.scss";
 
 .kill-button{
   float: right;
@@ -40,6 +42,7 @@
   background: inherit;
   border: none;
 }
+
 .kill-button:hover{
   color: $bill-orange;
 }

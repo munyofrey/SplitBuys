@@ -1,6 +1,9 @@
 import React from 'react';
 import Modal from 'react-modal';
 import UserSearchContainer from '../users/user_search_container';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+
 
 const customStyles = {
   content : {
@@ -26,7 +29,10 @@ class BillForm extends React.Component{
       this.state.user_other_id = props.friend.id;
       this.state.listElements = false;
       this.state.percentOfTotal = parseInt(props.bill.owed / props.bill.total * 100);
-      }
+      this.state.date = moment(props.bill.date)
+    } else {
+      this.state.date = moment()
+    }
 
     this.intial = props.bill;
 
@@ -40,6 +46,7 @@ class BillForm extends React.Component{
     this.changeUnentered = this.changeUnentered.bind(this);
     this.createAndreceive = this.createAndreceive.bind(this);
     this.updateName = this.updateName.bind(this);
+    this.handleChangeDate = this.handleChangeDate.bind(this);
   }
 
   openModal () {
@@ -86,9 +93,10 @@ class BillForm extends React.Component{
       note: billInfo.note,
       total: billInfo.total,
       owed: this.state.owed,
-      date: billInfo.date,
+      date: billInfo.date._d,
       id: this.props.bill.id
     }}
+    console.log(bill);
     if (this.props.edit){
       this.props.updateBill(bill, bills => this.createAndreceive(bills))
     }else{
@@ -149,6 +157,12 @@ class BillForm extends React.Component{
     })
   }
 
+  handleChangeDate(date){
+    this.setState({
+        date
+       });
+  }
+
   handleTotal (event) {
     this.setState({
       total: event.currentTarget.value
@@ -198,7 +212,7 @@ class BillForm extends React.Component{
                     />
 
                     <div className='cost'>
-                      <span class="currency">$</span>
+                      <span className="currency">$</span>
                     <input
                       type ='number'
                       step='any'
@@ -209,14 +223,14 @@ class BillForm extends React.Component{
                       onChange={this.handleTotal}
                       className={formInput}/>
                   </div></div>
-                <section><div onClick={ this.handlePayers(updater)} className="user-switch">{payer ? "I" : this.state.userOption}</div> paid</section>
-
-                  <label><div className='title-detail'>
-                    Date of bill
-                  </div>
-                    <input type='date' value={this.state.date} onChange={this.update('date')}/>
-                  </label>
-
+                <section><span onClick={ this.handlePayers(updater)} className="user-switch">{payer ? this.props.currentUser.name : this.state.userOption}</span> paid for this
+                <br/>
+                on:
+                  <DatePicker
+                    selected={this.state.date}
+                    onChange={this.handleChangeDate}
+                    />
+                  </section>
 
                   <label><div className='title-detail'>
                     What percent of the total bill does
@@ -227,6 +241,8 @@ class BillForm extends React.Component{
                       type="range"
                       min="0"
                       max="100"
+                      id='r3'
+                      className='tip'
                       value={this.state.percentOfTotal}
                       onChange={this.sliderUpdate}/>
                     <input

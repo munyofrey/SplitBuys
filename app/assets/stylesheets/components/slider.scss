@@ -1,0 +1,23 @@
+$r3-val: 25;
+
+$r3-input-h-k: 2;
+$r3-input-sh-h: .625em;
+
+$r3-track-w: 22.5em;
+$r3-track-h: 2em;
+
+$r3-ruler-n: 5;
+$r3-ruler-unit: $r3-track-w/$r3-ruler-n;
+
+$r3-thumb-d: 2.625em;
+$r3-thumb-bw: ($r3-ruler-unit - $r3-thumb-d)/2;
+$r3-thumb-pad: .1875em;
+$r3-thumb-bar-h: .25em;
+$r3-thumb-bar-r: $r3-thumb-bar-h/2;
+$r3-thumb-bar-w: $r3-thumb-d - 2*$r3-thumb-pad;
+$r3-thumb-bar-c: #5a8a10;
+$r3-thumb-bar-caf: rgba($r3-thumb-bar-c, 0);
+$r3-thumb-line-c: #4a6e10;
+$r3-thumb-line-caf: rgba($r3-thumb-line-c, 0);
+
+$r3-tip-fs: .85;

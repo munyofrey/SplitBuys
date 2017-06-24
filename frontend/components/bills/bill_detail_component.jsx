@@ -71,7 +71,7 @@ class BillDetail extends React.Component{
 
 
   trigger(){
-    const date = moment(this.props.bill.date, 'YYYY-MM-DD');
+    const date = moment(new Date(this.props.bill.date), 'YYYY-MM-DD');
     return(<div className='bill-table-row'>
       <div className='main'>
         <div className='bill-table-element bill-date' title={this.props.bill.date}>{date.format("MMM")}

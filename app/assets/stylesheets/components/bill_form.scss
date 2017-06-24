@@ -8,21 +8,49 @@
     color: white;
     padding: 10px;
   }
+
+
   .new-bill-form-holder{
     margin: 30px;
+    section{
+      text-align: center;
+      margin: 15px 0px;
+      .user-switch{
+        cursor: pointer;
+        background: $light-gray;
+        padding: 2px;
+        border-radius: 15px;
+        border: 2px dashed $edge-gray;
+        .input{
+          width: 70px;
+        }
+      }
+  }}
 
-  section{
-    .user-swtich{
-      border-radius: 3px;
-      border: 1px dashed $edge-gray;
+  .new-bill-form-elements{
+
+    ul{
+      border: 1px solid $edge-gray;
+      border-top: none;
+      border-radius: 2px;
+      background: $light-gray;
     }
 
-    .user-swtich:hover{
-      border-radius: 3px;
-      border: 1px dashed $bill-orange;
+
+
+    li{
+      border-bottom: 1px dashed $edge-gray;
+      padding-left: 3px;
+    }
+
+    li:hover{
+      background: $edge-gray
+    }
+
+    ul:last-child{
+      border-bottom: none
     }
   }
-
 
   .bill-info-container{
 
@@ -33,6 +61,9 @@
       margin: 3px;
       border-bottom: 1px dashed $edge-gray;
       text-align: initial;
+    }
+
+
     }
 
     .cost{
@@ -50,7 +81,5 @@
 
       }
     }
-  }
-  }
 
 }
