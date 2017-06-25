@@ -157,6 +157,8 @@ class BillForm extends React.Component{
     })
   }
 
+
+
   handleChangeDate(date){
     this.setState({
         date
@@ -235,8 +237,9 @@ class BillForm extends React.Component{
                   <label><div className='title-detail'>
                     What percent of the total bill does
                     {this.props.currentUser.id === this.state.user_owe_id ?
-                      ` ${this.props.currentUser.name} ` : ` ${this.state.userOption} `}
+                      ` ${this.props.currentUser.name} ` : ` ${this.state.userOption} `} <br/>
                     owe? </div><br />
+                  <div className="range-slider__range">
                     <input
                       type="range"
                       min="0"
@@ -245,13 +248,9 @@ class BillForm extends React.Component{
                       className='tip'
                       value={this.state.percentOfTotal}
                       onChange={this.sliderUpdate}/>
-                    <input
-                      type="number"
-                      name="amountInput"
-                      min="0" max="100"
-                      value={this.state.percentOfTotal}
-                      onChange={this.sliderUpdate} />
-                  </label>
+                    <span className="range-slider__value">{this.state.percentOfTotal}%</span>
+                </div>
+              </label>
 
                     <br/>
                   <label> <div className='title-detail'>Notes: </div>
