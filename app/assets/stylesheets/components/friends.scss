@@ -1,19 +1,22 @@
 .current-friends-list {
-  li{
-      color: inherit;
-      display: block;
-      height: 19px;
-      font-size: 14px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      padding: 3px 8px 2px 8px;
-      text-decoration: none;
-      border-left: 6px solid $white;
-      cursor: pointer;
-      a{
-        margin-left: 5px;
-      }
+  ul {
+    margin-bottom: 20px;
+    li{
+        color: inherit;
+        display: block;
+        height: 19px;
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 3px 8px 2px 8px;
+        text-decoration: none;
+        border-left: 6px solid $white;
+        cursor: pointer;
+        a{
+          margin-left: 5px;
+        }
+    }
   }
 
   li:hover{
@@ -116,8 +119,8 @@
   form.user-search{
   }
   input.user-search {
-    margin-top:5px;
-    margin-bottom:5px;
+    margin-top:10px;
+    margin-bottom:10px;
     margin-left: 3px;
     margin-right: 1px;
     border-radius: 3px;

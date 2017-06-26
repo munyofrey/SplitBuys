@@ -1,12 +1,15 @@
 .sums-container {
   width: 100%;
-  margin-left: 10px;
+  min-height: 100vh;
+
+  -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
 
   .header{
     background: $light-gray;
     padding: 1px;
     text-transform: uppercase;
-    margin-top: 25px;
     .sums.left{
       margin-left: 10px;
     }

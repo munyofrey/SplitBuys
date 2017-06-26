@@ -6,7 +6,7 @@ const SumDetail = ({sum, friend}) => (
   sum ?
   <li onClick={ ()=> hashHistory.push(`/friends/${friend.id}`)}>
     <div>{friend.name}</div>
-  <span className='sum-users'>{`$${sum}`}</span>
+  <span className='sum-users'>{`$${parseFloat(sum).toFixed(2)}`}</span>
   </li>
   : <li/>
 )
