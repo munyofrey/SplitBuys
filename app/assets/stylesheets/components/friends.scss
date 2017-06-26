@@ -92,14 +92,20 @@
   width: 140px;
   border: 1px solid $edge-gray;
   .find-friend{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     padding-top: 4px;
     padding-bottom: 4px;
     text-align: center;
     margin: 0px;
     margin-top: 0px;
-    background-color: $green-yellow-gray;
+    background: $green-yellow-gray;
     h5{
+      text-transform: uppercase;
       margin: 0px;
+
     }
   }
 
@@ -135,6 +141,9 @@
       background: $light-gray;
     }
     li{
+      height: 20px;
+      padding: 3px 5px;
+      font-size: small;
       border-top: 1px solid $edge-gray;
     }
 

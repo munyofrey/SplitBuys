@@ -1,0 +1,65 @@
+.sums-container {
+  width: 100%;
+  margin-left: 10px;
+
+  .header{
+    background: $light-gray;
+    padding: 1px;
+    text-transform: uppercase;
+    margin-top: 25px;
+    .sums.left{
+      margin-left: 10px;
+    }
+
+    .sums.right {
+      float: right;
+      margin-top: -28px;
+      margin-right: 10px;
+    }
+
+  }
+
+  .sum-detail-container{
+    margin-top: 20px;
+    display: flex;
+    li {
+      display: block;
+      padding: 15px 20px;
+      padding-bottom: 20px;
+      font-size: 15px;
+      text-decoration: none;
+      // border-bottom: 1px solid $edge-gray;
+
+      span {
+        float: right;
+        display: inline-block;
+        margin-top: -10px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+    }
+
+    li:hover {
+      background: $light-gray;
+    }
+    .sums-is-owed{
+      // margin-right: 1px;
+      width: 50%;
+      border-right: 1px solid $edge-gray;
+
+      .sum-users {
+        color: $forest-green;
+      }
+    }
+
+    .sums-owes{
+      // margin-left: 1px;
+      width: 50%;
+      border-left: 1px solid $edge-gray;
+
+      .sum-users {
+        color: $bill-orange;
+      }
+    }
+  }
+}

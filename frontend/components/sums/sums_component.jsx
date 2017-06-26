@@ -20,21 +20,24 @@ class SumsComponent extends React.Component{
         <div className='body-under-header'>
           <Sidebar />
           <div className='sums-container'>
-          <div className='sums-user-is-owed'>
-            <h5 className='sums'>You Are Owed</h5>
+            <div className='header'>
+              <h5 className='sums left'>You Are Owed</h5>
+              <h5 className='sums right'>You Owe</h5>
+            </div>
+
+            <div className="sum-detail-container">
             <ul className='sums-is-owed'>
               {this.props.friends.map(friend => (
-                this.props.sums[friend.id] > 0 ?
-                  <SumDetail  sum={this.props.sums[friend.id]} friend={friend}/> : ""
+                this.props.sums[friend.id] <= 0 || isNaN(this.props.sums[friend.id]) ? "" :
+                  <SumDetail  sum={this.props.sums[friend.id]} friend={friend}/>
               ))}
             </ul>
-          </div>
-          <div className='sums-divider'/>
-          <div className='sums-user-owes'>
-            <h5 className='sums'>You Owe</h5>
+
+
+
             <ul className='sums-owes'>
               {this.props.friends.map(friend => (
-                this.props.sums[friend.id] > 0 ? "" :
+                this.props.sums[friend.id] >= 0 || isNaN(this.props.sums[friend.id]) ? "" :
                   <SumDetail  sum={- this.props.sums[friend.id]} friend={friend}/>
               ))}
             </ul>

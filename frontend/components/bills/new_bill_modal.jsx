@@ -3,7 +3,6 @@ import Modal from 'react-modal';
 import UserSearchContainer from '../users/user_search_container';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import Money from 'react-icons/lib/fa/money';
 
 const customStyles = {
   content : {
@@ -206,8 +205,8 @@ class BillForm extends React.Component{
 
 
                   <div className="bill-info-container">
-                    <Money className='money'/>
                   <input
+                    maxLength="25"
                     type="text"
                     value={this.state.description}
                     onChange={this.update("description")}

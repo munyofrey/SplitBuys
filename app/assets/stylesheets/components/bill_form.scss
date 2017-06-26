@@ -101,9 +101,6 @@
       border-bottom: 1px dashed $edge-gray;
       text-align: initial;
     }
-    .title-detail {
-      text-align: center;
-    }
 
 
 
@@ -151,4 +148,8 @@ textarea {
   margin-top: 15px;
   margin-left: 200px;
   font-weight: bold;
+}
+
+.title-detail {
+  text-align: center;
 }

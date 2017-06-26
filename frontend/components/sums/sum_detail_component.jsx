@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { hashHistory } from 'react-router';
 
 
 const SumDetail = ({sum, friend}) => (
   sum ?
-  <li >
-    <Link to={`/friends/${friend.id}`} className='link-users'>{friend.name}</Link>
-    <div className='sum-users'>{`$ ${sum}`}</div>
+  <li onClick={ ()=> hashHistory.push(`/friends/${friend.id}`)}>
+    <div>{friend.name}</div>
+  <span className='sum-users'>{`$${sum}`}</span>
   </li>
-  : <li></li>
+  : <li/>
 )
 
 export default SumDetail
