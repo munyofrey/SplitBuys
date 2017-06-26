@@ -1,5 +1,4 @@
 import React from 'react';
-import CommentIcon from 'react-icons/lib/fa/commenting'
 
 
 class CommentComponent extends React.Component{

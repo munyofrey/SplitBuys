@@ -339,3 +339,7 @@
 .react-datepicker__day--selected{
     background-color: $forest-green
   }
+
+.react-datepicker__day--selected:hover {
+  background-color: $forest-green
+}

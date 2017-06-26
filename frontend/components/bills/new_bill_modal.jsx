@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import UserSearchContainer from '../users/user_search_container';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-
+import Money from 'react-icons/lib/fa/money';
 
 const customStyles = {
   content : {
@@ -13,7 +13,8 @@ const customStyles = {
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    padding               : "0px"
+    padding               : "0px",
+    overflow              : "visible"
   }
 };
 
@@ -205,6 +206,7 @@ class BillForm extends React.Component{
 
 
                   <div className="bill-info-container">
+                    <Money className='money'/>
                   <input
                     type="text"
                     value={this.state.description}
@@ -227,7 +229,7 @@ class BillForm extends React.Component{
                   </div></div>
                 <section><span onClick={ this.handlePayers(updater)} className="user-switch">{payer ? this.props.currentUser.name : this.state.userOption}</span> paid for this
                 <br/>
-                on:
+                on
                   <DatePicker
                     selected={this.state.date}
                     onChange={this.handleChangeDate}
@@ -253,17 +255,16 @@ class BillForm extends React.Component{
               </label>
 
                     <br/>
-                  <label> <div className='title-detail'>Notes: </div>
+                  <label> <div className='note'>Notes: </div>
                     <textarea
                       value={this.state.note}
                       onChange={this.update("note")}
-                      placeholder='(optional)'
+                      placeholder='optional'
                       className={formInput} />
                   </label>
 
-                  <div className='justify-left-flex submit-level'>
+
                     <input type="submit" className='entry-submit button' value="Submit" />
-                  </div>
 
                 </div> : ''}
               </form>

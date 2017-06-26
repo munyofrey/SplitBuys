@@ -24,12 +24,20 @@
     flex-direction: row-reverse;
     justify-content: space-between;
 
+    .delete-bill {
+      background: $bill-orange;
+    }
+
   }
 
 .comments-container{
   width: 35%;
   border-left: 1px solid $edge-gray;
   padding-left: 7px;
+
+  .send {
+    background: $forest-green;
+  }
 }
 
 

@@ -1,10 +1,13 @@
 .ReactModal__Content ReactModal__Content--after-open{
+    position: absolute;
     overflow: visible;
 }
 
 
 .bill-form-container{
+  font-family: $font;
   width: 305px;
+
   h2{
     text-align: center;
     font-size: 25px;
@@ -17,18 +20,23 @@
 
   .new-bill-form-holder{
     margin: 30px;
+
+    .errors{
+      color: $bill-orange;
+      margin: 5px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
     section{
       text-align: center;
       margin: 15px 0px;
       .user-switch{
         cursor: pointer;
         background: $light-gray;
-        padding: 2px;
+        padding: 2px 4px;
         border-radius: 15px;
         border: 2px dashed $edge-gray;
-        .input{
-          width: 70px;
-        }
       }
       .user-switch:hover {
         background: $forest-green;
@@ -36,30 +44,50 @@
           border: 1px dashed $white;
 
       }
-  }}
+      input{
+        margin-top: 6px;
+        margin-left: 3px;
+        cursor: pointer;
+        width: 70px;
+        font-size: small;
+        color: $forest-green;
+        font-weight: bold;
+      }
+    }
+  }
 
   .new-bill-form-elements{
     position: relative;
-
-    ul{
-      width: 125px;
-      position: absolute;
+    display: flex;
+    justify-content: center;
+    input{
+      height: 20px;
+      background: $light-gray;
+      font-size: medium;
+      margin-top: 10px;
+      padding: 5px 10px;
       border: 1px solid $edge-gray;
+    }
+    ul{
+      width: 186px;
+      position: absolute;
       border-top: none;
       border-radius: 2px;
       background: $light-gray;
+      li{
+        border-bottom: 1px dashed $edge-gray;
+        height: 20px;
+        padding: 3px 5px;
+        font-size: small;
+      }
+
+      li:hover{
+        background: $edge-gray
+      }
+
+      border: 1px solid $edge-gray;
     }
 
-
-
-    li{
-      border-bottom: 1px dashed $edge-gray;
-      padding-left: 3px;
-    }
-
-    li:hover{
-      background: $edge-gray
-    }
 
   }
 
@@ -73,6 +101,10 @@
       border-bottom: 1px dashed $edge-gray;
       text-align: initial;
     }
+    .title-detail {
+      text-align: center;
+    }
+
 
 
     }
@@ -93,4 +125,30 @@
       }
     }
 
+}
+
+.note{
+  font-size: 15px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+textarea {
+  width: 245px;
+  resize: none;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+
+.entry-submit.button{
+  background: $forest-green;
+  text-transform: uppercase;
+  color: white;
+  margin-top: 15px;
+  margin-left: 200px;
+  font-weight: bold;
 }
