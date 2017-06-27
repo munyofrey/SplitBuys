@@ -66,9 +66,17 @@
 .main-header{
   display: flex;
   justify-content: space-between;
+  background: $light-gray;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,.25),inset 0 -1px 0 rgba(0,0,0,.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+  height: 50px;
+  padding: 0px 20px;
+  align-items: center;
+
   h5{
     text-transform: uppercase;
-    margin-left: 20px;
+    margin: 0px;
     font-size: small;
   }
 
@@ -77,6 +85,5 @@
     text-align: center;
     background: $forest-green;
     padding: 5px;
-    margin: 21px;
   }
 }
