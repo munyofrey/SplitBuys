@@ -172,13 +172,15 @@ class BillForm extends React.Component{
   }
 
   render(){
+    const billClass = this.props.edit ? "edit-bill" : "new-bill";
     const payer = this.state.user_pay_id === this.props.currentUser.id;
     const updater = payer ? this.state.user_other_id : this.props.currentUser.id;
     const formInput = 'new-bill-form-input'
     return (
       <div>
-        <div id='new-bill' className='new-bill button' onClick={this.openModal}>Bill</div>
+        <div id='new-bill' className={`${billClass} button`} onClick={this.openModal}>{this.props.edit ? "Edit Bill" : "New Bill"}</div>
       <Modal
+          contentLabel='newBill'
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}

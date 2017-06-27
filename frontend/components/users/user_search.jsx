@@ -96,6 +96,7 @@ class UserSearch extends React.Component{
 
 
           <Modal
+            contentLabel='addFriend'
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}
             style={customStyles}>

@@ -7,33 +7,10 @@ import moment from 'moment'
 class BillDetail extends React.Component{
   constructor(props){
     super(props)
-    this.state = {
-      modalIsOpen: false
-    }
-    this.openModal = this.openModal.bind(this)
-    this.closeModal = this.closeModal.bind(this)
     this.deleteBillItem = this.deleteBillItem.bind(this)
     this.trigger = this.trigger.bind(this)
     this.lent = this.lent.bind(this)
     this.total = this.total.bind(this)
-  }
-
-  openModal(){
-    this.setState({modalIsOpen: true})
-    $('input[type="range"]').change(function () {
-    var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
-
-    $(this).css('background-image',
-                '-webkit-gradient(linear, left top, right top, '
-                + 'color-stop(' + val + ', #94A14E), '
-                + 'color-stop(' + val + ', #C5C5C5)'
-                + ')'
-                );
-});
-  }
-
-  closeModal(){
-    this.setState({modalIsOpen: false})
   }
 
   deleteBillItem(bill){
@@ -102,8 +79,8 @@ class BillDetail extends React.Component{
          <Collapsible trigger={this.trigger()}>
           <div className='bill_item_detail'>
                 <div className='bill-item-detail' >
-                  <div className='bill-detail'><div className='title-detail'>Note:</div>
-                   {this.props.bill.note}</div>
+                  <section className='note'><h5>Note:</h5>
+                   <p>{this.props.bill.note}</p></section>
                  <div className='delete-edit-button-container'>
                <div
                  className='delete-bill button'

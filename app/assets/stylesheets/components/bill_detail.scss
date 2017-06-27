@@ -10,40 +10,101 @@
 .bill_item_detail{
   display: flex;
   margin: 5px 10px;
+  overflow: hidden;
+
   .bill-item-detail{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    .bill-detail{
-      width: 420px;
-    }
-  }
-  .delete-edit-button-container{
-    display: flex;
-    margin-right: 5px;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    overflow: hidden;
+    width: 340px;
 
-    .delete-bill {
-      background: $bill-orange;
-    }
+    section{
+      background: $white;
+      margin: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      height: 150px;
 
+      h5 {
+        margin: 5px;
+        border-bottom: 1px solid black;
+        display: inline-block;
+        text-transform: none;
+      }
+      p {
+        margin: 10px;
+        text-transform: none;
+        margin-top: 5px;
+        font-size: 12px;
+        overflow: scroll;
+      }
+    }
+    .delete-edit-button-container{
+      display: flex;
+      margin-bottom: 10px;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      width: 200px;
+      margin: 0 auto;
+
+      .button {
+        text-align: center;
+        width: 75px;
+        color: $white;
+        font-weight: 700;
+
+      }
+      .delete-bill {
+        background: $bill-orange;
+      }
+
+      .edit-bill {
+        background: $green-yellow-gray;
+      }
+
+    }
   }
 
 .comments-container{
-  width: 35%;
+  width: 250px;
   border-left: 1px solid $edge-gray;
   padding-left: 7px;
 
-  .send {
-    background: $forest-green;
+  .new-bill-form{
+    width: 231px;
+    display: flex;
+    textarea {
+      padding: 7px;
+      height: 44px;
+      width: 191px;
+      border-radius: 5px;
+      border-bottom-right-radius: 0px;
+      border-top-right-radius: 0px;
+    }
+
+    .kill-button {
+      margin-top: -3px;
+      margin-right: -1px;
+    }
+
+    .send {
+      background: $forest-green;
+      height: 40px;
+      margin-top: 10px;
+      border-bottom-left-radius: 0px;
+      border-top-left-radius: 0px;
+      color: $white;
+      font-weight: 700;
+      text-align: center;
+    }
   }
 }
 
 
 
 .comments-list {
-
+ height: 150px;
+ overflow: scroll;
+ width: 231px;
 
  li{
   font-size: 13px;

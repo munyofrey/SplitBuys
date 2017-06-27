@@ -11,6 +11,7 @@ export const BillView = () => (
 
 <td className='bill_item_detail'>
     <Modal
+      contentLabel='editBill'
       isOpen={this.state.modalIsOpen}
       onAfterOpen={this.afterOpenModal}
       onRequestClose={this.closeModal}
