@@ -8,7 +8,10 @@ const userReducer = (oldState = preloadedState, action) => {
     case userConstants.RECEIVE_USERS:
       return action.users
       break;
+    case "CLEAR_STATE":
+      return preloadedState;
     default: return oldState
+
   }
 }
 

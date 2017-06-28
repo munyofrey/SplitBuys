@@ -16,6 +16,8 @@ const FriendsReducer = (oldState = preloadedState, action) => {
               requested: action.friends[2]
             }
       break;
+    case"CLEAR_STATE":
+      return preloadedState;
     default: return oldState
 
   }

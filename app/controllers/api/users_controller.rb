@@ -4,7 +4,6 @@ class Api::UsersController < ApplicationController
     @users = User.where
                 .not(id: (Friend.where(user_one_id: current_user.id).pluck(:user_two_id) + Friend.where(user_two_id: current_user.id).pluck(:user_one_id) + [current_user.id]))
                 .where("lower(name) LIKE '#{params[:queryParams].downcase}%'")
-    # render json: @users
     render 'api/users/index'
   end
 
@@ -12,8 +11,8 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      Friend.create(user_one_id: @user.id, user_two_id: 2, pending:true)
-      Friend.create(user_one_id: 1, user_two_id: @user.id, pending:true)
+      Friend.create(user_one_id: @user.id, user_two_id: 1, pending:false)
+      Friend.create(user_one_id: 1, user_two_id: @user.id, pending:false)
       render :show
     else
       render json: @user.errors.full_messages, status: 422

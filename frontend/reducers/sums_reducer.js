@@ -9,6 +9,8 @@ const SumsReducer = (state = sums, action) =>{
   switch (action.type) {
     case sumConstants.RECEIVE_SUMS:
       return action.sums
+    case "CLEAR_STATE":
+      return sums;
     default: return state
   }
 };

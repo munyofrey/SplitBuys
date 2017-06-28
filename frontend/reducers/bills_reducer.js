@@ -40,6 +40,8 @@ const billReducer = (oldState = preloadedState, action) => {
       newState = merge({}, oldState);
       delete newState.bills[action.comment.bill_id].comments[action.comment.id]
       return newState
+    case "CLEAR_STATE":
+      return preloadedState;
     default:
       return oldState
   }
