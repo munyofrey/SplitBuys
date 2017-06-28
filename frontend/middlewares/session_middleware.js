@@ -16,7 +16,9 @@ const SessionMiddleware = ({getstate, dispatch}) => next => action => {
       return next(action)
       break;
     case sessionConstants.LOGOUT:
-      logout(()=> {dispatch({type: "CLEAR_STATE"}); hashHistory.push('/'); next(action)});
+      logout(()=> {
+        dispatch({type: "CLEAR_STATE"});
+        hashHistory.push('/'); next(action)});
       break;
     case sessionConstants.SIGNUP:
       signup(action.user, successCB, errorCB);

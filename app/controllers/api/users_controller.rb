@@ -13,6 +13,9 @@ class Api::UsersController < ApplicationController
       login(@user)
       Friend.create(user_one_id: @user.id, user_two_id: 1, pending:false)
       Friend.create(user_one_id: 1, user_two_id: @user.id, pending:false)
+      Friend.create(user_one_id: @user.id, user_two_id: 2, pending:true)
+      Friend.create(user_one_id: 3, user_two_id: @user.id, pending:true)
+
       render :show
     else
       render json: @user.errors.full_messages, status: 422

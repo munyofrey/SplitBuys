@@ -1,6 +1,12 @@
 ### Guest login
-* add componentWillRecieveProps or clear state to make sure a fetch for bills happen when a user logs out and logs into another account
-*
+ * make dummy bill for Angela 
 
 ### Styling
-* add 
+* add kill button margins to all modules
+* SPLASH PAGE
+* colors?
+* style errors on bill creation
+
+
+### SEEDS THAT AREN'T FAKER
+### PRODUCTION README
