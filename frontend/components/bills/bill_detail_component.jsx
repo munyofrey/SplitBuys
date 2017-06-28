@@ -80,7 +80,7 @@ class BillDetail extends React.Component{
           <div className='bill_item_detail'>
                 <div className='bill-item-detail' >
                   <section className='note'><h5>Note:</h5>
-                   <p>{this.props.bill.note}</p></section>
+                   {this.props.bill.note ? <p>{this.props.bill.note}</p> : <span>There is no more information on this bill.</span>}</section>
                  <div className='delete-edit-button-container'>
                <div
                  className='delete-bill button'

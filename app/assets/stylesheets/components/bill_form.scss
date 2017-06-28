@@ -1,4 +1,4 @@
-.ReactModal__Content ReactModal__Content--after-open{
+.ReactModal__Content.ReactModal__Content--after-open{
     position: absolute;
     overflow: visible;
 }
@@ -6,6 +6,9 @@
 .new-bill.button {
   width: 55px;
   color: white;
+  background: $green-yellow-gray;
+  padding: 7px 10px;
+  font-weight: 700;
 }
 
 .bill-form-container{

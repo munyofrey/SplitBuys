@@ -152,3 +152,28 @@
 
   }
 }
+
+
+.accept-friend-modal {
+  margin: 0px 10px;
+  margin-bottom: 10px;
+  .kill-button {
+    margin-top: -20px;
+    margin-right: -3px;
+  }
+  h5 {
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+  }
+
+  .button {
+    width: 100px;
+    color: white;
+    background: $forest-green;
+    text-align: center;
+    font-weight: 700;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+}

@@ -9,7 +9,8 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    padding               : "0px"
   }
 };
 
@@ -102,8 +103,8 @@ class UserSearch extends React.Component{
             style={customStyles}>
             <div className='accept-friend-modal'>
               <button className='kill-button'onClick={this.closeModal}>x</button>
-              <h5>Would you like to send {this.state.user.name} a friend Request?</h5>
-              <div className='accept-friend-modal button' onClick={this.handleRequest}>Of course!</div>
+              <h5>Would you like to send {this.state.user.name} a friend request?</h5>
+              <div className='button' onClick={this.handleRequest}>Of course!</div>
             </div>
           </Modal>
 

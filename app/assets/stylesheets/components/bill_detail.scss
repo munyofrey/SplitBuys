@@ -36,6 +36,16 @@
         font-size: 12px;
         overflow: scroll;
       }
+
+      span {
+        text-transform: initial;
+        display: block;
+        margin: 0 auto;
+        width: 120px;
+        text-align: center;
+        margin-top: 17px;
+        color: $light-dark-gray;
+      }
     }
     .delete-edit-button-container{
       display: flex;
