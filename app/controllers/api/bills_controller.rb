@@ -11,7 +11,8 @@ class Api::BillsController < ApplicationController
              status: 403
     end
     if @bill.save
-      render :show
+      @bills = current_user.all_bills
+      render :index
     else
       render json: @bill.errors.full_messages, status: 422
     end

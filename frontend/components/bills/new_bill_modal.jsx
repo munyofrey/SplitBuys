@@ -20,21 +20,19 @@ const customStyles = {
 class BillForm extends React.Component{
   constructor(props){
     super(props)
-    let user_other_id, user_owe_id, userOption, listQuestions;
     this.state = this.props.bill;
     this.state.friends = [];
     if (props.edit) {
       this.state.listQuestions = true;
       this.state.userOption = props.friend.name;
       this.state.user_other_id = props.friend.id;
-      this.state.listElements = false;
       this.state.percentOfTotal = parseInt(props.bill.owed / props.bill.total * 100);
       this.state.date = moment(props.bill.date)
     } else {
       this.state.date = moment()
     }
 
-    this.intial = props.bill;
+    this.inital = Object.assign({}, this.state)
 
     this.handleTotal = this.handleTotal.bind(this);
     this.sliderUpdate = this.sliderUpdate.bind(this);
@@ -65,9 +63,11 @@ class BillForm extends React.Component{
       if(! newProps.friend ){
         this.selectUser({});
         this.setState({listQuestions: false});
-      }else if(this.props.friend.id != newProps.friend.id ){
+      } else if(this.props.friend.id != newProps.friend.id ){
         this.selectUser(newProps.friend);
       }
+    } else if (!this.props.friend && newProps.friend){
+      this.selectUser(newProps.friend);
     }
   }
 
@@ -96,7 +96,6 @@ class BillForm extends React.Component{
       date: billInfo.date._d,
       id: this.props.bill.id
     }}
-    console.log(bill);
     if (this.props.edit){
       this.props.updateBill(bill, bills => this.createAndreceive(bills))
     }else{
@@ -106,7 +105,7 @@ class BillForm extends React.Component{
 
   createAndreceive (bill) {
     this.closeModal();
-    this.props.receiveBill(bill)
+    this.props.receiveBills(bill)
   }
 
   renderErrors () {
