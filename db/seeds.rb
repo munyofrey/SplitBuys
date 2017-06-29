@@ -142,7 +142,7 @@ comments_info = [
 ]
 
 bills.each do |bill|
-  comment = comments_info.shift
+  comment = comments_info.pop
   unless comment.empty?
     Comment.create!({
       body: comment[0],

@@ -36,7 +36,7 @@ class AppRouter  extends React.Component{
      const currentState = this.context.store.getState();
       const currentUser = currentState.session.currentUser;
       if (!currentUser) {
-        replace('/login');
+        replace('/');
       }
     }
 

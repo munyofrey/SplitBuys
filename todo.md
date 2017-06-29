@@ -1,5 +1,5 @@
 ### Guest login
- * make dummy bill for Angela 
+ * make dummy bill for Angela
 
 ### Styling
 * add kill button margins to all modules
@@ -8,5 +8,7 @@
 * style errors on bill creation
 
 
-### SEEDS THAT AREN'T FAKER
+### bills - create needs to send back all bills so that sort function gets run
+
+###
 ### PRODUCTION README
