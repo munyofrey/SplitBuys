@@ -27,19 +27,20 @@ class MainHeader extends React.Component {
   }
 
   billFriend(friend){
-    return {listElements: true,
-    modalIsOpen: false,
-    percentOfTotal: 50,
-    description: '',
-    user_pay_id: this.props.currentUser.id,
-    note: '',
-    owed: 0,
-    total: '',
-    date: '',
-    user_other_id: friend.id,
-    user_owe_id: friend.id,
-    userOption: friend.name,
-    listQuestions: true
+    console.log('ran!');
+    return {
+      modalIsOpen: false,
+      percentOfTotal: 50,
+      description: '',
+      user_pay_id: this.props.currentUser.id,
+      note: '',
+      owed: 0,
+      total: '',
+      date: '',
+      user_other_id: friend.id,
+      user_owe_id: friend.id,
+      userOption: friend.name,
+      listQuestions: true
     }
   }
 
@@ -56,6 +57,7 @@ class MainHeader extends React.Component {
       }
     }else{
       if(this.props.friend){
+        console.log(this.props.friend);
         return <div className='bills main-header'>
           <h5>{`Your bills with ${this.props.friend.name}`}</h5> <NewBill friend={this.props.friend} bill={this.billFriend(this.props.friend)}/>
         </div>
