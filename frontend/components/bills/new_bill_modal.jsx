@@ -34,7 +34,7 @@ class BillForm extends React.Component{
       this.state.date = moment()
     }
 
-    this.intial = props.bill;
+    this.inital = Object.assign({}, this.state)
 
     this.handleTotal = this.handleTotal.bind(this);
     this.sliderUpdate = this.sliderUpdate.bind(this);
@@ -106,7 +106,7 @@ class BillForm extends React.Component{
 
   createAndreceive (bill) {
     this.closeModal();
-    this.props.receiveBill(bill)
+    this.props.receiveBills(bill)
   }
 
   renderErrors () {
