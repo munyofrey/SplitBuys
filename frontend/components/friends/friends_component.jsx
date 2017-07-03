@@ -72,7 +72,10 @@ handleRequest(){
           </ul>
             <ul>
             <h5 className='friend-header'>Pending Requests</h5>
-              {this.props.pending.map(friend => (<li key={`friendlist${friend.id}`} className='pending'>{friend.name}
+              {this.props.pending.map(friend => (<li key={`friendlist${friend.id}`} className='pending'> {friend.name}<div
+                className='delete-friend'
+                onClick={this.props.deleteFriend.bind(this, friend.id)
+                }><UserTimes className='user-times'/></div>
                 </li>))}
           </ul>
         </div>

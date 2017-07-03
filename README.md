@@ -1,10 +1,10 @@
 # Splitbys
 
-[Splitbys live][heroku]
+[Live site][heroku]
 
 [heroku]:http://splitbys.herokuapp.com
 
-Splitbys is a full-stack inspired by Splitwise. It relies on Ruby on Rails for the backend, PostgreSQL for the database, and React.js with a Redux framework for the frontend. Splitbys is a single-page application, all content is rendered on one static page. Sensitive client information is kept out of the frontend by only allowing view access if `SessionStore#currentUser` is not null.  
+Splitbys is a full-stack inspired by Splitwise. It relies on Ruby on Rails for the backend, PostgreSQL for the database, and React.js with a Redux framework for the frontend. Splitbys is a single-page application, all content is rendered on one static page.
 
 ##Features and Implementation
 
@@ -95,10 +95,10 @@ The `FriendStore` stores three types of friend relationships - pending requests 
   Should a user decide to change the friend they are splitting a bill with, the form will disappear. In the `NewBillForm` a client can choose the percentage split between themselves and their friend. On submit the percentage is changed to the `owed` amount stored in the database.
 
 
-###
+<!-- ### -->
 
 
-##Future Directions for the Project
+<!-- ##Future Directions for the Project
 
   The next steps for Splitbys are discussed below.
 
@@ -107,7 +107,7 @@ The `FriendStore` stores three types of friend relationships - pending requests 
 
 
 ###Checkout
-Currently one can settle up with their friends by adding a bill of equal value to that shown on the totals page. I think it would be fun to implement a settle up function that shows differently on the user's transactions history. To do so I will implement a `SettleComponent` that appears on a friend's transaction page, and a boolean `settle` for the bills table in the database.  
+Currently one can settle up with their friends by adding a bill of equal value to that shown on the totals page. I think it would be fun to implement a settle up function that shows differently on the user's transactions history. To do so I will implement a `SettleComponent` that appears on a friend's transaction page, and a boolean `settle` for the bills table in the database.   -->
 
 
 

@@ -25,6 +25,15 @@
   }
   .pending{
     cursor: default;
+    .delete-friend {
+      float: right;
+      margin-right: 10px;
+    }
+    .delete-friend:hover{
+      path{
+        color: $bill-orange;
+      }
+    }
   }
 
   .pending:hover{
