@@ -6,7 +6,6 @@ const UsersMiddleware = ({getstate, dispatch}) => next => action => {
   let successCB;
   const errorCB = xhr => {
     const errors = xhr.responseJSON;
-    console.log(errors);
   };
   switch (action.type) {
     case userConstants.REQUEST_USERS:

@@ -17,9 +17,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
   } else {
     store = configureStore();
   }
-  window.store = store;
-  window.fetchAllBills = () => fetchAllBills(bills=>console.log(bills), errors=> console.log(errors))
-  window.fetchFriendBills = () => fetchFriendBills(3, bills=>console.log(bills), errors=> console.log(errors))
   Modal.setAppElement(root)
   ReactDOM.render(<Root store={store}/>, root);
 })

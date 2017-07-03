@@ -29,10 +29,6 @@ export const updateBill = (bill, success, error) => (
   })
 )
 
-
-
-
-
 //deleting
 export const deleteBill = (bill, success, error) => (
   $.ajax({
@@ -42,6 +38,3 @@ export const deleteBill = (bill, success, error) => (
     error
   })
 )
-
-//sum
-// $.ajax({url: 'api/sum', success: bill => console.log(bill)})
