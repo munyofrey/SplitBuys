@@ -52,17 +52,6 @@ class GuestComponent extends React.Component{
           </div>
         </div>
 
-        <div className="bgimg-4">
-          <div className="caption">
-            <span className="border">FOLLOW</span>
-          </div>
-        </div>
-
-        <div>
-          <div className="blurb-4">
-            <p id="blurb">Track your expenses</p>
-          </div>
-        </div>
 
         <div className="bgimg-5">
           <div className="caption">
