@@ -65,9 +65,9 @@ Here `User#sums` makes a SQL query and returns a hash mapping friend id's to the
 ```ruby
   # app/models/user.rb
   def sums
-    bought = Bill.where(user_pay_id: self.id,               user_owe_id:self.friend_items.pluck(:user_two_id))
+    bought = Bill.where(user_pay_id: self.id, user_owe_id:self.friend_items.pluck(:user_two_id))
                  .group(:user_owe_id).sum(:owed)
-    owed = Bill.where(user_owe_id: self.id, user_pay_id:    self.friend_items.pluck(:user_two_id))
+    owed = Bill.where(user_owe_id: self.id, user_pay_id: self.friend_items.pluck(:user_two_id))
                .group(:user_pay_id).sum(:owed)
     bought.merge(owed){|key, paid, owed| (paid - owed).round(2) }
   end
